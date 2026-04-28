@@ -2,104 +2,183 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/*
+  MyGarden design system
+  Hand-drawn vintage botanical journal aesthetic.
+  All colors HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Surfaces */
+    --background: 44 47% 91%;          /* warm cream #F5EDD8 */
+    --paper: 42 50% 94%;               /* slightly lighter cream */
+    --foreground: 95 30% 21%;          /* forest #3F5A2E */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 42 55% 96%;
+    --card-foreground: 95 30% 21%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 42 55% 96%;
+    --popover-foreground: 95 30% 21%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Olive primary */
+    --primary: 90 30% 43%;             /* olive #6B8E4E */
+    --primary-foreground: 44 47% 94%;
+    --primary-soft: 90 30% 55%;
+    --primary-deep: 95 30% 21%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Sage accent */
+    --secondary: 75 32% 75%;           /* pale sage #C8D4A8 */
+    --secondary-foreground: 95 30% 21%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 75 32% 82%;
+    --accent-foreground: 95 30% 21%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: 44 30% 85%;
+    --muted-foreground: 35 20% 35%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Brown */
+    --brown: 30 32% 41%;               /* muted brown #8B6F47 */
+    --brown-foreground: 44 47% 94%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --destructive: 8 55% 48%;
+    --destructive-foreground: 44 47% 94%;
 
-    --radius: 0.5rem;
+    --border: 90 25% 70%;
+    --input: 42 30% 88%;
+    --ring: 90 30% 43%;
 
-    --sidebar-background: 0 0% 98%;
+    --radius: 0.875rem;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Shadows: soft, paper-like */
+    --shadow-paper: 0 1px 2px hsl(95 30% 21% / 0.06), 0 8px 24px hsl(95 30% 21% / 0.08);
+    --shadow-card: 0 2px 4px hsl(95 30% 21% / 0.05), 0 12px 28px hsl(95 30% 21% / 0.10);
 
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar */
+    --sidebar-background: 42 50% 94%;
+    --sidebar-foreground: 95 30% 21%;
+    --sidebar-primary: 90 30% 43%;
+    --sidebar-primary-foreground: 44 47% 94%;
+    --sidebar-accent: 75 32% 82%;
+    --sidebar-accent-foreground: 95 30% 21%;
+    --sidebar-border: 90 25% 70%;
+    --sidebar-ring: 90 30% 43%;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+  /* Single light theme — no dark mode for this aesthetic */
+  .dark { /* keep tokens identical to keep look consistent */
+    --background: 44 47% 91%;
+    --foreground: 95 30% 21%;
+    --card: 42 55% 96%;
+    --card-foreground: 95 30% 21%;
+    --primary: 90 30% 43%;
+    --primary-foreground: 44 47% 94%;
+    --secondary: 75 32% 75%;
+    --secondary-foreground: 95 30% 21%;
+    --muted: 44 30% 85%;
+    --muted-foreground: 35 20% 35%;
+    --accent: 75 32% 82%;
+    --accent-foreground: 95 30% 21%;
+    --border: 90 25% 70%;
+    --input: 42 30% 88%;
+    --ring: 90 30% 43%;
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
+  * { @apply border-border; }
+
+  html { scroll-behavior: smooth; }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body antialiased;
+    /* faint paper grain */
+    background-image:
+      radial-gradient(hsl(var(--foreground) / 0.025) 1px, transparent 1px),
+      radial-gradient(hsl(var(--foreground) / 0.018) 1px, transparent 1px);
+    background-size: 24px 24px, 13px 13px;
+    background-position: 0 0, 7px 9px;
   }
+
+  h1, h2, h3, h4 { @apply font-display; letter-spacing: -0.01em; }
 }
+
+@layer components {
+  .font-script { font-family: 'Caveat Brush', 'Kalam', cursive; letter-spacing: 0.01em; }
+  .font-display { font-family: 'Quicksand', system-ui, sans-serif; }
+  .font-body { font-family: 'Inter', system-ui, sans-serif; }
+
+  /* Hand-drawn wavy underline used by active nav links */
+  .wavy-underline {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 6'><path d='M0 3 Q 7.5 0 15 3 T 30 3 T 45 3 T 60 3' stroke='%236B8E4E' stroke-width='1.6' fill='none' stroke-linecap='round'/></svg>");
+    background-repeat: repeat-x;
+    background-position: 0 100%;
+    background-size: 60px 6px;
+    padding-bottom: 6px;
+  }
+
+  /* Scalloped oval frame — pure CSS via SVG mask alternative provided by component */
+  .paper-card {
+    background: hsl(var(--card));
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  .ink-border { border: 1.5px solid hsl(var(--primary) / 0.6); }
+
+  /* Press effect for buttons */
+  .press { @apply transition-all duration-150 active:scale-[0.97]; }
+
+  /* Tiny bow that appears on hover */
+  .hover-bow { position: relative; }
+  .hover-bow::after {
+    content: '';
+    position: absolute;
+    top: -10px; right: -10px;
+    width: 28px; height: 28px;
+    background-image: var(--bow-url, none);
+    background-size: contain; background-repeat: no-repeat;
+    opacity: 0; transform: scale(0.6) rotate(-12deg);
+    transition: opacity 250ms ease, transform 250ms ease;
+    pointer-events: none;
+  }
+  .hover-bow:hover::after { opacity: 1; transform: scale(1) rotate(-6deg); }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+
+  @keyframes growSway {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+  }
+  .animate-sway { animation: growSway 3s ease-in-out infinite; transform-origin: bottom center; }
+
+  @keyframes wateringSpin {
+    from { transform: rotate(-15deg); }
+    to { transform: rotate(15deg); }
+  }
+  .animate-watering { animation: wateringSpin 1.6s ease-in-out infinite alternate; transform-origin: center; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-up { animation: fadeUp 500ms ease-out both; }
+}
+
+/* Leaflet tweaks to match cream palette */
+.leaflet-container {
+  background: hsl(var(--accent));
+  border-radius: var(--radius);
+  font-family: 'Inter', sans-serif;
+}
+.leaflet-popup-content-wrapper {
+  background: hsl(var(--card));
+  color: hsl(var(--foreground));
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+}
+.leaflet-popup-tip { background: hsl(var(--card)); }
