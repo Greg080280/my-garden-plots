@@ -80,7 +80,7 @@ const Auth = ({ mode }: Props) => {
                 </div>
               )}
 
-              <div className="flex-1" />
+              <div className="pt-2" />
               <HDButton type="submit" iconLeft={tools.trowel} className="w-full justify-center">
                 {mode === "login" ? "Intră în grădină" : "Creează cont"}
               </HDButton>
