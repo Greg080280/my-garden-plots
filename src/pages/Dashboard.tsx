@@ -117,7 +117,7 @@ const Dashboard = () => {
         {/* Empty state demo */}
         <div className="mt-10 text-center bg-paper border border-primary/20 rounded-2xl p-8">
           <ScallopedFrame variant="oval" className="aspect-[3/1] max-w-md mx-auto">
-            <div className="absolute inset-0 flex items-center justify-center gap-4 px-6">
+            <div className="flex items-center justify-center gap-4">
               <img src={tools.wateringcan2} alt="" className="h-16 object-contain animate-watering" />
               <div className="text-center">
                 <p className="font-script text-2xl text-primary leading-none">Vrei mai mult?</p>

@@ -83,7 +83,7 @@ const Reserve = () => {
       {/* Step content */}
       <div className="mt-10">
         {step === 1 && (
-          <ScallopedFrame variant="oval" className="aspect-[16/9]">
+          <ScallopedFrame variant="oval" centerContent={false} className="aspect-[16/9]">
             <div className="absolute inset-0 grid md:grid-cols-2 items-center px-8 md:px-14 py-8">
               <div className="text-center md:text-center">
                 <p className="font-script text-3xl text-primary">Lotul tău</p>
@@ -158,7 +158,7 @@ const Reserve = () => {
               </div>
             </div>
 
-            <ScallopedFrame variant="rect" className="aspect-[1/1.2]">
+            <ScallopedFrame variant="rect" centerContent={false} className="aspect-[1/1.2]">
               <div className="absolute inset-0 p-6 flex flex-col">
                 <p className="font-script text-2xl text-primary text-center">Coșul tău</p>
                 <div className="mt-3 space-y-2 text-sm flex-1 overflow-auto">

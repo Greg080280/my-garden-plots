@@ -13,6 +13,9 @@ interface Props {
   strokeColor?: string;
   fillColor?: string;
   strokeWidth?: number;
+  /** When true (default), wraps children in an absolutely-positioned, centered box
+   *  inscribed inside the scalloped shape so content stays visually centered. */
+  centerContent?: boolean;
 }
 
 export const ScallopedFrame = ({
@@ -22,11 +25,17 @@ export const ScallopedFrame = ({
   strokeColor = "hsl(var(--primary))",
   fillColor = "hsl(var(--paper))",
   strokeWidth = 2.2,
+  centerContent = true,
 }: Props) => {
   const path =
     variant === "oval"
       ? buildScallopedOvalPath(800, 520, 22, 16)
       : buildScallopedRectPath(800, 520, 22, 14);
+
+  // Inner safe area: ellipse inscribed in the rectangle leaves ~15% padding on
+  // each side for ovals, ~6% for rects. This keeps content visually centered
+  // *inside* the shape rather than its bounding box.
+  const innerInset = variant === "oval" ? "inset-[8%_15%]" : "inset-[6%]";
 
   return (
     <div className={cn("relative", className)}>
@@ -38,7 +47,13 @@ export const ScallopedFrame = ({
       >
         <path d={path} fill={fillColor} stroke={strokeColor} strokeWidth={strokeWidth} strokeLinejoin="round" />
       </svg>
-      <div className="relative">{children}</div>
+      {centerContent ? (
+        <div className={cn("absolute flex flex-col items-center justify-center text-center overflow-hidden", innerInset)}>
+          {children}
+        </div>
+      ) : (
+        <div className="relative">{children}</div>
+      )}
     </div>
   );
 };

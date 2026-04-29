@@ -120,7 +120,7 @@ const LandDetail = () => {
       {/* Mini wreath flourish */}
       <div className="text-center mt-16">
         <ScallopedFrame variant="oval" className="aspect-[3/1] max-w-2xl mx-auto">
-          <div className="absolute inset-0 grid grid-cols-3 items-center px-6">
+          <div className="grid grid-cols-3 gap-4 items-center w-full">
             <div className="text-center"><Sprout className="h-7 w-7 text-primary mx-auto" /><p className="font-display font-semibold text-sm mt-1">Plantăm cu drag</p></div>
             <div className="text-center"><Droplets className="h-7 w-7 text-primary mx-auto" /><p className="font-display font-semibold text-sm mt-1">Udăm zilnic</p></div>
             <div className="text-center"><img src={tools.bag} alt="" className="h-9 mx-auto" /><p className="font-display font-semibold text-sm mt-1">Recoltăm pentru tine</p></div>
