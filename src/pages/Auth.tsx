@@ -26,12 +26,12 @@ const Auth = ({ mode }: Props) => {
   };
 
   return (
-    <div className="container py-12 max-w-xl">
+    <div className="container py-8 max-w-lg">
       <div className="relative">
         <img src={tools.wateringcan2} alt="" className="absolute -left-20 top-10 h-44 hidden md:block opacity-90" />
         <img src={botanicals.bouquetBow} alt="" className="absolute -right-16 -top-6 h-40 hidden md:block opacity-90" />
 
-        <ScallopedFrame variant="oval" centerContent={false} className="aspect-[5/6]">
+        <ScallopedFrame variant="oval" centerContent={false} className="aspect-[4/5]">
           <div className="absolute inset-[8%_15%] flex flex-col justify-center">
             <h1 className="font-script text-6xl text-primary text-center leading-none">MyGarden</h1>
             <p className="text-center font-script text-xl text-foreground mt-2">
