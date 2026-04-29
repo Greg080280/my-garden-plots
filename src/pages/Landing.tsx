@@ -136,12 +136,13 @@ const Landing = () => {
         <div className="grid md:grid-cols-3 gap-6 md:gap-10">
           {TESTIMONIALS.map((t, i) => (
             <div key={i} className="relative pt-8">
-              <div className="relative px-8 pb-10 text-center">
-                <p className="font-script text-2xl leading-snug text-foreground text-balance relative z-10">"{t.quote}"</p>
-                <p className="mt-3 text-sm font-display font-semibold text-primary relative z-10">— {t.name}</p>
-                <div className="relative mt-6 aspect-[5/2]">
-                  <ScallopedFrame variant="oval" className="absolute inset-0"><span /></ScallopedFrame>
-                </div>
+              <div className="relative aspect-[5/4] flex items-center justify-center">
+                <ScallopedFrame variant="oval" className="absolute inset-0">
+                  <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-8 py-6">
+                    <p className="font-script text-2xl leading-snug text-foreground text-balance">"{t.quote}"</p>
+                    <p className="mt-3 text-sm font-display font-semibold text-primary">— {t.name}</p>
+                  </div>
+                </ScallopedFrame>
               </div>
               <img src={t.veg} alt="" className="absolute -top-2 left-1/2 -translate-x-1/2 h-16 object-contain" />
             </div>
