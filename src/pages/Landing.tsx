@@ -140,7 +140,7 @@ const Landing = () => {
                 <p className="font-script text-2xl leading-snug text-foreground text-balance relative z-10">"{t.quote}"</p>
                 <p className="mt-3 text-sm font-display font-semibold text-primary relative z-10">— {t.name}</p>
                 <div className="relative mt-6 aspect-[5/2]">
-                  <ScallopedFrame variant="oval" className="absolute inset-0" />
+                  <ScallopedFrame variant="oval" className="absolute inset-0"><span /></ScallopedFrame>
                 </div>
               </div>
               <img src={t.veg} alt="" className="absolute -top-2 left-1/2 -translate-x-1/2 h-16 object-contain" />
