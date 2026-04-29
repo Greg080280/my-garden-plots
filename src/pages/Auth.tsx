@@ -32,13 +32,13 @@ const Auth = ({ mode }: Props) => {
         <img src={botanicals.bouquetBow} alt="" className="absolute -right-16 -top-6 h-40 hidden md:block opacity-90" />
 
         <ScallopedFrame variant="oval" centerContent={false} className="aspect-[5/6]">
-          <div className="absolute inset-0 px-6 sm:px-12 py-8 flex flex-col">
+          <div className="absolute inset-[10%_15%] flex flex-col justify-center">
             <h1 className="font-script text-6xl text-primary text-center leading-none">MyGarden</h1>
             <p className="text-center font-script text-xl text-foreground mt-2">
               {mode === "login" ? "Bun găsit înapoi" : "Bun venit între noi"}
             </p>
 
-            <form onSubmit={submit} className="mt-6 space-y-4 flex-1 flex flex-col">
+            <form onSubmit={submit} className="mt-6 space-y-4 flex flex-col">
               {mode === "register" && (
                 <div>
                   <Label className="font-display text-sm">Numele tău</Label>
@@ -80,7 +80,7 @@ const Auth = ({ mode }: Props) => {
                 </div>
               )}
 
-              <div className="flex-1" />
+              
               <HDButton type="submit" iconLeft={tools.trowel} className="w-full justify-center">
                 {mode === "login" ? "Intră în grădină" : "Creează cont"}
               </HDButton>
