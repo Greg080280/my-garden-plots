@@ -38,7 +38,7 @@ const Auth = ({ mode }: Props) => {
               {mode === "login" ? "Bun găsit înapoi" : "Bun venit între noi"}
             </p>
 
-            <form onSubmit={submit} className="mt-6 space-y-4 flex-1 flex flex-col">
+            <form onSubmit={submit} className="mt-6 space-y-4 flex flex-col">
               {mode === "register" && (
                 <div>
                   <Label className="font-display text-sm">Numele tău</Label>
