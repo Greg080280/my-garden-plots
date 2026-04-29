@@ -61,7 +61,7 @@ const Marketplace = () => {
 
       {/* Cart */}
       <aside className="lg:sticky lg:top-24 lg:self-start">
-        <ScallopedFrame variant="rect" className="aspect-[1/1.2]">
+        <ScallopedFrame variant="rect" centerContent={false} className="aspect-[1/1.2]">
           <div className="absolute inset-0 p-5 flex flex-col">
             <div className="flex items-center gap-2">
               <ShoppingBasket className="h-5 w-5 text-primary" />
