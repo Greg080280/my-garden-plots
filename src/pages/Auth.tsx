@@ -32,7 +32,7 @@ const Auth = ({ mode }: Props) => {
         <img src={botanicals.bouquetBow} alt="" className="absolute -right-16 -top-6 h-40 hidden md:block opacity-90" />
 
         <ScallopedFrame variant="oval" centerContent={false} className="aspect-[5/6]">
-          <div className="absolute inset-0 px-6 sm:px-12 py-8 flex flex-col">
+          <div className="absolute inset-[8%_15%] flex flex-col justify-center">
             <h1 className="font-script text-6xl text-primary text-center leading-none">MyGarden</h1>
             <p className="text-center font-script text-xl text-foreground mt-2">
               {mode === "login" ? "Bun găsit înapoi" : "Bun venit între noi"}
