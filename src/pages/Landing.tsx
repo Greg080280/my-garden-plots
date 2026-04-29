@@ -34,7 +34,7 @@ const Landing = () => {
         <img src={tools.hat} alt="" className="hidden lg:block absolute top-6 left-1/2 h-20 opacity-90 -translate-x-1/2 -rotate-3" />
 
         <div className="container relative">
-          <ScallopedFrame variant="oval" className="aspect-[16/11] max-w-4xl mx-auto">
+          <ScallopedFrame variant="oval" className="aspect-[16/11] max-w-2xl mx-auto mt-[15vh]">
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-10 md:px-24 py-14 md:py-20">
               <span className="inline-flex items-center gap-2 text-sm font-display font-medium text-primary bg-accent/60 rounded-full px-4 py-1 mb-4">
                 <Sparkles className="h-4 w-4" /> 146 de loturi · 32 de fermieri locali
