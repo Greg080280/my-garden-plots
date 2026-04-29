@@ -58,11 +58,13 @@ export const Navbar = () => {
 
           {user ? (
             <DropdownMenu>
-              <DropdownMenuTrigger className="press inline-flex items-center gap-2 h-10 px-3 rounded-full bg-accent hover:bg-accent/80">
-                <div className="h-7 w-7 rounded-full bg-primary text-primary-foreground grid place-items-center font-display font-bold text-sm">
-                  {user.name.charAt(0).toUpperCase()}
-                </div>
-                <span className="hidden sm:inline font-display font-medium text-sm">{user.name}</span>
+              <DropdownMenuTrigger asChild>
+                <button className="press inline-flex items-center gap-2 h-10 px-3 rounded-full bg-accent hover:bg-accent/80">
+                  <span className="h-7 w-7 rounded-full bg-primary text-primary-foreground grid place-items-center font-display font-bold text-sm">
+                    {user.name.charAt(0).toUpperCase()}
+                  </span>
+                  <span className="hidden sm:inline font-display font-medium text-sm">{user.name}</span>
+                </button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-60 bg-card border-primary/30">
                 <div className="px-2 pb-2 pt-1 flex items-center gap-2">
