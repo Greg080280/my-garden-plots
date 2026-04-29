@@ -93,9 +93,7 @@ const Farmer = () => {
 
       <div className="mt-12 text-center">
         <ScallopedFrame variant="oval" className="aspect-[3/1] max-w-2xl mx-auto">
-          <div className="absolute inset-0 grid place-items-center px-8">
-            <p className="font-script text-3xl text-primary text-center">„Pământul răsplătește pe cine îl iubește."</p>
-          </div>
+          <p className="font-script text-3xl text-primary text-center">„Pământul răsplătește pe cine îl iubește."</p>
         </ScallopedFrame>
       </div>
     </div>
