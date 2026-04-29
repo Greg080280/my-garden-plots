@@ -119,7 +119,7 @@ const Dashboard = () => {
           <ScallopedFrame variant="oval" className="aspect-[3/1] max-w-md mx-auto">
             <div className="absolute inset-0 flex items-center justify-center gap-4 px-6">
               <img src={tools.wateringcan2} alt="" className="h-16 object-contain animate-watering" />
-              <div className="text-left">
+              <div className="text-center">
                 <p className="font-script text-2xl text-primary leading-none">Vrei mai mult?</p>
                 <p className="text-xs text-muted-foreground">Mai sunt loturi libere, vino să le vezi.</p>
               </div>
