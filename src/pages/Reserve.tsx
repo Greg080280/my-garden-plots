@@ -85,11 +85,11 @@ const Reserve = () => {
         {step === 1 && (
           <ScallopedFrame variant="oval" className="aspect-[16/9]">
             <div className="absolute inset-0 grid md:grid-cols-2 items-center px-8 md:px-14 py-8">
-              <div>
+              <div className="text-center md:text-center">
                 <p className="font-script text-3xl text-primary">Lotul tău</p>
                 <h2 className="font-display text-3xl font-bold">{land.name}</h2>
                 <p className="text-muted-foreground inline-flex items-center gap-1 mt-1"><MapPin className="h-4 w-4" /> {land.village}, {land.region}</p>
-                <ul className="mt-4 space-y-1 text-sm">
+                <ul className="mt-4 space-y-1 text-sm list-none">
                   <li><strong>Lot:</strong> {plot.code} · {plot.area} ari</li>
                   <li><strong>Preț pământ:</strong> {landCost.toFixed(0)} MDL / sezon</li>
                   <li><strong>Fermier:</strong> {land.farmer}</li>
