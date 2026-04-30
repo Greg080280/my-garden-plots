@@ -98,16 +98,17 @@ const Dashboard = () => {
         <div className="mt-8">
           <h2 className="font-display font-bold text-xl mb-4">Servicii active</h2>
           <div className="space-y-3">
-            {r.services.map(sid => {
-              const s = SERVICES.find(x => x.id === sid)!;
+            {r.services.map(so => {
+              const s = SERVICES.find(x => x.id === so.serviceId);
+              if (!s) return null;
               return (
-                <div key={sid} className="bg-paper border border-primary/20 rounded-xl p-4 flex items-center gap-3">
+                <div key={so.serviceId} className="bg-paper border border-primary/20 rounded-xl p-4 flex items-center gap-3">
                   <img src={s.icon} alt="" className="h-10 w-10 object-contain" />
                   <div className="flex-1">
                     <p className="font-display font-semibold">{s.name}</p>
                     <p className="text-xs text-muted-foreground">{s.description}</p>
                   </div>
-                  <span className="text-xs font-display font-bold bg-primary text-primary-foreground px-3 py-1 rounded-full">Activ</span>
+                  <span className="text-xs font-display font-bold bg-primary text-primary-foreground px-3 py-1 rounded-full">{so.status}</span>
                 </div>
               );
             })}

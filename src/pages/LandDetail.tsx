@@ -66,7 +66,7 @@ const LandDetail = () => {
             <div className="h-10 w-px bg-primary/20" />
             <div>
               <p className="text-xs text-muted-foreground">Fermier</p>
-              <p className="font-display font-semibold">{land.farmer}</p>
+              <p className="font-display font-semibold">{findUserById(land.farmerId)?.name ?? "Fermier"}</p>
             </div>
           </div>
         </div>
@@ -87,10 +87,10 @@ const LandDetail = () => {
               return (
                 <button
                   key={p.id}
-                  disabled={p.reserved}
+                  disabled={p.status !== "available"}
                   onClick={() => setSelected(p.id)}
                   className={`relative aspect-square rounded-xl font-display font-bold text-sm transition-all press
-                    ${p.reserved ? "bg-brown/20 text-brown/60 border border-brown/30 cursor-not-allowed"
+                    ${p.status !== "available" ? "bg-brown/20 text-brown/60 border border-brown/30 cursor-not-allowed"
                       : isSel ? "bg-primary text-primary-foreground border-2 border-primary-deep shadow-paper"
                       : "bg-secondary/60 text-foreground border-2 border-primary/40 hover:bg-secondary"}`}
                 >

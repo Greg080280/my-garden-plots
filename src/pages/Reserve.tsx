@@ -27,7 +27,7 @@ const Reserve = () => {
   const land = LANDS.find(l => l.id === id);
   const plots = useMemo(() => land ? buildPlots(land) : [], [land]);
   const plotCode = params.get("plot");
-  const plot = plots.find(p => p.code === plotCode) ?? plots.find(p => !p.reserved);
+  const plot = plots.find(p => p.code === plotCode) ?? plots.find(p => p.status === "available");
 
   const [step, setStep] = useState(1);
   const [allocs, setAllocs] = useState<Record<string, number>>({});
@@ -92,7 +92,7 @@ const Reserve = () => {
                 <ul className="mt-4 space-y-1 text-sm list-none">
                   <li><strong>Lot:</strong> {plot.code} · {plot.area} ari</li>
                   <li><strong>Preț pământ:</strong> {landCost.toFixed(0)} MDL / sezon</li>
-                  <li><strong>Fermier:</strong> {land.farmer}</li>
+                  <li><strong>Fermier:</strong> {findUserById(land.farmerId)?.name ?? "Fermier"}</li>
                 </ul>
               </div>
               <img src={botanicals.wheelbarrowVeg} alt="" className="h-48 mx-auto" />
