@@ -34,30 +34,38 @@ const Landing = () => {
         <img src={tools.hat} alt="" className="hidden lg:block absolute top-6 left-1/2 h-20 opacity-90 -translate-x-1/2 -rotate-3" />
 
         <div className="container relative">
-          <ScallopedFrame variant="oval" className="aspect-[16/11] max-w-2xl mx-auto mt-[15vh]">
-            <span className="inline-flex items-center gap-2 text-sm font-display font-medium text-primary bg-accent/60 rounded-full px-4 py-1 mb-4">
-              <Sparkles className="h-4 w-4" /> 146 de loturi · 32 de fermieri locali
-            </span>
-            <h1 className="font-script text-primary leading-[0.9] text-[clamp(3rem,8.5vw,7rem)]">
-              MyGarden
-            </h1>
-            <p className="mt-2 font-script text-foreground text-2xl md:text-3xl">
-              Arendează-ți propria grădină
-            </p>
-            <p className="mt-4 max-w-xl text-pretty text-foreground/80">
-              Alege un lot de pământ în Moldova, alege ce vrei să crești, iar fermierii noștri locali îți poartă de grijă culturilor — de la sapă până la coș.
-            </p>
-            <div className="mt-7 flex flex-col sm:flex-row items-center gap-3">
-              <HDButton asChild iconLeft={tools.trowel}>
-                <Link to="/lands">
-                  Găsește lotul tău <ArrowRight className="h-4 w-4 ml-1" />
-                </Link>
-              </HDButton>
-              <HDButton asChild tone="cream">
-                <Link to="/farmer">Sunt fermier</Link>
-              </HDButton>
+          <div className="relative aspect-[4/5] sm:aspect-[5/4] max-w-3xl mx-auto mt-[12vh]">
+            <img
+              src={frames.rectVeg}
+              alt=""
+              aria-hidden
+              className="absolute inset-0 w-full h-full object-contain pointer-events-none select-none"
+            />
+            <div className="absolute inset-[10%] flex flex-col items-center justify-center text-center">
+              <span className="inline-flex items-center gap-2 text-sm font-display font-medium text-primary bg-accent/60 rounded-full px-4 py-1 mb-4">
+                <Sparkles className="h-4 w-4" /> 146 de loturi · 32 de fermieri locali
+              </span>
+              <h1 className="font-script text-primary leading-[0.9] text-[clamp(2.5rem,7vw,6rem)]">
+                MyGarden
+              </h1>
+              <p className="mt-2 font-script text-foreground text-2xl md:text-3xl">
+                Arendează-ți propria grădină
+              </p>
+              <p className="mt-4 max-w-xl text-pretty text-foreground/80">
+                Alege un lot de pământ în Moldova, alege ce vrei să crești, iar fermierii noștri locali îți poartă de grijă culturilor — de la sapă până la coș.
+              </p>
+              <div className="mt-7 flex flex-col sm:flex-row items-center gap-3">
+                <HDButton asChild iconLeft={tools.trowel}>
+                  <Link to="/lands">
+                    Găsește lotul tău <ArrowRight className="h-4 w-4 ml-1" />
+                  </Link>
+                </HDButton>
+                <HDButton asChild tone="cream">
+                  <Link to="/farmer">Sunt fermier</Link>
+                </HDButton>
+              </div>
             </div>
-          </ScallopedFrame>
+          </div>
         </div>
       </section>
 
