@@ -4,7 +4,7 @@ import { HDButton } from "@/components/decor/HDButton";
 import { ScallopedFrame } from "@/components/decor/ScallopedFrame";
 import { WavyDivider } from "@/components/decor/WavyDivider";
 import { LANDS, TESTIMONIALS } from "@/data/mock";
-import { botanicals, deco, tools, veg } from "@/assets";
+import { botanicals, deco, frames, tools, veg } from "@/assets";
 
 const HowStep = ({ icon, n, title, text }: { icon: string; n: number; title: string; text: string }) => (
   <div className="relative bg-card rounded-[1.25rem] p-6 shadow-card border border-primary/20 hover-bow"
