@@ -69,6 +69,11 @@ import frameOvalBow2 from "@/assets/illustrations/frame-oval-bow2.png";
 import frameRectBow from "@/assets/illustrations/frame-rect-bow.png";
 import frameScallop from "@/assets/illustrations/frame-scallop.png";
 
+// Special illustrations
+import illoSleepingCan from "@/assets/illustrations/empty-sleeping-can.png";
+import illoEmptyBasket from "@/assets/illustrations/empty-basket.png";
+import illoLogoMascot from "@/assets/illustrations/logo-mascot.png";
+
 // Photos
 import landPhoto1 from "@/assets/photos/land-1.jpg";
 import landPhoto2 from "@/assets/photos/land-2.jpg";
@@ -120,3 +125,9 @@ export const frames = {
 };
 
 export const landPhotos = [landPhoto1, landPhoto2, landPhoto3, landPhoto4, landPhoto5, landPhoto6];
+
+export const illos = {
+  sleepingCan: illoSleepingCan,
+  emptyBasket: illoEmptyBasket,
+  logoMascot: illoLogoMascot,
+};
