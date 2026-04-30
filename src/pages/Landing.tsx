@@ -34,7 +34,7 @@ const Landing = () => {
         <img src={tools.hat} alt="" className="hidden lg:block absolute top-6 left-1/2 h-20 opacity-90 -translate-x-1/2 -rotate-3" />
 
         <div className="container relative">
-          <div className="relative aspect-[4/5] sm:aspect-[5/4] max-w-3xl mx-auto mt-[12vh]">
+          <div className="relative aspect-[16/10] w-full max-w-6xl mx-auto mt-[12vh]">
             <img
               src={frames.rectVeg}
               alt=""
