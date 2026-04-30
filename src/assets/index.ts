@@ -125,3 +125,9 @@ export const frames = {
 };
 
 export const landPhotos = [landPhoto1, landPhoto2, landPhoto3, landPhoto4, landPhoto5, landPhoto6];
+
+export const illos = {
+  sleepingCan: illoSleepingCan,
+  emptyBasket: illoEmptyBasket,
+  logoMascot: illoLogoMascot,
+};
