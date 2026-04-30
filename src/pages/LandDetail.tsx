@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { MapPin, Check, Sprout, Droplets } from "lucide-react";
 import { LANDS, buildPlots } from "@/data/mock";
+import { findUserById } from "@/context/AuthContext";
 import { HDButton } from "@/components/decor/HDButton";
 import { ScallopedFrame } from "@/components/decor/ScallopedFrame";
 import { botanicals, deco, tools } from "@/assets";
