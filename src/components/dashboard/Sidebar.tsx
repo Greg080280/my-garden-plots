@@ -2,7 +2,8 @@ import { cn } from "@/lib/utils";
 import { Link, useLocation } from "react-router-dom";
 import type { ReactNode } from "react";
 import { useAuth, type Role } from "@/context/AuthContext";
-import { illos } from "@/assets";
+import { useAuth as _useAuth } from "@/context/AuthContext";
+void _useAuth;
 import { DoorIcon } from "@/components/icons/HandDrawn";
 
 export interface SidebarItem {
@@ -30,39 +31,34 @@ const ROLE_LABELS: Record<Role, string> = {
   admin: "Administrator",
 };
 
-export const Sidebar = ({ items, accent = "olive", className, roleLabel }: Props) => {
+export const Sidebar = ({ items, accent: _accent = "olive", className, roleLabel }: Props) => {
+  void _accent;
   const { user, logout } = useAuth();
   const { pathname } = useLocation();
 
   const isActive = (item: SidebarItem) =>
     item.exact ? pathname === item.to : pathname === item.to || pathname.startsWith(item.to + "/");
 
-  const accentRing =
-    accent === "light" ? "from-secondary/40 to-paper" :
-    accent === "dark"  ? "from-primary-deep/15 to-paper" :
-                         "from-primary/15 to-paper";
-
   return (
     <aside className={cn(
-      "flex flex-col h-full bg-paper border-r border-primary/20 px-4 py-5 gap-4",
+      "flex flex-col h-full bg-paper border-r border-border px-6 py-7 gap-8",
       className
     )}>
       {/* Logo */}
-      <Link to="/" className="flex items-center gap-2 group px-1">
-        <img src={illos.logoMascot} alt="" className="h-12 w-12 object-contain group-hover:rotate-3 transition-transform" />
-        <span className="font-script text-3xl text-primary leading-none pt-1">MyGarden</span>
+      <Link to="/" className="flex items-center gap-2 group">
+        <span className="font-script text-2xl text-primary-deep leading-none">MyGarden</span>
       </Link>
 
-      {/* User card */}
+      {/* User block */}
       {user && (
-        <div className={cn("rounded-2xl bg-gradient-to-br p-3 border border-primary/15", accentRing)}>
+        <div className="border-b border-border/70 pb-6">
           <div className="flex items-center gap-3">
-            <div className="h-11 w-11 rounded-full bg-primary text-primary-foreground grid place-items-center font-display font-bold text-base shrink-0">
+            <div className="h-9 w-9 rounded-full bg-primary text-primary-foreground grid place-items-center font-ui font-semibold text-xs shrink-0">
               {user.name.charAt(0).toUpperCase()}
             </div>
             <div className="min-w-0">
-              <p className="font-display font-bold text-sm truncate">{user.name}</p>
-              <p className="text-[11px] font-display text-primary uppercase tracking-wider">
+              <p className="font-display text-sm text-primary-deep truncate">{user.name}</p>
+              <p className="font-ui text-[10px] uppercase tracking-widest text-muted-foreground">
                 {roleLabel ?? ROLE_LABELS[user.role]}
               </p>
             </div>
@@ -71,7 +67,7 @@ export const Sidebar = ({ items, accent = "olive", className, roleLabel }: Props
       )}
 
       {/* Nav */}
-      <nav className="flex-1 flex flex-col gap-1 overflow-y-auto pr-1 -mr-1">
+      <nav className="flex-1 flex flex-col gap-0.5 overflow-y-auto -mx-2">
         {items.map(item => {
           const active = isActive(item);
           return (
@@ -79,18 +75,19 @@ export const Sidebar = ({ items, accent = "olive", className, roleLabel }: Props
               key={item.to}
               to={item.to}
               className={cn(
-                "group flex items-center gap-3 px-3 h-10 rounded-xl font-display font-medium text-sm transition-all relative",
+                "group flex items-center gap-3 px-3 h-9 font-display text-[14px] transition-colors relative",
                 active
-                  ? "bg-accent text-primary-deep"
-                  : "text-foreground/75 hover:bg-accent/50 hover:text-foreground"
+                  ? "text-primary-deep"
+                  : "text-foreground/70 hover:text-primary-deep"
               )}
             >
-              <span className={cn("shrink-0 transition-colors", active ? "text-primary" : "text-primary/65 group-hover:text-primary")}>
+              {active && <span className="absolute left-0 top-1.5 bottom-1.5 w-px bg-primary" />}
+              <span className={cn("shrink-0", active ? "text-primary" : "text-primary/60 group-hover:text-primary")}>
                 {item.icon}
               </span>
-              <span className={cn("truncate", active && "wavy-underline")}>{item.label}</span>
+              <span className="truncate">{item.label}</span>
               {item.badge !== undefined && item.badge !== "" && item.badge !== 0 && (
-                <span className="ml-auto h-5 min-w-[1.25rem] px-1.5 rounded-full bg-primary text-primary-foreground text-[11px] font-display font-bold inline-flex items-center justify-center">
+                <span className="ml-auto font-ui text-[10px] uppercase tracking-widest text-muted-foreground">
                   {item.badge}
                 </span>
               )}
@@ -103,9 +100,9 @@ export const Sidebar = ({ items, accent = "olive", className, roleLabel }: Props
       <button
         type="button"
         onClick={logout}
-        className="flex items-center gap-3 px-3 h-10 rounded-xl font-display font-medium text-sm text-brown hover:bg-brown/10 transition-colors press"
+        className="flex items-center gap-3 px-3 h-9 font-display text-[14px] text-brown hover:text-primary-deep transition-colors press border-t border-border/70 pt-6 -mx-2"
       >
-        <DoorIcon size={20} />
+        <DoorIcon size={18} />
         Ieșire
       </button>
     </aside>
