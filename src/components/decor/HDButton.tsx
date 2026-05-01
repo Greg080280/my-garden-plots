@@ -2,45 +2,30 @@ import { Button as ShadButton, type ButtonProps } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Children, cloneElement, forwardRef, isValidElement, type ReactElement } from "react";
 
-/** Styled button used across MyGarden — olive, rounded, with optional hand-drawn icon. */
+/** Editorial button used across MyGarden — restrained, serif, square-ish corners. */
 interface Props extends ButtonProps {
-  iconLeft?: string; // image url
+  /** Legacy: an icon image url is no longer rendered (kept for back-compat). */
+  iconLeft?: string;
   tone?: "olive" | "cream" | "outline" | "ghost";
 }
 export const HDButton = forwardRef<HTMLButtonElement, Props>(
-  ({ children, className, iconLeft, tone = "olive", asChild, ...rest }, ref) => {
+  ({ children, className, tone = "olive", asChild, iconLeft: _iconLeft, ...rest }, ref) => {
+    void _iconLeft;
     const toneClasses = {
       olive:
-        "bg-primary text-primary-foreground hover:bg-primary/90 shadow-paper",
+        "bg-primary text-primary-foreground hover:bg-primary-deep border border-primary",
       cream:
-        "bg-paper text-foreground border border-primary/40 hover:bg-accent",
+        "bg-transparent text-primary-deep border border-border hover:border-primary hover:bg-paper",
       outline:
-        "bg-transparent text-foreground border-[1.5px] border-primary hover:bg-primary/10",
-      ghost: "bg-transparent text-foreground hover:bg-accent/60",
+        "bg-transparent text-primary-deep border border-primary hover:bg-primary/5",
+      ghost:
+        "bg-transparent text-primary hover:bg-accent/40 border border-transparent",
     }[tone];
 
-    const icon = iconLeft ? (
-      <img src={iconLeft} alt="" className="h-5 w-5 object-contain -ml-1" />
-    ) : null;
-
-    let content: React.ReactNode;
+    let content: React.ReactNode = children;
     if (asChild && isValidElement(children)) {
       const child = Children.only(children) as ReactElement<{ children?: React.ReactNode }>;
-      content = cloneElement(child, {
-        children: (
-          <>
-            {icon}
-            {child.props.children}
-          </>
-        ),
-      });
-    } else {
-      content = (
-        <>
-          {icon}
-          {children}
-        </>
-      );
+      content = cloneElement(child, { children: <>{child.props.children}</> });
     }
 
     return (
@@ -48,7 +33,7 @@ export const HDButton = forwardRef<HTMLButtonElement, Props>(
         ref={ref}
         asChild={asChild}
         className={cn(
-          "press rounded-full font-display font-semibold tracking-wide gap-2 px-6 h-11",
+          "press rounded-md font-display font-medium text-base tracking-normal gap-2 px-7 h-11",
           toneClasses,
           className
         )}
