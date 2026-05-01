@@ -1,14 +1,12 @@
 import { useState } from "react";
 import { LANDS, TODAY_TASKS } from "@/data/mock";
-import { ScallopedFrame } from "@/components/decor/ScallopedFrame";
 import { Checkbox } from "@/components/ui/checkbox";
-import { botanicals, tools, veg } from "@/assets";
 
-const Stat = ({ label, value, icon }: { label: string; value: string; icon: string }) => (
-  <div className="relative bg-card border border-primary/25 rounded-2xl p-5 shadow-paper overflow-hidden">
-    <p className="font-display text-sm text-muted-foreground">{label}</p>
-    <p className="font-script text-4xl text-primary leading-none mt-1">{value}</p>
-    <img src={icon} alt="" className="absolute -right-3 -bottom-3 h-20 opacity-80" />
+const Stat = ({ label, value, hint }: { label: string; value: string; hint?: string }) => (
+  <div className="border-l border-primary/40 pl-5">
+    <p className="eyebrow text-[10px]">{label}</p>
+    <p className="mt-2 font-display text-4xl text-primary-deep font-normal leading-none">{value}</p>
+    {hint && <p className="mt-2 font-ui text-xs text-muted-foreground tracking-wide">{hint}</p>}
   </div>
 );
 
@@ -19,83 +17,113 @@ const Farmer = () => {
   const days = ["L", "Ma", "Mi", "J", "V", "S", "D"];
 
   return (
-    <div className="container py-10">
-      <header className="mb-8 flex items-end justify-between flex-wrap gap-4">
-        <div>
-          <p className="font-script text-3xl text-primary">Bună dimineața, fermier</p>
-          <h1 className="font-display text-3xl font-bold">Panou fermier</h1>
-        </div>
-        <img src={botanicals.handRose} alt="" className="h-20 object-contain hidden md:block" />
+    <div className="container py-16">
+      <header className="mb-14 pb-8 border-b border-border/70">
+        <p className="eyebrow">Panou fermier</p>
+        <h1 className="mt-3 font-display text-4xl md:text-5xl text-primary-deep font-normal leading-[1.1]">
+          Bună <span className="font-script italic text-primary">dimineața</span>.
+        </h1>
+        <p className="text-sm text-muted-foreground mt-2 font-ui">
+          {new Date().toLocaleDateString("ro-MD", { weekday: "long", day: "numeric", month: "long", year: "numeric" })}
+        </p>
       </header>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <Stat label="Loturi în grijă" value="3" icon={tools.shovel} />
-        <Stat label="Clienți activi" value="24" icon={veg.tomatoes} />
-        <Stat label="Sarcini azi" value={String(tasks.filter(t => !t.done).length)} icon={tools.wateringcan2} />
-        <Stat label="Câștig luna asta" value="14 200" icon={veg.crate} />
+      {/* Stats */}
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 pb-16 border-b border-border/70">
+        <Stat label="Loturi" value="3" hint="în grijă" />
+        <Stat label="Clienți" value="24" hint="activi" />
+        <Stat label="Sarcini azi" value={String(tasks.filter(t => !t.done).length)} hint={`din ${tasks.length}`} />
+        <Stat label="Câștig luna" value="14 200" hint="MDL" />
       </div>
 
-      <div className="grid lg:grid-cols-[1fr_360px] gap-8 mt-10">
+      <div className="grid lg:grid-cols-[1fr_360px] gap-16 mt-16">
         {/* Tasks */}
-        <div className="bg-card border border-primary/25 rounded-2xl p-6 shadow-paper">
-          <h2 className="font-display font-bold text-xl mb-4">Sarcini astăzi</h2>
-          <div className="space-y-2">
+        <div>
+          <p className="eyebrow">Astăzi</p>
+          <h2 className="mt-3 font-display text-3xl text-primary-deep font-normal mb-8">Sarcini</h2>
+          <ul className="border-y border-border/60">
             {tasks.map(t => (
-              <label key={t.id} className={`flex items-center gap-3 p-3 rounded-xl border transition-all cursor-pointer
-                ${t.done ? "bg-accent/40 border-primary/20 opacity-60" : "bg-paper border-primary/20 hover:border-primary/50"}`}>
-                <Checkbox checked={t.done} onCheckedChange={() => toggle(t.id)} className="border-primary data-[state=checked]:bg-primary" />
-                <img src={t.icon} alt="" className="h-9 w-9 object-contain" />
-                <span className={`flex-1 font-display font-medium text-sm ${t.done ? "line-through" : ""}`}>{t.title}</span>
-              </label>
+              <li key={t.id}>
+                <label className={`flex items-center gap-4 py-4 border-b border-border/40 last:border-0 cursor-pointer transition-opacity ${t.done ? "opacity-50" : ""}`}>
+                  <Checkbox
+                    checked={t.done}
+                    onCheckedChange={() => toggle(t.id)}
+                    className="border-border data-[state=checked]:bg-primary data-[state=checked]:border-primary rounded-sm"
+                  />
+                  <span className={`flex-1 font-display text-base ${t.done ? "line-through text-muted-foreground" : "text-foreground/85"}`}>
+                    {t.title}
+                  </span>
+                </label>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
 
         {/* Calendar */}
-        <div className="relative bg-card border border-primary/25 rounded-2xl p-6 shadow-paper overflow-hidden">
-          <img src={botanicals.flowersVase1} alt="" className="absolute -top-4 -right-2 h-24 opacity-70" />
-          <img src={veg.peas} alt="" className="absolute bottom-2 -left-3 h-20 opacity-70" />
-          <h2 className="font-display font-bold text-xl mb-4">Săptămâna asta</h2>
-          <div className="grid grid-cols-7 gap-1.5">
-            {days.map(d => <div key={d} className="text-center text-xs font-display font-bold text-muted-foreground">{d}</div>)}
+        <div>
+          <p className="eyebrow">Săptămâna</p>
+          <h2 className="mt-3 font-display text-3xl text-primary-deep font-normal mb-8">Sarcini pe zi</h2>
+          <div className="grid grid-cols-7 gap-2">
+            {days.map(d => (
+              <div key={d} className="text-center font-ui text-[10px] uppercase tracking-widest text-muted-foreground pb-2">
+                {d}
+              </div>
+            ))}
             {Array.from({ length: 7 }).map((_, i) => {
               const count = [2, 4, 1, 3, 5, 0, 2][i];
               return (
-                <div key={i} className={`aspect-square rounded-lg grid place-items-center text-sm font-display font-semibold
-                  ${count > 3 ? "bg-primary text-primary-foreground" : count > 0 ? "bg-accent text-foreground" : "bg-paper text-muted-foreground"}`}>
+                <div
+                  key={i}
+                  className={`aspect-square grid place-items-center font-display text-base rounded-sm border ${
+                    count > 3 ? "bg-primary text-primary-foreground border-primary" :
+                    count > 0 ? "bg-paper text-primary-deep border-border" :
+                    "text-muted-foreground border-border/50"
+                  }`}
+                >
                   {count || "·"}
                 </div>
               );
             })}
           </div>
-          <p className="text-xs text-muted-foreground mt-3">Numărul de sarcini pe zi.</p>
         </div>
       </div>
 
       {/* Lands managed */}
-      <div className="mt-10">
-        <h2 className="font-display font-bold text-xl mb-4">Loturile mele</h2>
-        <div className="grid md:grid-cols-3 gap-5">
-          {LANDS.slice(0, 3).map(l => (
-            <article key={l.id} className="bg-card border border-primary/20 rounded-2xl overflow-hidden shadow-paper">
-              <img src={l.photo} alt="" className="aspect-[4/3] w-full object-cover" />
-              <div className="p-4">
-                <h3 className="font-script text-2xl text-primary leading-tight">{l.name}</h3>
-                <p className="text-xs text-muted-foreground">{l.totalPlots - l.availablePlots}/{l.totalPlots} loturi rezervate</p>
-                <div className="mt-2 h-2 bg-accent rounded-full overflow-hidden">
-                  <div className="h-full bg-primary" style={{ width: `${((l.totalPlots - l.availablePlots) / l.totalPlots) * 100}%` }} />
+      <div className="mt-20 pt-16 border-t border-border/70">
+        <div className="flex items-end justify-between mb-10">
+          <div>
+            <p className="eyebrow">Loturile mele</p>
+            <h2 className="mt-3 font-display text-3xl text-primary-deep font-normal">În îngrijire</h2>
+          </div>
+        </div>
+        <div className="grid md:grid-cols-3 gap-8">
+          {LANDS.slice(0, 3).map(l => {
+            const occupied = l.totalPlots - l.availablePlots;
+            const pct = (occupied / l.totalPlots) * 100;
+            return (
+              <article key={l.id} className="editorial-card overflow-hidden">
+                <div className="img-zoom aspect-[4/3] overflow-hidden">
+                  <img src={l.photo} alt={l.name} className="w-full h-full object-cover" loading="lazy" />
                 </div>
-              </div>
-            </article>
-          ))}
+                <div className="p-7">
+                  <p className="eyebrow text-[10px]">{l.region}</p>
+                  <h3 className="mt-2 font-display text-xl text-primary-deep">{l.name}</h3>
+                  <p className="mt-4 font-ui text-xs text-muted-foreground tracking-wide">
+                    {occupied}/{l.totalPlots} REZERVATE
+                  </p>
+                  <div className="mt-2 h-px bg-border relative overflow-hidden">
+                    <div className="absolute inset-y-0 left-0 bg-primary" style={{ width: `${pct}%` }} />
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
 
-      <div className="mt-12 text-center">
-        <ScallopedFrame variant="oval" className="aspect-[3/1] max-w-2xl mx-auto">
-          <p className="font-script text-3xl text-primary text-center">„Pământul răsplătește pe cine îl iubește."</p>
-        </ScallopedFrame>
-      </div>
+      <p className="mt-20 pt-16 border-t border-border/70 font-display italic text-xl text-brown text-center">
+        „Pământul răsplătește pe cine îl iubește."
+      </p>
     </div>
   );
 };

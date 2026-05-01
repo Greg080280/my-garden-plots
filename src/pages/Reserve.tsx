@@ -1,25 +1,16 @@
 import { useMemo, useState } from "react";
 import { Link, useParams, useNavigate, useSearchParams } from "react-router-dom";
-import { Check, MapPin } from "lucide-react";
+import { Check, ArrowLeft } from "lucide-react";
 import { LANDS, CULTURES, SERVICES, buildPlots } from "@/data/mock";
 import { findUserById } from "@/context/AuthContext";
-import { HDButton } from "@/components/decor/HDButton";
-import { ScallopedFrame } from "@/components/decor/ScallopedFrame";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
-import { veg, tools, deco, botanicals } from "@/assets";
 
-const StepDot = ({ n, active, done, icon, label }: { n: number; active: boolean; done: boolean; icon: string; label: string }) => (
-  <div className="flex flex-col items-center text-center min-w-[100px]">
-    <div className={`relative h-14 w-14 rounded-full grid place-items-center border-2 transition-all
-      ${done ? "bg-primary border-primary-deep" : active ? "bg-paper border-primary" : "bg-paper border-primary/30"}`}>
-      <img src={icon} alt="" className="h-9 w-9 object-contain" />
-      {done && <Check className="absolute -bottom-1 -right-1 h-5 w-5 bg-primary text-primary-foreground rounded-full p-0.5" />}
-    </div>
-    <p className={`mt-2 text-xs font-display font-semibold ${active || done ? "text-primary" : "text-muted-foreground"}`}>Pasul {n}</p>
-    <p className="text-[11px] text-muted-foreground">{label}</p>
-  </div>
-);
+const STEPS = [
+  { n: 1, label: "Confirmă lotul" },
+  { n: 2, label: "Alege culturi" },
+  { n: 3, label: "Servicii & plată" },
+];
 
 const Reserve = () => {
   const { id } = useParams<{ id: string }>();
@@ -32,9 +23,9 @@ const Reserve = () => {
 
   const [step, setStep] = useState(1);
   const [allocs, setAllocs] = useState<Record<string, number>>({});
-  const [selServices, setSelServices] = useState<Set<string>>(new Set(["watering"]));
+  const [selServices, setSelServices] = useState<Set<string>>(new Set(["s-watering-ion"]));
 
-  if (!land || !plot) return <div className="container py-20 text-center"><p>Lot indisponibil.</p></div>;
+  if (!land || !plot) return <div className="container py-32 text-center font-display text-xl">Lot indisponibil.</div>;
 
   const totalAllocated = Object.values(allocs).reduce((s, v) => s + v, 0);
   const remaining = Math.max(0, plot.area - totalAllocated);
@@ -59,74 +50,107 @@ const Reserve = () => {
   };
 
   const checkout = () => {
-    toast.success("Mulțumim! Lotul tău te așteaptă 🌱", { description: "Vei primi confirmarea pe e-mail." });
-    setTimeout(() => nav("/dashboard"), 1200);
+    toast.success("Rezervare confirmată", { description: "Vei primi un e-mail cu detaliile." });
+    setTimeout(() => nav("/dashboard"), 1100);
   };
 
   return (
-    <div className="container py-10 max-w-5xl">
-      <Link to={`/lands/${land.id}`} className="text-sm font-display text-primary hover:underline">← Înapoi la lot</Link>
+    <div className="container py-12 lg:py-16 max-w-5xl">
+      <Link to={`/lands/${land.id}`} className="inline-flex items-center gap-2 font-ui text-[11px] uppercase tracking-widest text-muted-foreground hover:text-primary-deep">
+        <ArrowLeft className="h-3 w-3" strokeWidth={1.5} /> Înapoi la lot
+      </Link>
 
-      <header className="text-center mt-3">
-        <p className="font-script text-3xl text-primary">Hai să facem grădina ta</p>
-        <h1 className="font-display text-3xl font-bold">{land.name} · {plot.code}</h1>
+      <header className="mt-6 pb-8 mb-12 border-b border-border/70">
+        <p className="eyebrow">Rezervare · {land.region}</p>
+        <h1 className="mt-3 font-display text-4xl md:text-5xl text-primary-deep font-normal leading-[1.1]">
+          {land.name} <span className="font-script italic text-primary">·</span> {plot.code}
+        </h1>
       </header>
 
       {/* Stepper */}
-      <div className="mt-8 flex items-center justify-center gap-2 md:gap-6">
-        <StepDot n={1} active={step === 1} done={step > 1} icon={tools.bag} label="Confirmă lotul" />
-        <div className={`flex-1 max-w-[60px] h-0.5 ${step > 1 ? "bg-primary" : "bg-primary/30"}`} />
-        <StepDot n={2} active={step === 2} done={step > 2} icon={veg.tomatoes} label="Alege culturi" />
-        <div className={`flex-1 max-w-[60px] h-0.5 ${step > 2 ? "bg-primary" : "bg-primary/30"}`} />
-        <StepDot n={3} active={step === 3} done={false} icon={tools.wateringcan2} label="Servicii" />
-      </div>
+      <ol className="flex items-center gap-2 mb-14 overflow-x-auto pb-2">
+        {STEPS.map((s, i) => {
+          const active = step === s.n;
+          const done = step > s.n;
+          return (
+            <li key={s.n} className="flex items-center gap-3 shrink-0">
+              <span className={`h-7 w-7 grid place-items-center rounded-full border font-ui text-xs ${
+                done ? "bg-primary text-primary-foreground border-primary" :
+                active ? "bg-background text-primary-deep border-primary ring-4 ring-primary/15" :
+                "bg-background text-muted-foreground border-border"
+              }`}>
+                {done ? <Check className="h-3.5 w-3.5" strokeWidth={2.5} /> : s.n}
+              </span>
+              <span className={`font-ui text-[11px] uppercase tracking-widest ${active || done ? "text-primary-deep" : "text-muted-foreground"}`}>
+                {s.label}
+              </span>
+              {i < STEPS.length - 1 && <span className={`block w-12 h-px ${done ? "bg-primary" : "bg-border"}`} />}
+            </li>
+          );
+        })}
+      </ol>
 
       {/* Step content */}
-      <div className="mt-10">
+      <div className="min-h-[300px]">
         {step === 1 && (
-          <ScallopedFrame variant="oval" centerContent={false} className="aspect-[16/9]">
-            <div className="absolute inset-0 grid md:grid-cols-2 items-center px-8 md:px-14 py-8">
-              <div className="text-center md:text-center">
-                <p className="font-script text-3xl text-primary">Lotul tău</p>
-                <h2 className="font-display text-3xl font-bold">{land.name}</h2>
-                <p className="text-muted-foreground inline-flex items-center gap-1 mt-1"><MapPin className="h-4 w-4" /> {land.village}, {land.region}</p>
-                <ul className="mt-4 space-y-1 text-sm list-none">
-                  <li><strong>Lot:</strong> {plot.code} · {plot.area} ari</li>
-                  <li><strong>Preț pământ:</strong> {landCost.toFixed(0)} MDL / sezon</li>
-                  <li><strong>Fermier:</strong> {findUserById(land.farmerId)?.name ?? "Fermier"}</li>
-                </ul>
-              </div>
-              <img src={botanicals.wheelbarrowVeg} alt="" className="h-48 mx-auto" />
+          <div className="grid md:grid-cols-2 gap-12">
+            <div>
+              <p className="eyebrow">Lotul tău</p>
+              <h2 className="mt-3 font-display text-3xl text-primary-deep font-normal">{land.name}</h2>
+              <p className="font-ui text-sm text-muted-foreground mt-1.5">{land.village}, {land.region}</p>
+              <dl className="mt-8 space-y-4">
+                <div className="flex justify-between border-b border-border/50 pb-3">
+                  <dt className="font-ui text-[11px] uppercase tracking-widest text-muted-foreground">Lot</dt>
+                  <dd className="font-display text-foreground">{plot.code} · {plot.area} ari</dd>
+                </div>
+                <div className="flex justify-between border-b border-border/50 pb-3">
+                  <dt className="font-ui text-[11px] uppercase tracking-widest text-muted-foreground">Preț pământ</dt>
+                  <dd className="font-display text-foreground">{landCost.toFixed(0)} MDL / sezon</dd>
+                </div>
+                <div className="flex justify-between border-b border-border/50 pb-3">
+                  <dt className="font-ui text-[11px] uppercase tracking-widest text-muted-foreground">Fermier</dt>
+                  <dd className="font-display text-foreground">{findUserById(land.farmerId)?.name ?? "Fermier"}</dd>
+                </div>
+              </dl>
             </div>
-          </ScallopedFrame>
+            <div className="rounded-md overflow-hidden border border-border">
+              <img src={land.photo} alt={land.name} className="w-full aspect-[4/3] object-cover" />
+            </div>
+          </div>
         )}
 
         {step === 2 && (
-          <div className="bg-card border border-primary/25 rounded-2xl p-6 shadow-paper">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="font-display font-bold text-xl">Alege ce plantăm</h2>
-              <span className="text-sm font-display"><strong>{remaining.toFixed(2)} ari</strong> rămase din {plot.area}</span>
+          <div>
+            <div className="flex items-center justify-between mb-8 pb-4 border-b border-border/70">
+              <div>
+                <p className="eyebrow">Culturi</p>
+                <h2 className="mt-2 font-display text-3xl text-primary-deep font-normal">Ce să plantăm?</h2>
+              </div>
+              <p className="font-ui text-sm text-foreground/70">
+                <span className="text-primary-deep font-semibold">{remaining.toFixed(2)}</span> / {plot.area} ari rămase
+              </p>
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border/60 border-y border-border/60">
               {CULTURES.map(c => (
-                <div key={c.id} className="bg-paper border border-primary/20 rounded-xl p-4 hover:border-primary/50 transition-colors">
-                  <div className="flex items-center gap-3">
-                    <img src={c.icon} alt="" className="h-12 w-12 object-contain" />
-                    <div className="flex-1">
-                      <h3 className="font-display font-bold leading-tight">{c.name}</h3>
-                      <p className="text-xs text-muted-foreground">{c.pricePerAre} MDL/ar · {c.cycleDays} zile</p>
-                    </div>
-                  </div>
-                  <div className="mt-3 flex items-center gap-2">
-                    <button onClick={() => updateAlloc(c.id, (allocs[c.id] ?? 0) - 0.25)} className="h-8 w-8 rounded-full bg-secondary press">−</button>
+                <div key={c.id} className="bg-background p-6">
+                  <p className="eyebrow text-[10px]">{c.category}</p>
+                  <h3 className="mt-2 font-display text-xl text-primary-deep">{c.name}</h3>
+                  <p className="font-ui text-xs text-muted-foreground mt-1 tracking-wide">{c.pricePerAre} MDL/AR · {c.cycleDays}Z</p>
+                  <div className="mt-5 flex items-center gap-2">
+                    <button
+                      onClick={() => updateAlloc(c.id, (allocs[c.id] ?? 0) - 0.25)}
+                      className="press h-8 w-8 rounded-sm border border-border hover:border-primary text-primary-deep"
+                    >−</button>
                     <Input
                       type="number" step={0.25} min={0}
                       value={allocs[c.id] ?? 0}
                       onChange={e => updateAlloc(c.id, parseFloat(e.target.value) || 0)}
-                      className="text-center h-8 rounded-lg bg-background border-primary/30"
+                      className="text-center h-8 rounded-sm bg-card border-border font-display"
                     />
-                    <button onClick={() => updateAlloc(c.id, (allocs[c.id] ?? 0) + 0.25)} className="h-8 w-8 rounded-full bg-primary text-primary-foreground press">+</button>
-                    <span className="text-xs text-muted-foreground">ari</span>
+                    <button
+                      onClick={() => updateAlloc(c.id, (allocs[c.id] ?? 0) + 0.25)}
+                      className="press h-8 w-8 rounded-sm bg-primary text-primary-foreground hover:bg-primary-deep"
+                    >+</button>
                   </div>
                 </div>
               ))}
@@ -135,60 +159,98 @@ const Reserve = () => {
         )}
 
         {step === 3 && (
-          <div className="grid lg:grid-cols-[1fr_320px] gap-6">
-            <div className="bg-card border border-primary/25 rounded-2xl p-6 shadow-paper">
-              <h2 className="font-display font-bold text-xl mb-4">Servicii de la fermier</h2>
-              <div className="grid sm:grid-cols-2 gap-3">
+          <div className="grid lg:grid-cols-[1fr_320px] gap-12">
+            <div>
+              <p className="eyebrow">Servicii</p>
+              <h2 className="mt-3 font-display text-3xl text-primary-deep font-normal mb-8">De la fermier</h2>
+              <ul className="border-y border-border/60">
                 {SERVICES.map(s => {
                   const on = selServices.has(s.id);
                   return (
-                    <button key={s.id} onClick={() => toggleService(s.id)} className={`text-left rounded-xl p-4 border-2 transition-all press flex items-start gap-3
-                      ${on ? "bg-secondary/60 border-primary" : "bg-paper border-primary/20 hover:border-primary/50"}`}>
-                      <img src={s.icon} alt="" className="h-10 w-10 object-contain shrink-0" />
-                      <div className="flex-1">
-                        <div className="flex items-center justify-between gap-2">
-                          <h3 className="font-display font-semibold">{s.name}</h3>
-                          {on && <Check className="h-5 w-5 text-primary" />}
+                    <li key={s.id} className="border-b border-border/40 last:border-0">
+                      <button
+                        onClick={() => toggleService(s.id)}
+                        className="w-full text-left py-5 flex items-start gap-4 hover:bg-paper/50 transition-colors -mx-3 px-3"
+                      >
+                        <span className={`mt-1 h-4 w-4 border grid place-items-center shrink-0 ${on ? "bg-primary border-primary" : "border-border"}`}>
+                          {on && <Check className="h-3 w-3 text-primary-foreground" strokeWidth={2.5} />}
+                        </span>
+                        <div className="flex-1">
+                          <div className="flex items-center justify-between gap-3">
+                            <h3 className="font-display text-lg text-primary-deep">{s.name}</h3>
+                            <span className="font-display text-sm text-primary-deep whitespace-nowrap">
+                              {s.price} <span className="font-ui text-[10px] uppercase tracking-widest text-muted-foreground">MDL/{s.unit}</span>
+                            </span>
+                          </div>
+                          <p className="text-sm text-muted-foreground mt-1">{s.description}</p>
                         </div>
-                        <p className="text-xs text-muted-foreground mt-0.5">{s.description}</p>
-                        <p className="text-sm font-display font-bold text-primary-deep mt-1">{s.price} MDL / {s.unit}</p>
-                      </div>
-                    </button>
+                      </button>
+                    </li>
                   );
                 })}
-              </div>
+              </ul>
             </div>
 
-            <ScallopedFrame variant="rect" centerContent={false} className="aspect-[1/1.2]">
-              <div className="absolute inset-0 p-6 flex flex-col">
-                <p className="font-script text-2xl text-primary text-center">Coșul tău</p>
-                <div className="mt-3 space-y-2 text-sm flex-1 overflow-auto">
-                  <div className="flex justify-between"><span>Pământ ({plot.area} ari)</span><strong>{landCost.toFixed(0)} MDL</strong></div>
-                  {Object.entries(allocs).filter(([,v]) => v > 0).map(([cid, area]) => {
-                    const c = CULTURES.find(x => x.id === cid)!;
-                    return <div key={cid} className="flex justify-between"><span>{c.name} ({area} ari)</span><strong>{(c.pricePerAre*area).toFixed(0)} MDL</strong></div>;
-                  })}
-                  {[...selServices].map(sid => {
-                    const s = SERVICES.find(x => x.id === sid)!;
-                    return <div key={sid} className="flex justify-between"><span>{s.name}</span><strong>{s.price} MDL</strong></div>;
-                  })}
-                </div>
-                <div className="border-t border-primary/30 pt-3 mt-3 flex justify-between font-display font-bold text-lg">
-                  <span>Total</span><span className="text-primary">{total.toFixed(0)} MDL</span>
-                </div>
-                <img src={deco.bow} alt="" className="absolute -top-3 -right-3 h-12 w-12 object-contain" />
+            <aside className="lg:sticky lg:top-24 lg:self-start">
+              <p className="eyebrow">Sumar</p>
+              <h3 className="mt-3 font-display text-2xl text-primary-deep font-normal mb-6">Comanda ta</h3>
+              <ul className="space-y-3 font-display text-[15px]">
+                <li className="flex justify-between gap-3 pb-3 border-b border-border/50">
+                  <span className="text-foreground/80">Pământ ({plot.area} ari)</span>
+                  <span className="text-primary-deep">{landCost.toFixed(0)}</span>
+                </li>
+                {Object.entries(allocs).filter(([, v]) => v > 0).map(([cid, area]) => {
+                  const c = CULTURES.find(x => x.id === cid)!;
+                  return (
+                    <li key={cid} className="flex justify-between gap-3 pb-3 border-b border-border/50">
+                      <span className="text-foreground/80">{c.name} ({area}a)</span>
+                      <span className="text-primary-deep">{(c.pricePerAre * area).toFixed(0)}</span>
+                    </li>
+                  );
+                })}
+                {[...selServices].map(sid => {
+                  const s = SERVICES.find(x => x.id === sid)!;
+                  return (
+                    <li key={sid} className="flex justify-between gap-3 pb-3 border-b border-border/50">
+                      <span className="text-foreground/80">{s.name}</span>
+                      <span className="text-primary-deep">{s.price}</span>
+                    </li>
+                  );
+                })}
+              </ul>
+              <div className="mt-6 pt-5 border-t-2 border-primary/40 flex justify-between items-baseline">
+                <span className="font-ui text-[11px] uppercase tracking-widest text-primary-deep">Total</span>
+                <span className="font-display text-3xl text-primary-deep">
+                  {total.toFixed(0)} <span className="font-ui text-xs text-muted-foreground tracking-wide">MDL</span>
+                </span>
               </div>
-            </ScallopedFrame>
+            </aside>
           </div>
         )}
       </div>
 
-      <div className="mt-10 flex items-center justify-between">
-        <HDButton tone="cream" onClick={() => setStep(s => Math.max(1, s - 1))} disabled={step === 1}>Înapoi</HDButton>
+      <div className="mt-16 pt-8 border-t border-border/70 flex items-center justify-between">
+        <button
+          onClick={() => setStep(s => Math.max(1, s - 1))}
+          disabled={step === 1}
+          className="press font-display text-[15px] text-primary-deep link-underline disabled:opacity-40 disabled:no-underline disabled:cursor-not-allowed"
+        >
+          ← Înapoi
+        </button>
         {step < 3 ? (
-          <HDButton iconLeft={tools.trowel} onClick={() => setStep(s => s + 1)}>Continuă</HDButton>
+          <button
+            onClick={() => setStep(s => s + 1)}
+            className="press inline-flex items-center justify-center h-12 px-8 rounded-md bg-primary text-primary-foreground hover:bg-primary-deep font-display text-[15px]"
+          >
+            Continuă
+          </button>
         ) : (
-          <HDButton iconLeft={tools.bag} onClick={checkout}>Finalizează rezervarea</HDButton>
+          <button
+            onClick={checkout}
+            className="press inline-flex items-center justify-center h-12 px-8 rounded-md bg-primary text-primary-foreground hover:bg-primary-deep font-display text-[15px]"
+          >
+            Finalizează rezervarea
+          </button>
         )}
       </div>
     </div>

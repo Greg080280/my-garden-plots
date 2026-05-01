@@ -12,9 +12,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        script: ["'Caveat Brush'", "'Kalam'", "cursive"],
-        display: ["Quicksand", "system-ui", "sans-serif"],
-        body: ["Inter", "system-ui", "sans-serif"],
+        script: ["Caveat", "cursive"],
+        display: ["Fraunces", "Georgia", "serif"],
+        body: ["Fraunces", "Georgia", "serif"],
+        ui: ["Inter", "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
