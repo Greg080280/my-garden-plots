@@ -73,6 +73,7 @@ import frameScallop from "@/assets/illustrations/frame-scallop.png";
 import illoSleepingCan from "@/assets/illustrations/empty-sleeping-can.png";
 import illoEmptyBasket from "@/assets/illustrations/empty-basket.png";
 import illoLogoMascot from "@/assets/illustrations/logo-mascot.png";
+import illoHeroArrangement from "@/assets/illustrations/hero-arrangement.png";
 
 // Photos
 import landPhoto1 from "@/assets/photos/land-1.jpg";
@@ -130,4 +131,5 @@ export const illos = {
   sleepingCan: illoSleepingCan,
   emptyBasket: illoEmptyBasket,
   logoMascot: illoLogoMascot,
+  heroArrangement: illoHeroArrangement,
 };
