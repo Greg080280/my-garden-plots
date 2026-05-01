@@ -1,12 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Mail, Lock, User as UserIcon } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
-import { ScallopedFrame } from "@/components/decor/ScallopedFrame";
-import { HDButton } from "@/components/decor/HDButton";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { botanicals, tools, deco } from "@/assets";
 
 interface Props { mode: "login" | "register" }
 
@@ -25,77 +20,116 @@ const Auth = ({ mode }: Props) => {
     nav(role === "farmer" ? "/farmer" : "/dashboard");
   };
 
+  const isLogin = mode === "login";
+
   return (
-    <div className="container py-12 max-w-xl">
-      <div className="relative">
-        <img src={tools.wateringcan2} alt="" className="absolute -left-20 top-10 h-44 hidden md:block opacity-90" />
-        <img src={botanicals.bouquetBow} alt="" className="absolute -right-16 -top-6 h-40 hidden md:block opacity-90" />
+    <div className="min-h-[calc(100vh-4rem)] grid lg:grid-cols-2">
+      {/* Left — editorial copy */}
+      <div className="hidden lg:flex flex-col justify-between p-16 bg-paper border-r border-border">
+        <span className="font-script text-3xl text-primary-deep">MyGarden</span>
+        <div className="max-w-md">
+          <p className="eyebrow">{isLogin ? "Bun găsit" : "Bun venit"}</p>
+          <h1 className="mt-5 font-display text-4xl lg:text-5xl text-primary-deep leading-[1.1] font-normal">
+            {isLogin ? (
+              <>Pământul tău te <span className="font-script italic text-primary">așteaptă</span>.</>
+            ) : (
+              <>Începe-ți prima <span className="font-script italic text-primary">grădină</span>.</>
+            )}
+          </h1>
+          <p className="mt-6 text-lg text-foreground/70 leading-[1.7]">
+            {isLogin
+              ? "Intră în cont și vezi cum merge cultura ta — ce s-a plantat, ce s-a udat, când vine recolta."
+              : "Alege un lot din Moldova, planifică ce să crești și lasă fermierii locali să se ocupe de restul."}
+          </p>
+        </div>
+        <p className="font-display italic text-sm text-brown">„Tot ce semeni, vei culege."</p>
+      </div>
 
-        <ScallopedFrame variant="oval" centerContent={false} className="aspect-[5/6]">
-          <div className="absolute inset-[8%_15%] flex flex-col justify-center">
-            <h1 className="font-script text-6xl text-primary text-center leading-none">MyGarden</h1>
-            <p className="text-center font-script text-xl text-foreground mt-2">
-              {mode === "login" ? "Bun găsit înapoi" : "Bun venit între noi"}
+      {/* Right — form */}
+      <div className="flex items-center justify-center p-8 lg:p-16">
+        <div className="w-full max-w-md">
+          <span className="font-script text-3xl text-primary-deep block lg:hidden mb-8">MyGarden</span>
+          <p className="eyebrow">{isLogin ? "Autentificare" : "Cont nou"}</p>
+          <h2 className="mt-3 font-display text-3xl text-primary-deep font-normal">
+            {isLogin ? "Intră în cont" : "Creează cont"}
+          </h2>
+
+          <form onSubmit={submit} className="mt-10 space-y-6">
+            {!isLogin && (
+              <div>
+                <label className="block font-ui text-[11px] uppercase tracking-widest text-primary-deep mb-2">Nume</label>
+                <Input
+                  value={name}
+                  onChange={e => setName(e.target.value)}
+                  placeholder="Maria Popescu"
+                  className="h-12 rounded-md bg-card border-border focus:border-primary font-display text-[15px]"
+                />
+              </div>
+            )}
+
+            <div>
+              <label className="block font-ui text-[11px] uppercase tracking-widest text-primary-deep mb-2">E-mail</label>
+              <Input
+                type="email" required
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                placeholder="maria@email.md"
+                className="h-12 rounded-md bg-card border-border focus:border-primary font-display text-[15px]"
+              />
+            </div>
+
+            <div>
+              <label className="block font-ui text-[11px] uppercase tracking-widest text-primary-deep mb-2">Parolă</label>
+              <Input
+                type="password" required
+                value={pw}
+                onChange={e => setPw(e.target.value)}
+                placeholder="••••••••"
+                className="h-12 rounded-md bg-card border-border focus:border-primary font-display text-[15px]"
+              />
+            </div>
+
+            {!isLogin && (
+              <div>
+                <label className="block font-ui text-[11px] uppercase tracking-widest text-primary-deep mb-2">Rol</label>
+                <div className="grid grid-cols-2 gap-3">
+                  {([
+                    { v: "client", label: "Grădinar" },
+                    { v: "farmer", label: "Fermier" },
+                  ] as const).map(r => (
+                    <button
+                      key={r.v}
+                      type="button"
+                      onClick={() => setRole(r.v)}
+                      className={`press h-12 rounded-md border font-display text-[15px] transition-colors ${
+                        role === r.v
+                          ? "bg-primary text-primary-foreground border-primary"
+                          : "bg-transparent border-border hover:border-primary"
+                      }`}
+                    >
+                      {r.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <button
+              type="submit"
+              className="press w-full h-12 rounded-md bg-primary text-primary-foreground hover:bg-primary-deep font-display text-[15px]"
+            >
+              {isLogin ? "Intră în cont" : "Creează cont"}
+            </button>
+
+            <p className="text-center font-display text-sm text-muted-foreground pt-2">
+              {isLogin ? (
+                <>Nu ai cont? <Link to="/register" className="text-primary-deep link-underline">Înregistrează-te</Link></>
+              ) : (
+                <>Ai deja cont? <Link to="/login" className="text-primary-deep link-underline">Intră aici</Link></>
+              )}
             </p>
-
-            <form onSubmit={submit} className="mt-6 space-y-4 flex flex-col">
-              {mode === "register" && (
-                <div>
-                  <Label className="font-display text-sm">Numele tău</Label>
-                  <div className="relative mt-1">
-                    <UserIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-primary" />
-                    <Input value={name} onChange={e => setName(e.target.value)} placeholder="Maria" className="pl-9 bg-background border-primary/40 rounded-xl h-11" />
-                  </div>
-                </div>
-              )}
-
-              <div>
-                <Label className="font-display text-sm">E-mail</Label>
-                <div className="relative mt-1">
-                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-primary" />
-                  <Input type="email" required value={email} onChange={e => setEmail(e.target.value)} placeholder="maria@email.md" className="pl-9 bg-background border-primary/40 rounded-xl h-11" />
-                </div>
-              </div>
-
-              <div>
-                <Label className="font-display text-sm">Parolă</Label>
-                <div className="relative mt-1">
-                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-primary" />
-                  <Input type="password" required value={pw} onChange={e => setPw(e.target.value)} placeholder="••••••" className="pl-9 bg-background border-primary/40 rounded-xl h-11" />
-                </div>
-              </div>
-
-              {mode === "register" && (
-                <div>
-                  <Label className="font-display text-sm">Sunt</Label>
-                  <div className="grid grid-cols-2 gap-2 mt-1">
-                    {(["client", "farmer"] as const).map(r => (
-                      <button key={r} type="button" onClick={() => setRole(r)}
-                        className={`h-11 rounded-xl border-2 font-display font-semibold text-sm press
-                          ${role === r ? "bg-primary text-primary-foreground border-primary-deep" : "bg-paper border-primary/30"}`}>
-                        {r === "client" ? "Grădinar" : "Fermier"}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              <div className="pt-2" />
-              <HDButton type="submit" iconLeft={tools.trowel} className="w-full justify-center">
-                {mode === "login" ? "Intră în grădină" : "Creează cont"}
-              </HDButton>
-
-              <p className="text-center text-sm text-muted-foreground">
-                {mode === "login" ? (
-                  <>Nu ai cont? <Link to="/register" className="text-primary font-display font-semibold underline">Înregistrează-te</Link></>
-                ) : (
-                  <>Ai deja cont? <Link to="/login" className="text-primary font-display font-semibold underline">Intră aici</Link></>
-                )}
-              </p>
-            </form>
-            <img src={deco.bow} alt="" className="absolute -top-3 left-1/2 -translate-x-1/2 h-12 w-12 object-contain" />
-          </div>
-        </ScallopedFrame>
+          </form>
+        </div>
       </div>
     </div>
   );
