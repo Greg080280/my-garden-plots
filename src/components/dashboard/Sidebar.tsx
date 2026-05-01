@@ -2,8 +2,6 @@ import { cn } from "@/lib/utils";
 import { Link, useLocation } from "react-router-dom";
 import type { ReactNode } from "react";
 import { useAuth, type Role } from "@/context/AuthContext";
-import { useAuth as _useAuth } from "@/context/AuthContext";
-void _useAuth;
 import { DoorIcon } from "@/components/icons/HandDrawn";
 
 export interface SidebarItem {
