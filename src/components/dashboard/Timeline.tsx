@@ -1,115 +1,95 @@
 import { cn } from "@/lib/utils";
+import { Check } from "lucide-react";
 import type { ReactNode } from "react";
-import { CheckIcon } from "@/components/icons/HandDrawn";
+
+/**
+ * Timeline (spec §4.7) — five-stage horizontal timeline for the
+ * "My plot" detail page. Done dots = garden-600, current = pulse,
+ * future = garden-100.
+ */
 
 export interface TimelineStage {
   key: string;
   label: string;
-  icon: ReactNode;
-  /** Optional date label below */
   date?: string;
+  /** Optional illustration above the dot (small SVG). */
+  icon?: ReactNode;
 }
 
 interface Props {
   stages: TimelineStage[];
-  /** Index of the current stage (0-based). Stages before it are "done", after are "future". */
+  /** 0-based index of the current stage. */
   currentStep: number;
   className?: string;
 }
 
-/**
- * The signature dashboard timeline:
- *  - 5 stages connected by a hand-drawn wavy line
- *  - Done stages: filled olive circle with check
- *  - Current stage: gentle pulsing ring
- *  - Future stages: faded with dashed border
- */
-export const Timeline = ({ stages, currentStep, className }: Props) => {
-  // Build a wavy SVG path connecting N evenly-spaced points.
-  const n = stages.length;
-  const padX = 100 / n / 2; // center each stage in its bucket
-  const points = Array.from({ length: n }, (_, i) => padX + (i * 100) / n);
-  const wavePath = (() => {
-    let d = `M ${points[0]} 50 `;
-    for (let i = 1; i < n; i++) {
-      const prev = points[i - 1];
-      const curr = points[i];
-      const mid = (prev + curr) / 2;
-      // alternate the wave above/below
-      const dy = i % 2 === 0 ? -8 : 8;
-      d += `Q ${mid} ${50 + dy} ${curr} 50 `;
-    }
-    return d;
-  })();
-
-  // Done portion of the wave (separate path, drawn over the faded one)
-  const donePoints = points.slice(0, Math.max(1, currentStep + 1));
-  const donePath = (() => {
-    if (donePoints.length < 2) return "";
-    let d = `M ${donePoints[0]} 50 `;
-    for (let i = 1; i < donePoints.length; i++) {
-      const prev = donePoints[i - 1];
-      const curr = donePoints[i];
-      const mid = (prev + curr) / 2;
-      const dy = i % 2 === 0 ? -8 : 8;
-      d += `Q ${mid} ${50 + dy} ${curr} 50 `;
-    }
-    return d;
-  })();
-
-  return (
-    <div className={cn("relative w-full", className)}>
-      {/* connector waves */}
-      <svg
-        viewBox="0 0 100 100"
-        preserveAspectRatio="none"
-        className="absolute left-0 right-0 top-[50px] h-[28px] w-full -translate-y-1/2 pointer-events-none"
-        aria-hidden
-      >
-        <path d={wavePath} stroke="hsl(var(--primary) / 0.25)" strokeWidth="1" fill="none" strokeLinecap="round" strokeDasharray="2 2.5" />
-        {donePath && (
-          <path d={donePath} stroke="hsl(var(--primary))" strokeWidth="1.4" fill="none" strokeLinecap="round" />
-        )}
-      </svg>
-
-      <ol className="relative grid" style={{ gridTemplateColumns: `repeat(${n}, minmax(0, 1fr))` }}>
-        {stages.map((s, i) => {
-          const done = i < currentStep;
-          const current = i === currentStep;
-          return (
-            <li key={s.key} className="flex flex-col items-center text-center px-1 min-w-0">
-              <div className="relative h-[100px] grid place-items-center">
-                {current && (
-                  <span className="absolute h-20 w-20 rounded-full bg-primary/15 animate-ping" />
-                )}
-                <div
-                  className={cn(
-                    "relative h-16 w-16 rounded-full grid place-items-center transition-all",
-                    done && "bg-primary text-primary-foreground border-2 border-primary-deep",
-                    current && "bg-paper text-primary border-[2.5px] border-primary shadow-paper",
-                    !done && !current && "bg-paper text-primary/45 border-2 border-dashed border-primary/35"
-                  )}
-                >
-                  {done ? <CheckIcon size={30} weight={2} /> : s.icon}
-                </div>
-              </div>
-              <p
+export const Timeline = ({ stages, currentStep, className }: Props) => (
+  <div className={cn("relative w-full", className)}>
+    <ol className="grid items-start" style={{ gridTemplateColumns: `repeat(${stages.length}, minmax(0, 1fr))` }}>
+      {stages.map((s, i) => {
+        const done = i < currentStep;
+        const current = i === currentStep;
+        const last = i === stages.length - 1;
+        return (
+          <li key={s.key} className="relative flex flex-col items-center text-center px-2 min-w-0">
+            {/* Connector to next dot */}
+            {!last && (
+              <span
+                aria-hidden
                 className={cn(
-                  "mt-2 text-xs font-display font-bold leading-tight",
-                  done && "text-primary",
-                  current && "text-primary-deep",
-                  !done && !current && "text-muted-foreground/70"
+                  "absolute top-[18px] left-1/2 right-[-50%] h-[3px] rounded-full",
+                  done ? "bg-garden-600" : "bg-garden-100"
+                )}
+              />
+            )}
+
+            {/* Optional illustration above dot */}
+            {s.icon && (
+              <div className={cn(
+                "mb-1 h-7 w-7 grid place-items-center transition-colors",
+                done && "text-garden-600",
+                current && "text-garden-700",
+                !done && !current && "text-garden-100"
+              )}>
+                {s.icon}
+              </div>
+            )}
+
+            {/* Dot */}
+            <div className="relative h-9 grid place-items-center z-10">
+              {current && (
+                <span className="absolute h-9 w-9 rounded-full bg-garden-600/30 animate-ping" />
+              )}
+              <span
+                className={cn(
+                  "relative h-4 w-4 rounded-full border-2 transition-all",
+                  done && "bg-garden-600 border-garden-700",
+                  current && "bg-garden-600 border-garden-700 ring-4 ring-garden-600/15",
+                  !done && !current && "bg-cream border-garden-100"
                 )}
               >
-                {s.label}
-              </p>
-              {s.date && (
-                <p className="text-[10px] font-display text-muted-foreground mt-0.5">{s.date}</p>
+                {done && (
+                  <Check className="absolute inset-0 m-auto h-3 w-3 text-cream-soft" strokeWidth={3} />
+                )}
+              </span>
+            </div>
+
+            <p
+              className={cn(
+                "mt-2 font-ui text-sm font-medium leading-tight",
+                done && "text-garden-700",
+                current && "text-garden-900 font-semibold",
+                !done && !current && "text-garden-700/50"
               )}
-            </li>
-          );
-        })}
-      </ol>
-    </div>
-  );
-};
+            >
+              {s.label}
+            </p>
+            {s.date && (
+              <p className="mt-0.5 font-ui text-xs text-garden-700/55">{s.date}</p>
+            )}
+          </li>
+        );
+      })}
+    </ol>
+  </div>
+);
