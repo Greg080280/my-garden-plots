@@ -3,84 +3,86 @@
 @tailwind utilities;
 
 /*
-  MyGarden — Editorial botanical design system.
-  Aesop / Ottolenghi / Bon Appétit maturity.
+  MyGarden — Hand-drawn warmth + business clarity (per spec §1).
+  Cream + garden green palette. Caveat for accents only, DM Sans for all UI.
   All colors HSL.
 */
 
 @layer base {
   :root {
-    /* Surfaces — refined neutrals */
-    --background: 44 47% 91%;          /* warm cream #F5EDD8 */
-    --paper: 42 42% 88%;               /* slightly darker cream for sections #EFE5CC */
-    --foreground: 100 22% 20%;         /* near-black green #2D3E27 — never pure black */
+    /* ── Surfaces ─────────────────────────────────────────── */
+    --background: 44 47% 91%;       /* cream #F5EFE0 */
+    --paper:      44 60% 95%;       /* cream-soft #FAF6EC */
+    --foreground: 76 50% 16%;       /* garden-900 #2F3D14 */
 
-    --card: 0 0% 100%;                 /* pure white cards */
-    --card-foreground: 100 22% 20%;
+    --card:            0 0% 100%;
+    --card-foreground: 76 50% 16%;
+    --popover:            44 60% 95%;
+    --popover-foreground: 76 50% 16%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 100 22% 20%;
+    /* ── Garden greens ────────────────────────────────────── */
+    --primary:            76 36% 30%;    /* garden-600 #5C6E2D */
+    --primary-foreground: 44 60% 95%;    /* cream-soft */
+    --primary-soft:       72 32% 88%;    /* garden-100 #E8EDD0 */
+    --primary-deep:       76 50% 16%;    /* garden-900 */
 
-    /* Greens — deeper, more authoritative */
-    --primary: 100 22% 27%;            /* deep olive #4A6741 */
-    --primary-foreground: 44 47% 94%;
-    --primary-soft: 90 18% 65%;        /* muted sage */
-    --primary-deep: 100 22% 14%;       /* near black-green for body emphasis */
+    --secondary:            72 32% 88%;
+    --secondary-foreground: 76 50% 16%;
 
-    --secondary: 90 18% 78%;           /* pale sage */
-    --secondary-foreground: 100 22% 20%;
+    --accent:            72 32% 88%;
+    --accent-foreground: 76 50% 16%;
 
-    --accent: 90 18% 82%;
-    --accent-foreground: 100 22% 20%;
+    --muted:            44 30% 88%;
+    --muted-foreground: 70 14% 38%;
 
-    --muted: 44 22% 84%;
-    --muted-foreground: 100 12% 38%;
+    /* ── Brown / decorative tan ───────────────────────────── */
+    --brown:            29 32% 65%;       /* accent-tan #C9A881 */
+    --brown-foreground: 44 60% 95%;
 
-    /* Brown — editorial accent only */
-    --brown: 30 32% 41%;               /* #8B6F47 */
-    --brown-foreground: 44 47% 94%;
+    /* ── Status / feedback ────────────────────────────────── */
+    --destructive:            8 45% 49%;  /* danger #B85042 */
+    --destructive-foreground: 44 60% 95%;
 
-    --destructive: 8 55% 42%;
-    --destructive-foreground: 44 47% 94%;
+    /* ── Borders & rings ──────────────────────────────────── */
+    --border: 72 32% 80%;        /* soft garden-100 line */
+    --input:  72 24% 75%;
+    --ring:   76 36% 30%;
 
-    --border: 90 14% 72%;              /* hairline sage */
-    --input: 90 14% 72%;
-    --ring: 100 22% 27%;
+    /* Cards = 16px (spec: rounded-2xl). Buttons/badges use rounded-md = 8px. */
+    --radius: 1rem;
 
-    --radius: 0.5rem;                  /* tighter, less "soft" — 8px */
-
-    /* Shadows — barely-there */
-    --shadow-paper: 0 1px 2px hsl(100 22% 14% / 0.04);
-    --shadow-card: 0 1px 3px hsl(100 22% 14% / 0.06);
-    --shadow-elevated: 0 4px 16px hsl(100 22% 14% / 0.08);
+    --shadow-paper:    0 1px 2px hsl(76 50% 16% / 0.05);
+    --shadow-card:     0 2px 6px hsl(76 50% 16% / 0.07);
+    --shadow-elevated: 0 8px 24px hsl(76 50% 16% / 0.10);
 
     /* Sidebar */
-    --sidebar-background: 42 42% 92%;
-    --sidebar-foreground: 100 22% 20%;
-    --sidebar-primary: 100 22% 27%;
-    --sidebar-primary-foreground: 44 47% 94%;
-    --sidebar-accent: 90 18% 82%;
-    --sidebar-accent-foreground: 100 22% 20%;
-    --sidebar-border: 90 14% 72%;
-    --sidebar-ring: 100 22% 27%;
+    --sidebar-background:           72 32% 88%;   /* garden-100 */
+    --sidebar-foreground:           76 50% 16%;
+    --sidebar-primary:              76 36% 30%;
+    --sidebar-primary-foreground:   44 60% 95%;
+    --sidebar-accent:               72 28% 82%;
+    --sidebar-accent-foreground:    76 50% 16%;
+    --sidebar-border:               72 24% 75%;
+    --sidebar-ring:                 76 36% 30%;
   }
 
-  .dark {
+  .dark { /* mirror — no separate dark theme yet */
     --background: 44 47% 91%;
-    --foreground: 100 22% 20%;
+    --paper: 44 60% 95%;
+    --foreground: 76 50% 16%;
     --card: 0 0% 100%;
-    --card-foreground: 100 22% 20%;
-    --primary: 100 22% 27%;
-    --primary-foreground: 44 47% 94%;
-    --secondary: 90 18% 78%;
-    --secondary-foreground: 100 22% 20%;
-    --muted: 44 22% 84%;
-    --muted-foreground: 100 12% 38%;
-    --accent: 90 18% 82%;
-    --accent-foreground: 100 22% 20%;
-    --border: 90 14% 72%;
-    --input: 90 14% 72%;
-    --ring: 100 22% 27%;
+    --card-foreground: 76 50% 16%;
+    --primary: 76 36% 30%;
+    --primary-foreground: 44 60% 95%;
+    --secondary: 72 32% 88%;
+    --secondary-foreground: 76 50% 16%;
+    --muted: 44 30% 88%;
+    --muted-foreground: 70 14% 38%;
+    --accent: 72 32% 88%;
+    --accent-foreground: 76 50% 16%;
+    --border: 72 32% 80%;
+    --input: 72 24% 75%;
+    --ring: 76 36% 30%;
   }
 }
 
@@ -90,36 +92,42 @@
   html { scroll-behavior: smooth; }
 
   body {
-    @apply bg-background text-foreground font-body antialiased;
-    font-feature-settings: "ss01", "ss02", "kern", "liga";
-    /* No paper grain — clean editorial surface */
+    @apply bg-background text-foreground antialiased;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-feature-settings: "kern", "liga", "ss01";
   }
 
-  h1, h2, h3, h4, h5 {
-    font-family: 'Fraunces', Georgia, serif;
-    font-weight: 400;
-    letter-spacing: -0.015em;
+  /* Headings = DM Sans 600/700 (per spec — "DM Sans for all UI"). */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-weight: 600;
     color: hsl(var(--primary-deep));
+    letter-spacing: -0.012em;
   }
+  h1 { font-weight: 700; letter-spacing: -0.02em; }
 
-  p { line-height: 1.7; }
+  p { line-height: 1.65; }
 
-  ::selection { background: hsl(var(--primary) / 0.18); color: hsl(var(--primary-deep)); }
+  ::selection { background: hsl(var(--primary) / 0.2); color: hsl(var(--primary-deep)); }
 }
 
 @layer components {
-  /* Typography utilities */
-  .font-script  { font-family: 'Caveat', cursive; font-weight: 500; letter-spacing: 0.005em; }
-  .font-display { font-family: 'Fraunces', Georgia, serif; }
-  .font-body    { font-family: 'Fraunces', Georgia, serif; }
-  .font-ui      { font-family: 'Inter', system-ui, sans-serif; }
+  /* ── Typography utilities ─────────────────────────────── */
+
+  /* Caveat — RESTRICTED USE (logo, hero titles, taglines). Never on body/buttons. */
+  .font-script  { font-family: 'Caveat', cursive; font-weight: 600; letter-spacing: 0.01em; }
+  .font-display { font-family: 'Caveat', cursive; font-weight: 600; letter-spacing: 0.01em; }
+  .font-heading { font-family: 'DM Sans', system-ui, sans-serif; font-weight: 600; }
+  .font-body    { font-family: 'DM Sans', system-ui, sans-serif; font-weight: 400; }
+  .font-ui      { font-family: 'DM Sans', system-ui, sans-serif; }
+  .font-mono    { font-family: 'JetBrains Mono', ui-monospace, monospace; }
 
   /* Editorial eyebrow label */
   .eyebrow {
-    font-family: 'Inter', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
+    font-weight: 700;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     color: hsl(var(--primary));
   }
@@ -127,15 +135,13 @@
   /* Hairline divider */
   .hairline { border-top: 1px solid hsl(var(--border) / 0.7); }
 
-  /* Subtle press on click */
+  /* Subtle press */
   .press { @apply transition-all duration-200 ease-out; }
+  .press:hover { transform: translateY(-1px); }
   .press:active { transform: translateY(0.5px); }
 
-  /* Editorial underline that grows on hover */
-  .link-underline {
-    position: relative;
-    display: inline-block;
-  }
+  /* Editorial underline */
+  .link-underline { position: relative; display: inline-block; }
   .link-underline::after {
     content: '';
     position: absolute;
@@ -144,14 +150,12 @@
     background: currentColor;
     transform: scaleX(0);
     transform-origin: left center;
-    transition: transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: transform 280ms cubic-bezier(0.2, 0.8, 0.2, 1);
   }
   .link-underline:hover::after { transform: scaleX(1); }
 
-  /* Active nav indicator — thin line, not wavy */
-  .nav-active {
-    position: relative;
-  }
+  /* Active nav indicator (top-bar) — thin underline */
+  .nav-active { position: relative; }
   .nav-active::after {
     content: '';
     position: absolute;
@@ -160,55 +164,55 @@
     background: hsl(var(--primary));
   }
 
-  /* Editorial card */
+  /* Editorial card (used by LandCard / ProductCard) */
   .editorial-card {
     background: hsl(var(--card));
     border: 1px solid hsl(var(--border) / 0.6);
     border-radius: var(--radius);
-    transition: border-color 250ms ease, transform 400ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: border-color 250ms ease, box-shadow 250ms ease, transform 350ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    box-shadow: var(--shadow-paper);
   }
-  .editorial-card:hover { border-color: hsl(var(--primary) / 0.5); }
+  .editorial-card:hover {
+    border-color: hsl(var(--primary) / 0.4);
+    box-shadow: var(--shadow-card);
+  }
 
-  /* Image zoom on hover (slow, restrained) */
   .img-zoom { overflow: hidden; }
   .img-zoom img { transition: transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1); }
   .img-zoom:hover img { transform: scale(1.04); }
 
-  /* Wavy underline kept for legacy back-compat (still used in a couple of places) */
-  .wavy-underline {
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 6'><path d='M0 3 Q 7.5 0 15 3 T 30 3 T 45 3 T 60 3' stroke='%234A6741' stroke-width='1.2' fill='none' stroke-linecap='round'/></svg>");
-    background-repeat: repeat-x;
-    background-position: 0 100%;
-    background-size: 60px 6px;
-    padding-bottom: 6px;
-  }
-
+  /* Legacy back-compat shims (no-op visually) */
+  .wavy-underline { padding-bottom: 0; }
   .paper-card {
     background: hsl(var(--card));
     border-radius: var(--radius);
     box-shadow: var(--shadow-card);
     border: 1px solid hsl(var(--border) / 0.5);
   }
-
   .ink-border { border: 1px solid hsl(var(--primary) / 0.4); }
-
-  /* Disabled hover-bow effect — kept as no-op for back-compat */
   .hover-bow { position: relative; }
+
+  /* Sidebar nav item active state (per spec §3.3) */
+  .sidebar-item-active {
+    background: hsl(var(--primary)) !important;
+    color: hsl(var(--primary-foreground)) !important;
+    border-left: 4px solid #E8D26A; /* accent-yellow */
+  }
 }
 
 @layer utilities {
   .text-balance { text-wrap: balance; }
-  .text-pretty { text-wrap: pretty; }
+  .text-pretty  { text-wrap: pretty; }
 
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(6px); }
-    to { opacity: 1; transform: translateY(0); }
+    to   { opacity: 1; transform: translateY(0); }
   }
   .animate-fade-up { animation: fadeUp 600ms cubic-bezier(0.2, 0.8, 0.2, 1) both; }
 
   @keyframes growSway {
     0%, 100% { transform: rotate(-1deg); }
-    50% { transform: rotate(1deg); }
+    50%      { transform: rotate(1deg); }
   }
   .animate-sway { animation: growSway 4s ease-in-out infinite; transform-origin: bottom center; }
 }
@@ -217,7 +221,7 @@
 .leaflet-container {
   background: hsl(var(--accent));
   border-radius: var(--radius);
-  font-family: 'Inter', sans-serif;
+  font-family: 'DM Sans', sans-serif;
 }
 .leaflet-popup-content-wrapper {
   background: hsl(var(--card));
