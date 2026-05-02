@@ -7,17 +7,23 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: "1.25rem",
-      screens: { "2xl": "1320px" },
+      padding: "1.5rem",
+      screens: { "2xl": "1280px" },
     },
     extend: {
       fontFamily: {
-        script: ["Caveat", "cursive"],
-        display: ["Fraunces", "Georgia", "serif"],
-        body: ["Fraunces", "Georgia", "serif"],
-        ui: ["Inter", "system-ui", "sans-serif"],
+        // Caveat = display script (logo, hero accents only — per spec rules)
+        script:  ["Caveat", "cursive"],
+        display: ["Caveat", "cursive"],
+        // DM Sans does the heavy lifting for headings + body
+        heading: ["'DM Sans'", "system-ui", "sans-serif"],
+        body:    ["'DM Sans'", "system-ui", "sans-serif"],
+        sans:    ["'DM Sans'", "system-ui", "sans-serif"],
+        ui:      ["'DM Sans'", "system-ui", "sans-serif"],
+        mono:    ["'JetBrains Mono'", "ui-monospace", "monospace"],
       },
       colors: {
+        // Shadcn semantic tokens — all driven by CSS vars in index.css
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -68,15 +74,32 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // ── Brand palette (per spec §1.1) ──
+        cream: {
+          DEFAULT: "#F5EFE0",
+          soft:    "#FAF6EC",
+          white:   "#FFFFFF",
+        },
+        garden: {
+          900: "#2F3D14",
+          700: "#4A5D2E",
+          600: "#5C6E2D",
+          500: "#7B8B3D",
+          400: "#9AAB52",
+          100: "#E8EDD0",
+        },
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 4px)",
-        sm: "calc(var(--radius) - 8px)",
+        lg: "var(--radius)",                    // 16px — cards
+        md: "calc(var(--radius) - 8px)",        // 8px — buttons, badges
+        sm: "calc(var(--radius) - 14px)",       // 2px — input borders
+        "2xl": "1rem",
+        "3xl": "1.5rem",
       },
       boxShadow: {
         paper: "var(--shadow-paper)",
         card: "var(--shadow-card)",
+        elevated: "var(--shadow-elevated)",
       },
       keyframes: {
         "accordion-down": { from: { height: "0" }, to: { height: "var(--radix-accordion-content-height)" } },

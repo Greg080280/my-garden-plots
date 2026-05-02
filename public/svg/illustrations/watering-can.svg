@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidden="true">
+  <g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <!-- can body -->
+    <path d="M50 80 L50 160 Q 50 170 60 170 L130 170 Q 140 170 140 160 L140 80 Z"/>
+    <path d="M48 80 L142 80"/>
+    <!-- spout -->
+    <path d="M140 100 L185 70 L195 84 L185 102"/>
+    <path d="M180 70 L188 60 M186 70 L194 64 M192 76 L200 72"/>
+    <!-- handle -->
+    <path d="M70 70 Q 80 50 100 50 Q 120 50 130 70"/>
+    <!-- rivets -->
+    <circle cx="60" cy="110" r="2" fill="currentColor"/>
+    <circle cx="130" cy="110" r="2" fill="currentColor"/>
+    <!-- water droplets -->
+    <path d="M30 95 Q 22 105 30 113 Q 38 105 30 95 Z"/>
+    <path d="M14 120 Q 8 128 14 134 Q 20 128 14 120 Z"/>
+  </g>
+</svg>

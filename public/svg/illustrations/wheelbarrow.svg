@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" aria-hidden="true">
+  <g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <!-- barrow body -->
+    <path d="M50 70 L180 70 L160 120 L80 120 Z"/>
+    <!-- handle -->
+    <path d="M180 70 L220 60"/>
+    <path d="M50 70 L20 60"/>
+    <!-- legs -->
+    <path d="M85 120 L80 145"/>
+    <path d="M155 120 L160 145"/>
+    <!-- wheel -->
+    <circle cx="60" cy="135" r="20"/>
+    <circle cx="60" cy="135" r="4" fill="currentColor"/>
+    <!-- contents: tomatoes + leaves -->
+    <circle cx="100" cy="78" r="9"/>
+    <path d="M97 70 Q 100 66 103 70" stroke-width="1.6"/>
+    <circle cx="125" cy="74" r="10"/>
+    <path d="M121 65 Q 125 60 129 65" stroke-width="1.6"/>
+    <circle cx="150" cy="78" r="9"/>
+    <path d="M147 70 Q 150 66 153 70" stroke-width="1.6"/>
+    <!-- leaves -->
+    <path d="M80 75 Q 75 60 90 58 Q 92 70 80 75 Z" stroke-width="1.6"/>
+    <path d="M165 75 Q 175 60 178 70 Q 172 78 165 75 Z" stroke-width="1.6"/>
+  </g>
+</svg>

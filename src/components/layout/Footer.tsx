@@ -1,53 +1,61 @@
 import { Link } from "react-router-dom";
+import { BotanicalSVG } from "@/components/decor/BotanicalSVG";
 
+/**
+ * Public footer (spec §3.4): garden-700 background, cream-soft text,
+ * wave divider on top, 4 columns + bottom copyright row.
+ */
 export const Footer = () => (
-  <footer className="mt-32 border-t border-border/70 bg-background">
-    <div className="container py-20 grid md:grid-cols-12 gap-10">
+  <footer className="mt-24 bg-garden-700 text-cream-soft">
+    {/* Wave divider — inverted, sits at the very top */}
+    <div className="text-cream relative -mt-px">
+      <BotanicalSVG name="dividers/wave" className="block w-full h-10" />
+    </div>
+
+    <div className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-12 gap-10">
       <div className="md:col-span-4">
-        <span className="font-script text-3xl text-primary-deep block mb-3">MyGarden</span>
-        <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">
-          Pământ adevărat, îngrijit cu grijă, în mijlocul Moldovei. Pentru oameni care vor să știe de unde vine recolta lor.
+        <Link to="/" className="font-script text-[32px] text-cream-soft block leading-none">
+          MyGarden
+        </Link>
+        <p className="font-ui text-sm text-cream-soft/75 mt-4 max-w-xs leading-relaxed">
+          Cultivă-ți visul. Pământ adevărat în Moldova, îngrijit de fermieri locali.
         </p>
       </div>
 
       <div className="md:col-span-2">
-        <h4 className="font-ui text-[11px] uppercase tracking-widest text-primary mb-4">Explorează</h4>
-        <ul className="space-y-2.5 font-display text-[15px]">
-          <li><Link to="/lands" className="link-underline text-foreground/80 hover:text-primary-deep">Loturi</Link></li>
-          <li><Link to="/marketplace" className="link-underline text-foreground/80 hover:text-primary-deep">Magazin</Link></li>
-          <li><Link to="/dashboard" className="link-underline text-foreground/80 hover:text-primary-deep">Grădina mea</Link></li>
-          <li><Link to="/farmer" className="link-underline text-foreground/80 hover:text-primary-deep">Pentru fermieri</Link></li>
+        <h4 className="font-ui text-[11px] uppercase tracking-widest text-cream-soft/60 mb-4">Despre</h4>
+        <ul className="space-y-2.5 font-ui text-[14px]">
+          <li><Link to="/how-it-works" className="link-underline text-cream-soft/85 hover:text-cream-soft">Cum funcționează</Link></li>
+          <li><a href="#" className="link-underline text-cream-soft/85 hover:text-cream-soft">Echipa</a></li>
+          <li><a href="#" className="link-underline text-cream-soft/85 hover:text-cream-soft">Termeni</a></li>
         </ul>
       </div>
 
-      <div className="md:col-span-2">
-        <h4 className="font-ui text-[11px] uppercase tracking-widest text-primary mb-4">Despre</h4>
-        <ul className="space-y-2.5 font-display text-[15px]">
-          <li><a href="#" className="link-underline text-foreground/80 hover:text-primary-deep">Cum funcționează</a></li>
-          <li><a href="#" className="link-underline text-foreground/80 hover:text-primary-deep">Întrebări</a></li>
-          <li><a href="#" className="link-underline text-foreground/80 hover:text-primary-deep">Despre noi</a></li>
-          <li><a href="#" className="link-underline text-foreground/80 hover:text-primary-deep">Contact</a></li>
+      <div className="md:col-span-3">
+        <h4 className="font-ui text-[11px] uppercase tracking-widest text-cream-soft/60 mb-4">Contact</h4>
+        <ul className="space-y-2.5 font-ui text-[14px] text-cream-soft/85">
+          <li>contact@mygarden.md</li>
+          <li>Telegram @mygarden</li>
+          <li>Chișinău, Moldova</li>
         </ul>
       </div>
 
-      <div className="md:col-span-4">
-        <h4 className="font-ui text-[11px] uppercase tracking-widest text-primary mb-4">Scrie-ne</h4>
-        <p className="font-display text-[15px] text-foreground/85">salut@mygarden.md</p>
-        <p className="font-display text-[15px] text-foreground/85">Chișinău, Moldova</p>
-        <p className="font-ui text-xs text-muted-foreground mt-6 leading-relaxed max-w-xs">
-          Răspundem în 24 de ore. Pentru rezervări de sezon, sună-ne direct.
-        </p>
+      <div className="md:col-span-3">
+        <h4 className="font-ui text-[11px] uppercase tracking-widest text-cream-soft/60 mb-4">Resurse</h4>
+        <ul className="space-y-2.5 font-ui text-[14px]">
+          <li><a href="#" className="link-underline text-cream-soft/85 hover:text-cream-soft">Blog</a></li>
+          <li><Link to="/cultures" className="link-underline text-cream-soft/85 hover:text-cream-soft">Catalog culturi</Link></li>
+          <li><a href="#" className="link-underline text-cream-soft/85 hover:text-cream-soft">FAQ</a></li>
+        </ul>
       </div>
     </div>
 
-    <div className="border-t border-border/70">
-      <div className="container py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <span className="font-ui text-xs text-muted-foreground">
-          © {new Date().getFullYear()} MyGarden. Toate drepturile rezervate.
+    <div className="border-t border-cream-soft/15">
+      <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <span className="font-ui text-xs text-cream-soft/60">
+          © {new Date().getFullYear()} MyGarden — proiect studențesc
         </span>
-        <span className="font-display italic text-sm text-brown">
-          „Tot ce semeni, vei culege."
-        </span>
+        <span className="font-ui text-xs text-cream-soft/60">🌐 RO · RU</span>
       </div>
     </div>
   </footer>
