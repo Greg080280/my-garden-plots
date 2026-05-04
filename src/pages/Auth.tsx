@@ -43,7 +43,14 @@ const Auth = ({ mode }: Props) => {
               : "Alege un lot din Moldova, planifică ce să crești și lasă fermierii locali să se ocupe de restul."}
           </p>
         </div>
-        <p className="font-display italic text-sm text-brown">„Tot ce semeni, vei culege."</p>
+        <div className="flex items-end justify-between">
+          <p className="font-display italic text-sm text-brown max-w-[60%]">„Tot ce semeni, vei culege."</p>
+          <Botanical
+            cat={isLogin ? "tools" : "flowers"}
+            slug={isLogin ? "watering-can" : "flower-bouquet"}
+            className="w-32 h-32 text-primary-deep/80"
+          />
+        </div>
       </div>
 
       {/* Right — form */}
