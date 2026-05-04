@@ -142,23 +142,34 @@ const Dashboard = () => {
         <div className="mt-20 pt-16 border-t border-border/70">
           <p className="eyebrow">Servicii</p>
           <h2 className="mt-3 font-display text-3xl text-primary-deep font-normal mb-8">Active</h2>
-          <ul className="border-y border-border/60">
-            {r.services.map(so => {
-              const s = SERVICES.find(x => x.id === so.serviceId);
-              if (!s) return null;
-              return (
-                <li key={so.serviceId} className="flex items-center justify-between gap-6 py-5 border-b border-border/40 last:border-0">
-                  <div>
-                    <p className="font-display text-lg text-primary-deep">{s.name}</p>
-                    <p className="text-sm text-muted-foreground mt-0.5">{s.description}</p>
-                  </div>
-                  <span className="font-ui text-[10px] uppercase tracking-widest text-primary-deep bg-paper px-2.5 py-1 rounded">
-                    {so.status}
-                  </span>
-                </li>
-              );
-            })}
-          </ul>
+          {r.services.length === 0 ? (
+            <EmptyState
+              cat="tools"
+              slug="watering-can"
+              tilt={-4}
+              size="md"
+              title="Niciun serviciu activ"
+              description="Adaugă servicii — udare, plivit, tratamente — și fermierul tău va fi notificat."
+            />
+          ) : (
+            <ul className="border-y border-border/60">
+              {r.services.map(so => {
+                const s = SERVICES.find(x => x.id === so.serviceId);
+                if (!s) return null;
+                return (
+                  <li key={so.serviceId} className="flex items-center justify-between gap-6 py-5 border-b border-border/40 last:border-0">
+                    <div>
+                      <p className="font-display text-lg text-primary-deep">{s.name}</p>
+                      <p className="text-sm text-muted-foreground mt-0.5">{s.description}</p>
+                    </div>
+                    <span className="font-ui text-[10px] uppercase tracking-widest text-primary-deep bg-paper px-2.5 py-1 rounded">
+                      {so.status}
+                    </span>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
         </div>
 
         {/* CTA */}
