@@ -133,11 +133,25 @@ const Lands = () => {
         {/* Results */}
         <section>
           {view === "grid" ? (
-            filtered.length === 0 ? (
-              <div className="text-center py-32 border border-dashed border-border rounded-md">
-                <p className="font-display text-2xl text-primary-deep italic">Niciun lot nu se potrivește.</p>
-                <p className="text-sm text-muted-foreground mt-2 font-ui">Schimbă filtrele și încearcă din nou.</p>
-              </div>
+            loading ? (
+              <CardGridSkeleton count={6} />
+            ) : filtered.length === 0 ? (
+              <EmptyState
+                cat="tools"
+                slug="garden-hat"
+                tilt={-6}
+                size="lg"
+                title="Niciun lot nu se potrivește"
+                description="Schimbă filtrele sau resetează căutarea — avem 146 de loturi în 12 regiuni."
+                action={
+                  <button
+                    onClick={reset}
+                    className="press inline-flex items-center justify-center h-10 px-5 rounded-md bg-primary text-primary-foreground hover:bg-primary-deep font-display text-sm"
+                  >
+                    Resetează filtrele
+                  </button>
+                }
+              />
             ) : (
               <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-8">
                 {filtered.map(land => (
