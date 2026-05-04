@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Check } from "lucide-react";
 import { LANDS, TESTIMONIALS } from "@/data/mock";
-import { illos } from "@/assets";
+import { Botanical } from "@/components/decor/Botanical";
 
 const Landing = () => {
   const featured = LANDS.slice(0, 3);
