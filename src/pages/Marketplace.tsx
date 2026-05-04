@@ -34,6 +34,12 @@ const Marketplace = () => {
   const { items, add, remove, total, clear } = useCart();
   const list = useMemo(() => cat === "Toate" ? PRODUCTS : PRODUCTS.filter(p => p.category === cat), [cat]);
 
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const t = setTimeout(() => setLoading(false), 600);
+    return () => clearTimeout(t);
+  }, []);
+
   return (
     <div className="container py-16 grid lg:grid-cols-[1fr_320px] gap-16">
       <section>
