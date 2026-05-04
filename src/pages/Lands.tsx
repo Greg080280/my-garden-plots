@@ -1,10 +1,11 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import { LayoutGrid, Map as MapIcon, Search } from "lucide-react";
 import { LANDS, type Region } from "@/data/mock";
 import { Slider } from "@/components/ui/slider";
+import { EmptyState, CardGridSkeleton, LoadingState } from "@/components/dashboard";
 
 const REGIONS: Region[] = ["Chișinău", "Cahul", "Bălți", "Orhei", "Ungheni", "Soroca", "Dubăsari", "Călărași"];
 
