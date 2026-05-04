@@ -73,28 +73,55 @@ const Marketplace = () => {
             return (
             <article key={p.id} className="editorial-card overflow-hidden flex flex-col">
               <div className="img-zoom aspect-square bg-paper border-b border-border/60 grid place-items-center overflow-hidden p-10">
-                <Botanical cat={art.cat} slug={art.slug} className="w-full h-full text-primary-deep" title={p.name} />
-              </div>
-              <div className="p-6 flex-1 flex flex-col">
-                <p className="eyebrow text-[10px]">{p.category}</p>
-                <h3 className="mt-2 font-display text-lg text-primary-deep leading-tight">{p.name}</h3>
-                <p className="text-sm text-muted-foreground mt-1.5 flex-1">{p.description}</p>
-                <div className="mt-5 pt-4 border-t border-border/60 flex items-center justify-between">
-                  <span className="font-display text-base text-primary-deep">
-                    {p.price} <span className="font-ui text-xs text-muted-foreground tracking-wide">MDL</span>
-                  </span>
-                  <button
-                    onClick={() => { add(p); toast.success(`${p.name}`, { description: "Adăugat în coș" }); }}
-                    className="press font-ui text-[11px] uppercase tracking-widest text-primary-deep link-underline"
-                  >
-                    Adaugă
-                  </button>
+        {loading ? (
+          <CardGridSkeleton count={6} />
+        ) : list.length === 0 ? (
+          <EmptyState
+            cat="decor"
+            slug="seed-packet"
+            tilt={-5}
+            size="lg"
+            title="Niciun produs aici"
+            description="Această categorie e goală pentru moment. Aruncă o privire pe celelalte rafturi."
+            action={
+              <button
+                onClick={() => setCat("Toate")}
+                className="press inline-flex items-center justify-center h-10 px-5 rounded-md bg-primary text-primary-foreground hover:bg-primary-deep font-display text-sm"
+              >
+                Vezi toate produsele
+              </button>
+            }
+          />
+        ) : (
+          <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-8">
+            {list.map(p => {
+              const art = productArt(p);
+              return (
+              <article key={p.id} className="editorial-card overflow-hidden flex flex-col">
+                <div className="img-zoom aspect-square bg-paper border-b border-border/60 grid place-items-center overflow-hidden p-10">
+                  <Botanical cat={art.cat} slug={art.slug} className="w-full h-full text-primary-deep" title={p.name} />
                 </div>
-              </div>
-            </article>
-            );
-          })}
-        </div>
+                <div className="p-6 flex-1 flex flex-col">
+                  <p className="eyebrow text-[10px]">{p.category}</p>
+                  <h3 className="mt-2 font-display text-lg text-primary-deep leading-tight">{p.name}</h3>
+                  <p className="text-sm text-muted-foreground mt-1.5 flex-1">{p.description}</p>
+                  <div className="mt-5 pt-4 border-t border-border/60 flex items-center justify-between">
+                    <span className="font-display text-base text-primary-deep">
+                      {p.price} <span className="font-ui text-xs text-muted-foreground tracking-wide">MDL</span>
+                    </span>
+                    <button
+                      onClick={() => { add(p); toast.success(`${p.name}`, { description: "Adăugat în coș" }); }}
+                      className="press font-ui text-[11px] uppercase tracking-widest text-primary-deep link-underline"
+                    >
+                      Adaugă
+                    </button>
+                  </div>
+                </div>
+              </article>
+              );
+            })}
+          </div>
+        )}
       </section>
 
       {/* Cart */}
