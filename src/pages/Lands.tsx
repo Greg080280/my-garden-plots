@@ -24,6 +24,12 @@ const Lands = () => {
   const [q, setQ] = useState("");
   const [regions, setRegions] = useState<Set<Region>>(new Set());
   const [maxPrice, setMaxPrice] = useState(400);
+  // Simulated initial load — gives visitors the charming skeleton before data settles.
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const t = setTimeout(() => setLoading(false), 700);
+    return () => clearTimeout(t);
+  }, []);
 
   const filtered = useMemo(
     () => LANDS.filter(l =>
