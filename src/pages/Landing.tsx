@@ -199,6 +199,7 @@ const Landing = () => {
       {/* CTA */}
       <section className="bg-paper py-24 lg:py-32 border-y border-border/70">
         <div className="container max-w-2xl text-center">
+          <Botanical cat="flowers" slug="flower-bouquet" className="mx-auto w-24 h-24 text-primary mb-4" />
           <p className="eyebrow">Începe azi</p>
           <h2 className="mt-5 font-display text-4xl md:text-5xl leading-[1.1] text-primary-deep font-normal">
             Pământul tău <span className="font-script italic text-primary">așteaptă</span>.
