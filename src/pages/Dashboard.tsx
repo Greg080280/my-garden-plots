@@ -102,21 +102,40 @@ const Dashboard = () => {
               <h2 className="mt-3 font-display text-3xl text-primary-deep font-normal">Ce crește pe lotul tău</h2>
             </div>
           </div>
-          <div className="grid sm:grid-cols-3 gap-px bg-border/60 border-y border-border/60">
-            {r.cultures.map(c => {
-              const cult = CULTURES.find(x => x.id === c.cultureId)!;
-              return (
-                <div key={c.cultureId} className="bg-background p-7">
-                  <p className="eyebrow text-[10px]">{cult.category}</p>
-                  <h3 className="mt-3 font-display text-2xl text-primary-deep">{cult.name}</h3>
-                  <p className="mt-1 font-ui text-xs text-muted-foreground tracking-wide uppercase">{c.area} ari</p>
-                  <p className="mt-4 text-sm text-foreground/70">
-                    Estimat: <span className="text-primary-deep">~{(c.area * cult.yieldKgPerAre).toFixed(0)} kg</span>
-                  </p>
-                </div>
-              );
-            })}
-          </div>
+          {r.cultures.length === 0 ? (
+            <EmptyState
+              cat="flowers"
+              slug="seedling"
+              tilt={-3}
+              size="md"
+              title="Lotul te așteaptă să-l populezi"
+              description="Alege ce vrei să crești — roșii, ardei, cartofi, busuioc — și noi facem restul."
+              action={
+                <Link
+                  to="/lands"
+                  className="press inline-flex items-center justify-center h-10 px-5 rounded-md bg-primary text-primary-foreground hover:bg-primary-deep font-display text-sm"
+                >
+                  Alege culturi
+                </Link>
+              }
+            />
+          ) : (
+            <div className="grid sm:grid-cols-3 gap-px bg-border/60 border-y border-border/60">
+              {r.cultures.map(c => {
+                const cult = CULTURES.find(x => x.id === c.cultureId)!;
+                return (
+                  <div key={c.cultureId} className="bg-background p-7">
+                    <p className="eyebrow text-[10px]">{cult.category}</p>
+                    <h3 className="mt-3 font-display text-2xl text-primary-deep">{cult.name}</h3>
+                    <p className="mt-1 font-ui text-xs text-muted-foreground tracking-wide uppercase">{c.area} ari</p>
+                    <p className="mt-4 text-sm text-foreground/70">
+                      Estimat: <span className="text-primary-deep">~{(c.area * cult.yieldKgPerAre).toFixed(0)} kg</span>
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
 
         {/* Services */}
