@@ -181,6 +181,10 @@ const Lands = () => {
                 ))}
               </div>
             )
+          ) : loading ? (
+            <div className="rounded-md border border-border h-[640px] grid place-items-center bg-paper/40">
+              <LoadingState cat="decor" slug="garden-door" label="Se desenează harta" size="lg" />
+            </div>
           ) : (
             <div className="rounded-md overflow-hidden border border-border h-[640px]">
               <MapContainer center={[47.0, 28.5]} zoom={7} className="h-full w-full">
