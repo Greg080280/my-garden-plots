@@ -67,12 +67,6 @@ const Marketplace = () => {
           ))}
         </div>
 
-        <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-8">
-          {list.map(p => {
-            const art = productArt(p);
-            return (
-            <article key={p.id} className="editorial-card overflow-hidden flex flex-col">
-              <div className="img-zoom aspect-square bg-paper border-b border-border/60 grid place-items-center overflow-hidden p-10">
         {loading ? (
           <CardGridSkeleton count={6} />
         ) : list.length === 0 ? (
