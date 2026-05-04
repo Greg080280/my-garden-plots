@@ -53,15 +53,27 @@ const Landing = () => {
             </div>
           </div>
 
-          {/* Right illustration — cols 8-12, partial bleed */}
+          {/* Right illustration — botanical arrangement, no AI image */}
           <div className="lg:col-span-5 relative">
-            <div className="relative lg:absolute lg:inset-y-0 lg:-right-12 lg:left-0 flex items-center justify-center">
-              <img
-                src={illos.heroArrangement}
-                alt="Aranjament botanic — sfeclă, roșii, morcovi, busuioc"
-                className="w-full max-w-md lg:max-w-none lg:h-[640px] object-contain"
-                loading="eager"
-              />
+            <div className="relative aspect-square max-w-[520px] mx-auto">
+              {/* Soft cream paper backdrop */}
+              <div className="absolute inset-0 bg-paper rounded-full opacity-60" aria-hidden />
+
+              {/* Centerpiece — greenhouse */}
+              <div className="absolute inset-0 grid place-items-center">
+                <Botanical cat="decor" slug="greenhouse" className="text-primary-deep w-[68%] h-[68%]" title="Seră" />
+              </div>
+
+              {/* Top-left — tomato */}
+              <Botanical cat="vegetables" slug="tomato" className="absolute -top-2 left-2 w-28 h-28 text-primary rotate-[-8deg]" />
+              {/* Top-right — sunflower */}
+              <Botanical cat="flowers" slug="sunflower" className="absolute top-6 -right-4 w-32 h-32 text-primary-deep rotate-[6deg]" />
+              {/* Bottom-left — watering can */}
+              <Botanical cat="tools" slug="watering-can" className="absolute -bottom-4 left-0 w-32 h-32 text-primary" />
+              {/* Bottom-right — basket / cherries */}
+              <Botanical cat="vegetables" slug="cherries" className="absolute bottom-2 -right-2 w-28 h-28 text-primary-deep rotate-[10deg]" />
+              {/* Floating bee */}
+              <Botanical cat="accents" slug="bee" className="absolute top-1/3 -left-6 w-14 h-14 text-primary animate-sway" />
             </div>
           </div>
         </div>
