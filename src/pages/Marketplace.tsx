@@ -123,10 +123,14 @@ const Marketplace = () => {
         <p className="eyebrow">Coș</p>
         <h2 className="mt-3 font-display text-2xl text-primary-deep font-normal mb-6">Comanda ta</h2>
         {items.length === 0 ? (
-          <div className="border-y border-border/70 py-16 text-center">
-            <p className="font-display italic text-lg text-muted-foreground">Coșul e gol.</p>
-            <p className="font-ui text-xs text-muted-foreground tracking-wide mt-2 uppercase">Adaugă ceva din stânga</p>
-          </div>
+          <EmptyState
+            cat="decor"
+            slug="veggie-basket"
+            tilt={5}
+            size="md"
+            title="Coșul e gol"
+            description="Adaugă răsaduri, semințe sau unelte din stânga — îți facem coșul gata pentru sezon."
+          />
         ) : (
           <>
             <ul className="border-y border-border/70 max-h-[420px] overflow-auto">
