@@ -42,22 +42,42 @@ const Farmer = () => {
         <div>
           <p className="eyebrow">Astăzi</p>
           <h2 className="mt-3 font-display text-3xl text-primary-deep font-normal mb-8">Sarcini</h2>
-          <ul className="border-y border-border/60">
-            {tasks.map(t => (
-              <li key={t.id}>
-                <label className={`flex items-center gap-4 py-4 border-b border-border/40 last:border-0 cursor-pointer transition-opacity ${t.done ? "opacity-50" : ""}`}>
-                  <Checkbox
-                    checked={t.done}
-                    onCheckedChange={() => toggle(t.id)}
-                    className="border-border data-[state=checked]:bg-primary data-[state=checked]:border-primary rounded-sm"
-                  />
-                  <span className={`flex-1 font-display text-base ${t.done ? "line-through text-muted-foreground" : "text-foreground/85"}`}>
-                    {t.title}
-                  </span>
-                </label>
-              </li>
-            ))}
-          </ul>
+          {tasks.length === 0 ? (
+            <EmptyState
+              cat="tools"
+              slug="hanging-gloves"
+              tilt={4}
+              size="md"
+              title="Nimic de făcut azi"
+              description="Sarcinile pentru ziua de azi vor apărea aici imediat ce sunt programate."
+            />
+          ) : tasks.every(t => t.done) ? (
+            <EmptyState
+              cat="accents"
+              slug="bee"
+              tilt={-6}
+              size="md"
+              title="Toate sarcinile sunt gata"
+              description="Frumoasă zi de muncă. Odihnește-te — culturile au tot ce le trebuie."
+            />
+          ) : (
+            <ul className="border-y border-border/60">
+              {tasks.map(t => (
+                <li key={t.id}>
+                  <label className={`flex items-center gap-4 py-4 border-b border-border/40 last:border-0 cursor-pointer transition-opacity ${t.done ? "opacity-50" : ""}`}>
+                    <Checkbox
+                      checked={t.done}
+                      onCheckedChange={() => toggle(t.id)}
+                      className="border-border data-[state=checked]:bg-primary data-[state=checked]:border-primary rounded-sm"
+                    />
+                    <span className={`flex-1 font-display text-base ${t.done ? "line-through text-muted-foreground" : "text-foreground/85"}`}>
+                      {t.title}
+                    </span>
+                  </label>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
 
         {/* Calendar */}
