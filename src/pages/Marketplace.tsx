@@ -1,9 +1,10 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Trash2 } from "lucide-react";
 import { PRODUCTS, type Product } from "@/data/mock";
 import { useCart } from "@/context/CartContext";
 import { toast } from "sonner";
 import { Botanical, type BotanicalCategory } from "@/components/decor/Botanical";
+import { EmptyState, CardGridSkeleton, LoadingState } from "@/components/dashboard";
 
 const CATS: (Product["category"] | "Toate")[] = ["Toate", "Răsaduri", "Semințe", "Unelte", "Îngrășăminte"];
 
