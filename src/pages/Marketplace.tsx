@@ -85,7 +85,8 @@ const Marketplace = () => {
                 </div>
               </div>
             </article>
-          ))}
+            );
+          })}
         </div>
       </section>
 
