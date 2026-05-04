@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Tag/marker shape - vertical pointed -->
+    <path d="M 88 30 L 112 30 L 112 145 L 100 170 L 88 145 Z"/>
+    <!-- Border inset -->
+    <path d="M 92 35 L 108 35 L 108 142 L 100 162 L 92 142 Z"/>
+    <!-- Text "ROSEMARY" - using simple letter shapes -->
+    <g transform="translate(100 90) rotate(-90)">
+      <!-- R -->
+      <path d="M -38 -3 L -38 4 M -38 -3 L -34 -3 C -32 -3, -32 0, -34 0 L -38 0 M -34 0 L -32 4"/>
+      <!-- O -->
+      <path d="M -28 -3 C -30 -3, -30 4, -28 4 C -26 4, -26 -3, -28 -3 Z"/>
+      <!-- S -->
+      <path d="M -22 -3 C -24 -3, -24 0, -22 0 L -20 0 C -18 0, -18 4, -20 4 L -22 4"/>
+      <!-- E -->
+      <path d="M -16 -3 L -16 4 M -16 -3 L -12 -3 M -16 0 L -13 0 M -16 4 L -12 4"/>
+      <!-- M -->
+      <path d="M -9 4 L -9 -3 L -7 0 L -5 -3 L -5 4"/>
+      <!-- A -->
+      <path d="M -2 4 L 0 -3 L 2 4 M -1 1 L 1 1"/>
+      <!-- R -->
+      <path d="M 5 4 L 5 -3 L 9 -3 C 11 -3, 11 0, 9 0 L 5 0 M 9 0 L 11 4"/>
+      <!-- Y -->
+      <path d="M 14 -3 L 16 0 L 18 -3 M 16 0 L 16 4"/>
+    </g>
+    <!-- Hole at top -->
+    <circle cx="100" cy="40" r="3"/>
+  </g>
+</svg>

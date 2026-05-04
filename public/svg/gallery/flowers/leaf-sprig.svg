@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Main stem -->
+    <path d="M 100 30 C 100 70, 100 130, 100 175"/>
+    <!-- Top leaf pair -->
+    <path d="M 100 50 C 88 45, 80 50, 80 60 C 90 62, 100 58, 100 50 Z"/>
+    <path d="M 100 50 C 112 45, 120 50, 120 60 C 110 62, 100 58, 100 50 Z"/>
+    <!-- Leaf veins -->
+    <path d="M 84 55 C 92 55, 98 53, 100 50"/>
+    <path d="M 116 55 C 108 55, 102 53, 100 50"/>
+    <!-- Middle leaf pair -->
+    <path d="M 100 85 C 85 80, 75 85, 75 98 C 88 102, 100 95, 100 85 Z"/>
+    <path d="M 100 85 C 115 80, 125 85, 125 98 C 112 102, 100 95, 100 85 Z"/>
+    <path d="M 80 92 C 90 92, 96 90, 100 86"/>
+    <path d="M 120 92 C 110 92, 104 90, 100 86"/>
+    <!-- Lower leaf pair (largest) -->
+    <path d="M 100 125 C 80 118, 65 125, 65 142 C 82 148, 100 138, 100 125 Z"/>
+    <path d="M 100 125 C 120 118, 135 125, 135 142 C 118 148, 100 138, 100 125 Z"/>
+    <path d="M 70 135 C 82 135, 92 132, 100 128"/>
+    <path d="M 130 135 C 118 135, 108 132, 100 128"/>
+    <!-- Bottom small leaves -->
+    <path d="M 100 158 C 92 155, 85 158, 88 165 C 95 165, 100 162, 100 158 Z"/>
+    <path d="M 100 158 C 108 155, 115 158, 112 165 C 105 165, 100 162, 100 158 Z"/>
+  </g>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Handle -->
+    <path d="M 35 35 C 30 38, 30 45, 35 48 L 75 88 C 80 92, 85 92, 88 88 C 92 85, 92 80, 88 75 L 48 35 C 45 30, 38 30, 35 35 Z"/>
+    <!-- Handle grip lines -->
+    <path d="M 42 42 L 50 50"/>
+    <path d="M 48 38 L 55 45"/>
+    <!-- Connection -->
+    <path d="M 88 88 L 95 95"/>
+    <!-- Blade -->
+    <path d="M 95 95 C 105 105, 120 115, 138 125 C 150 132, 158 138, 162 148 C 158 158, 148 162, 138 158 C 120 152, 105 142, 95 130 C 90 120, 88 105, 95 95 Z"/>
+    <!-- Blade highlight curve -->
+    <path d="M 105 110 C 120 120, 135 130, 148 138"/>
+    <path d="M 100 120 C 115 128, 130 138, 142 145"/>
+  </g>
+</svg>

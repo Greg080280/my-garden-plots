@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Outer leaves -->
+    <path d="M 40 100 C 35 80, 45 55, 70 45 C 95 35, 130 38, 155 55 C 168 75, 168 105, 155 130 C 135 155, 100 165, 70 155 C 50 145, 38 125, 40 100 Z"/>
+    <!-- Inner leaf 1 -->
+    <path d="M 60 95 C 55 80, 65 65, 85 60 C 100 58, 115 62, 125 75"/>
+    <!-- Inner leaf 2 -->
+    <path d="M 75 110 C 72 90, 88 75, 110 75 C 130 78, 142 95, 142 115"/>
+    <!-- Inner leaf 3 -->
+    <path d="M 90 130 C 85 115, 95 100, 115 100 C 130 102, 138 115, 138 130"/>
+    <!-- Center -->
+    <path d="M 105 130 C 100 122, 105 112, 115 112 C 125 115, 128 125, 122 132"/>
+    <path d="M 110 122 C 112 125, 118 125, 120 122"/>
+    <!-- Veins -->
+    <path d="M 80 150 C 90 142, 100 138, 110 138"/>
+    <path d="M 50 110 C 55 105, 60 102, 65 105"/>
+  </g>
+</svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Bottle body -->
+    <path d="M 60 95 C 55 95, 55 165, 65 175 C 100 180, 135 178, 145 172 C 148 168, 148 100, 142 95 C 130 92, 75 92, 60 95 Z"/>
+    <!-- Neck -->
+    <path d="M 80 95 C 80 80, 82 75, 85 73 L 118 73 C 122 75, 122 80, 122 95"/>
+    <!-- Cap -->
+    <path d="M 78 73 L 125 73 L 125 60 L 78 60 Z"/>
+    <!-- Top sprayer -->
+    <path d="M 92 60 L 92 45 L 115 45 L 115 60"/>
+    <!-- Trigger -->
+    <path d="M 92 50 C 80 48, 70 50, 65 55 C 62 60, 65 65, 72 65"/>
+    <!-- Nozzle -->
+    <path d="M 115 55 L 135 50 L 138 45 L 142 50 L 142 55 L 138 60 L 135 55"/>
+    <!-- Water level line -->
+    <path d="M 65 130 C 88 132, 120 132, 142 130"/>
+    <!-- Label area -->
+    <path d="M 75 145 C 90 147, 115 147, 130 145"/>
+    <path d="M 75 145 L 75 160"/>
+    <path d="M 130 145 L 130 160"/>
+    <path d="M 75 160 C 90 162, 115 162, 130 160"/>
+  </g>
+</svg>

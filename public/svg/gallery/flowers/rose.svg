@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Outer petals (5 large) -->
+    <path d="M 100 50 C 75 50, 55 65, 50 90 C 50 120, 65 140, 90 145 C 115 148, 140 138, 148 115 C 152 92, 138 65, 115 55 C 110 52, 105 50, 100 50 Z"/>
+    <!-- Mid petals layer -->
+    <path d="M 95 70 C 78 75, 70 90, 75 105 C 85 118, 105 118, 118 108 C 128 95, 122 75, 110 70 C 105 68, 100 68, 95 70 Z"/>
+    <!-- Inner petals -->
+    <path d="M 100 85 C 90 88, 87 100, 95 108 C 105 112, 115 105, 115 95 C 113 88, 105 84, 100 85 Z"/>
+    <!-- Center spiral -->
+    <path d="M 100 95 C 98 99, 102 102, 105 100 C 105 96, 102 94, 100 95 Z"/>
+    <!-- Petal swirl lines -->
+    <path d="M 78 95 C 85 90, 92 88, 98 90"/>
+    <path d="M 110 100 C 115 95, 118 88, 115 82"/>
+    <path d="M 95 115 C 88 112, 82 105, 80 100"/>
+    <!-- Stem -->
+    <path d="M 100 145 L 100 185"/>
+    <!-- Leaf left -->
+    <path d="M 100 160 C 88 152, 75 152, 72 162 C 80 168, 95 168, 100 162 Z"/>
+    <path d="M 78 160 C 88 162, 95 162, 100 162"/>
+    <!-- Leaf right -->
+    <path d="M 100 175 C 112 168, 125 170, 128 178 C 120 182, 105 180, 100 178 Z"/>
+    <path d="M 122 175 C 115 175, 108 175, 100 178"/>
+    <!-- Thorn -->
+    <path d="M 100 168 C 102 165, 105 165, 105 168"/>
+  </g>
+</svg>

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Check } from "lucide-react";
 import { LANDS, TESTIMONIALS } from "@/data/mock";
-import { illos } from "@/assets";
+import { Botanical } from "@/components/decor/Botanical";
 
 const Landing = () => {
   const featured = LANDS.slice(0, 3);
@@ -53,15 +53,27 @@ const Landing = () => {
             </div>
           </div>
 
-          {/* Right illustration — cols 8-12, partial bleed */}
+          {/* Right illustration — botanical arrangement, no AI image */}
           <div className="lg:col-span-5 relative">
-            <div className="relative lg:absolute lg:inset-y-0 lg:-right-12 lg:left-0 flex items-center justify-center">
-              <img
-                src={illos.heroArrangement}
-                alt="Aranjament botanic — sfeclă, roșii, morcovi, busuioc"
-                className="w-full max-w-md lg:max-w-none lg:h-[640px] object-contain"
-                loading="eager"
-              />
+            <div className="relative aspect-square max-w-[520px] mx-auto">
+              {/* Soft cream paper backdrop */}
+              <div className="absolute inset-0 bg-paper rounded-full opacity-60" aria-hidden />
+
+              {/* Centerpiece — greenhouse */}
+              <div className="absolute inset-0 grid place-items-center">
+                <Botanical cat="decor" slug="greenhouse" className="text-primary-deep w-[68%] h-[68%]" title="Seră" />
+              </div>
+
+              {/* Top-left — tomato */}
+              <Botanical cat="vegetables" slug="tomato" className="absolute -top-2 left-2 w-28 h-28 text-primary rotate-[-8deg]" />
+              {/* Top-right — sunflower */}
+              <Botanical cat="flowers" slug="sunflower" className="absolute top-6 -right-4 w-32 h-32 text-primary-deep rotate-[6deg]" />
+              {/* Bottom-left — watering can */}
+              <Botanical cat="tools" slug="watering-can" className="absolute -bottom-4 left-0 w-32 h-32 text-primary" />
+              {/* Bottom-right — basket / cherries */}
+              <Botanical cat="vegetables" slug="cherries" className="absolute bottom-2 -right-2 w-28 h-28 text-primary-deep rotate-[10deg]" />
+              {/* Floating bee */}
+              <Botanical cat="accents" slug="bee" className="absolute top-1/3 -left-6 w-14 h-14 text-primary animate-sway" />
             </div>
           </div>
         </div>
@@ -79,12 +91,13 @@ const Landing = () => {
 
           <div className="grid md:grid-cols-3 gap-px bg-border/60 border-y border-border/60">
             {[
-              { n: "01", title: "Alegi un lot", text: "Răsfoiești loturile din Dubăsari, Orhei sau Călărași. Vezi pozele, prețul, fermierul." },
-              { n: "02", title: "Spui ce plantezi", text: "Roșii, ardei, cartofi — alegi culturile și împarți lotul după dorință." },
-              { n: "03", title: "Noi îngrijim", text: "Fermierul local ară, plantează, udă, recoltează. Tu primești coșul gata pregătit." },
+              { n: "01", title: "Alegi un lot", text: "Răsfoiești loturile din Dubăsari, Orhei sau Călărași. Vezi pozele, prețul, fermierul.", cat: "decor" as const, slug: "garden-door" },
+              { n: "02", title: "Spui ce plantezi", text: "Roșii, ardei, cartofi — alegi culturile și împarți lotul după dorință.", cat: "vegetables" as const, slug: "tomato" },
+              { n: "03", title: "Noi îngrijim", text: "Fermierul local ară, plantează, udă, recoltează. Tu primești coșul gata pregătit.", cat: "decor" as const, slug: "veggie-basket" },
             ].map(step => (
-              <div key={step.n} className="bg-background p-10">
-                <span className="font-script text-5xl text-primary/40">{step.n}</span>
+              <div key={step.n} className="bg-background p-10 relative">
+                <Botanical cat={step.cat} slug={step.slug} className="absolute top-8 right-8 w-16 h-16 text-primary/35" />
+                <span className="font-script text-5xl text-primary/40 relative">{step.n}</span>
                 <h3 className="mt-6 font-display text-2xl text-primary-deep">{step.title}</h3>
                 <p className="mt-3 text-[15px] text-foreground/70 leading-[1.7]">{step.text}</p>
               </div>
@@ -186,6 +199,7 @@ const Landing = () => {
       {/* CTA */}
       <section className="bg-paper py-24 lg:py-32 border-y border-border/70">
         <div className="container max-w-2xl text-center">
+          <Botanical cat="flowers" slug="flower-bouquet" className="mx-auto w-24 h-24 text-primary mb-4" />
           <p className="eyebrow">Începe azi</p>
           <h2 className="mt-5 font-display text-4xl md:text-5xl leading-[1.1] text-primary-deep font-normal">
             Pământul tău <span className="font-script italic text-primary">așteaptă</span>.

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Arched top of door frame -->
+    <path d="M 50 60 C 50 35, 70 25, 100 25 C 130 25, 150 35, 150 60"/>
+    <!-- Door frame sides -->
+    <path d="M 50 60 L 50 175"/>
+    <path d="M 150 60 L 150 175"/>
+    <!-- Door inner shape (slightly inset) -->
+    <path d="M 60 65 C 60 45, 75 38, 100 38 C 125 38, 140 45, 140 65"/>
+    <path d="M 60 65 L 60 170"/>
+    <path d="M 140 65 L 140 170"/>
+    <!-- Vertical wood planks -->
+    <path d="M 75 50 L 75 170"/>
+    <path d="M 88 42 L 88 170"/>
+    <path d="M 100 38 L 100 170"/>
+    <path d="M 112 42 L 112 170"/>
+    <path d="M 125 50 L 125 170"/>
+    <!-- Horizontal cross beam -->
+    <path d="M 60 100 L 140 100"/>
+    <path d="M 60 105 L 140 105"/>
+    <!-- Door knob/handle -->
+    <circle cx="125" cy="125" r="3"/>
+    <!-- Wood grain hatching -->
+    <path d="M 65 75 L 70 80"/>
+    <path d="M 78 80 L 83 85"/>
+    <path d="M 92 85 L 97 90"/>
+    <path d="M 105 80 L 110 85"/>
+    <path d="M 118 85 L 123 90"/>
+    <path d="M 130 75 L 135 80"/>
+    <path d="M 65 130 L 70 135"/>
+    <path d="M 78 140 L 83 145"/>
+    <path d="M 92 135 L 97 140"/>
+    <path d="M 105 145 L 110 150"/>
+    <path d="M 118 140 L 123 145"/>
+    <!-- Bottom edge -->
+    <path d="M 45 175 L 155 175"/>
+  </g>
+</svg>

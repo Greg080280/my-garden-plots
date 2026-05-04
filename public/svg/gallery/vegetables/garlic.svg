@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Bulb body -->
+    <path d="M 55 90 C 50 110, 55 145, 75 165 C 95 175, 115 175, 130 168 C 148 150, 152 115, 145 92 C 138 78, 120 70, 100 70 C 80 70, 62 78, 55 90 Z"/>
+    <!-- Cloves dividers -->
+    <path d="M 75 75 C 72 100, 72 135, 80 165"/>
+    <path d="M 100 70 C 98 100, 100 140, 100 175"/>
+    <path d="M 125 75 C 128 100, 128 135, 120 165"/>
+    <!-- Top point/papery skin -->
+    <path d="M 88 70 C 85 60, 90 52, 95 50"/>
+    <path d="M 100 70 C 98 55, 102 45, 105 40"/>
+    <path d="M 112 70 C 115 60, 110 52, 105 50"/>
+    <!-- Top bunch -->
+    <path d="M 95 50 C 92 45, 100 38, 105 40 C 108 45, 105 50, 100 50"/>
+    <!-- Stem/sprout up -->
+    <path d="M 100 40 C 100 30, 100 20, 100 15"/>
+    <path d="M 100 30 C 96 27, 92 28, 90 30"/>
+    <path d="M 100 25 C 104 22, 108 23, 110 25"/>
+    <!-- Roots at bottom -->
+    <path d="M 80 168 C 78 175, 78 180, 80 185"/>
+    <path d="M 92 172 C 90 178, 90 184, 88 188"/>
+    <path d="M 105 172 C 105 178, 105 184, 105 188"/>
+    <path d="M 118 168 C 120 175, 120 180, 118 185"/>
+  </g>
+</svg>

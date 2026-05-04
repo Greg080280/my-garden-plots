@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Inner circle -->
+    <circle cx="100" cy="100" r="40"/>
+    <!-- Outer suggestion -->
+    <circle cx="100" cy="100" r="68" stroke-dasharray="0" opacity="0.001"/>
+    <!-- Leaves and flowers all around -->
+    <!-- Top -->
+    <path d="M 95 35 C 90 28, 88 20, 92 18 C 98 22, 100 30, 98 38 Z"/>
+    <path d="M 105 35 C 110 28, 112 20, 108 18 C 102 22, 100 30, 102 38 Z"/>
+    <circle cx="100" cy="32" r="4"/>
+    <!-- Top right -->
+    <path d="M 130 42 C 138 38, 145 38, 148 42 C 145 50, 138 50, 130 48 Z"/>
+    <circle cx="138" cy="44" r="3"/>
+    <path d="M 145 55 C 152 52, 158 55, 158 60 C 152 65, 145 62, 145 55 Z"/>
+    <!-- Right -->
+    <path d="M 155 80 C 162 75, 170 80, 168 88 C 162 92, 155 88, 155 80 Z"/>
+    <circle cx="165" cy="85" r="4"/>
+    <path d="M 158 105 C 165 105, 170 110, 168 118 C 162 118, 158 112, 158 105 Z"/>
+    <!-- Bottom right -->
+    <path d="M 148 130 C 152 138, 148 145, 142 145 C 138 138, 142 132, 148 130 Z"/>
+    <path d="M 130 148 C 135 155, 132 162, 125 160 C 122 152, 125 148, 130 148 Z"/>
+    <circle cx="138" cy="148" r="3"/>
+    <!-- Bottom -->
+    <path d="M 105 162 C 110 168, 110 175, 105 180 C 100 175, 100 168, 105 162 Z"/>
+    <path d="M 95 162 C 90 168, 90 175, 95 180 C 100 175, 100 168, 95 162 Z"/>
+    <circle cx="100" cy="170" r="4"/>
+    <!-- Bottom left -->
+    <path d="M 70 148 C 65 155, 68 162, 75 160 C 78 152, 75 148, 70 148 Z"/>
+    <path d="M 52 130 C 48 138, 52 145, 58 145 C 62 138, 58 132, 52 130 Z"/>
+    <circle cx="62" cy="148" r="3"/>
+    <!-- Left -->
+    <path d="M 42 105 C 35 105, 30 110, 32 118 C 38 118, 42 112, 42 105 Z"/>
+    <path d="M 45 80 C 38 75, 30 80, 32 88 C 38 92, 45 88, 45 80 Z"/>
+    <circle cx="35" cy="85" r="4"/>
+    <!-- Top left -->
+    <path d="M 55 55 C 48 52, 42 55, 42 60 C 48 65, 55 62, 55 55 Z"/>
+    <path d="M 70 42 C 62 38, 55 38, 52 42 C 55 50, 62 50, 70 48 Z"/>
+    <circle cx="62" cy="44" r="3"/>
+    <!-- Small berries scattered -->
+    <circle cx="112" cy="40" r="2"/>
+    <circle cx="155" cy="68" r="2"/>
+    <circle cx="160" cy="125" r="2"/>
+    <circle cx="125" cy="160" r="2"/>
+    <circle cx="78" cy="160" r="2"/>
+    <circle cx="40" cy="125" r="2"/>
+    <circle cx="42" cy="68" r="2"/>
+    <circle cx="88" cy="40" r="2"/>
+  </g>
+</svg>

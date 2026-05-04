@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Main stem -->
+    <path d="M 100 25 C 98 60, 100 110, 102 175"/>
+    <!-- Top leaves on stem -->
+    <path d="M 100 35 C 92 30, 85 32, 80 38 C 88 38, 95 38, 100 38 Z"/>
+    <path d="M 100 35 C 108 30, 115 32, 120 38 C 112 38, 105 38, 100 38 Z"/>
+    <!-- Pairs of needles going down -->
+    <!-- Pair 1 -->
+    <path d="M 100 50 C 90 48, 80 52, 75 60"/>
+    <path d="M 100 50 C 110 48, 120 52, 125 60"/>
+    <!-- Pair 2 -->
+    <path d="M 99 65 C 88 65, 78 70, 70 78"/>
+    <path d="M 101 65 C 112 65, 122 70, 130 78"/>
+    <!-- Pair 3 -->
+    <path d="M 99 80 C 86 82, 75 88, 65 95"/>
+    <path d="M 101 80 C 114 82, 125 88, 135 95"/>
+    <!-- Pair 4 -->
+    <path d="M 100 95 C 88 98, 75 105, 65 113"/>
+    <path d="M 100 95 C 112 98, 125 105, 135 113"/>
+    <!-- Pair 5 -->
+    <path d="M 100 110 C 90 113, 80 120, 72 128"/>
+    <path d="M 100 110 C 110 113, 120 120, 128 128"/>
+    <!-- Pair 6 -->
+    <path d="M 101 125 C 92 128, 82 135, 75 142"/>
+    <path d="M 101 125 C 110 128, 120 135, 127 142"/>
+    <!-- Pair 7 -->
+    <path d="M 102 140 C 95 142, 88 148, 82 155"/>
+    <path d="M 102 140 C 109 142, 116 148, 122 155"/>
+    <!-- Pair 8 (smaller, near bottom) -->
+    <path d="M 102 155 C 96 158, 92 162, 88 168"/>
+    <path d="M 102 155 C 108 158, 112 162, 116 168"/>
+  </g>
+</svg>
