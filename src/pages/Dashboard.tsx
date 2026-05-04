@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { CalendarDays, Home, Settings, ShoppingBasket, Sprout, Check } from "lucide-react";
 import { MY_RESERVATIONS, LANDS, CULTURES, SERVICES } from "@/data/mock";
 import { useAuth } from "@/context/AuthContext";
+import { EmptyState } from "@/components/dashboard";
 
 const STAGES = [
   { key: "Rezervat", label: "Rezervat" },
