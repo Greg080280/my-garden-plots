@@ -12,6 +12,16 @@ export const Footer = () => (
       <BotanicalSVG name="dividers/wave" className="block w-full h-10" />
     </div>
 
+    {/* Botanical accent row */}
+    <div className="max-w-7xl mx-auto px-6 pt-10 flex items-center justify-center gap-10 text-cream-soft/55">
+      <BotanicalSVG name="gallery/flowers/seedling" className="w-10 h-10" />
+      <BotanicalSVG name="gallery/vegetables/carrot" className="w-10 h-10" />
+      <BotanicalSVG name="gallery/tools/watering-can" className="w-10 h-10" />
+      <BotanicalSVG name="gallery/vegetables/tomato" className="w-10 h-10" />
+      <BotanicalSVG name="gallery/accents/bee" className="w-10 h-10" />
+      <BotanicalSVG name="gallery/decor/veggie-basket" className="w-10 h-10" />
+    </div>
+
     <div className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-12 gap-10">
       <div className="md:col-span-4">
         <Link to="/" className="font-script text-[32px] text-cream-soft block leading-none">
