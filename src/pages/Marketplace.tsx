@@ -3,8 +3,30 @@ import { Trash2 } from "lucide-react";
 import { PRODUCTS, type Product } from "@/data/mock";
 import { useCart } from "@/context/CartContext";
 import { toast } from "sonner";
+import { Botanical, type BotanicalCategory } from "@/components/decor/Botanical";
 
 const CATS: (Product["category"] | "Toate")[] = ["Toate", "Răsaduri", "Semințe", "Unelte", "Îngrășăminte"];
+
+/** Map a product to one of the hand-drawn gallery illustrations. */
+const productArt = (p: Product): { cat: BotanicalCategory; slug: string } => {
+  const n = p.name.toLowerCase();
+  if (n.includes("roșii") || n.includes("roşii"))  return { cat: "vegetables", slug: "tomato" };
+  if (n.includes("ardei"))                          return { cat: "vegetables", slug: "pepper" };
+  if (n.includes("vinete"))                         return { cat: "vegetables", slug: "eggplant" };
+  if (n.includes("varză") || n.includes("varza"))   return { cat: "vegetables", slug: "cabbage" };
+  if (n.includes("morcov"))                         return { cat: "vegetables", slug: "carrot" };
+  if (n.includes("castrave"))                       return { cat: "vegetables", slug: "cucumber" };
+  if (n.includes("porumb"))                         return { cat: "vegetables", slug: "corn" };
+  if (n.includes("sap") || n.includes("hârleț"))    return { cat: "tools", slug: "trowel" };
+  if (n.includes("stropit"))                        return { cat: "tools", slug: "watering-can" };
+  if (n.includes("mănuș") || n.includes("manus"))   return { cat: "tools", slug: "garden-gloves" };
+  if (n.includes("compost") || n.includes("îngr") || n.includes("cenuș"))
+                                                    return { cat: "decor", slug: "seed-packet" };
+  if (p.category === "Semințe")                     return { cat: "decor", slug: "seed-packet" };
+  if (p.category === "Răsaduri")                    return { cat: "flowers", slug: "seedling" };
+  if (p.category === "Unelte")                      return { cat: "tools", slug: "trowel" };
+  return { cat: "flowers", slug: "leaf-sprig" };
+};
 
 const Marketplace = () => {
   const [cat, setCat] = useState<Product["category"] | "Toate">("Toate");
