@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { LANDS, TODAY_TASKS } from "@/data/mock";
 import { Checkbox } from "@/components/ui/checkbox";
+import { EmptyState } from "@/components/dashboard";
 
 const Stat = ({ label, value, hint }: { label: string; value: string; hint?: string }) => (
   <div className="border-l border-primary/40 pl-5">
