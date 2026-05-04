@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { CalendarDays, Home, Settings, ShoppingBasket, Sprout, Check } from "lucide-react";
 import { MY_RESERVATIONS, LANDS, CULTURES, SERVICES } from "@/data/mock";
 import { useAuth } from "@/context/AuthContext";
+import { EmptyState } from "@/components/dashboard";
 
 const STAGES = [
   { key: "Rezervat", label: "Rezervat" },
@@ -101,44 +102,74 @@ const Dashboard = () => {
               <h2 className="mt-3 font-display text-3xl text-primary-deep font-normal">Ce crește pe lotul tău</h2>
             </div>
           </div>
-          <div className="grid sm:grid-cols-3 gap-px bg-border/60 border-y border-border/60">
-            {r.cultures.map(c => {
-              const cult = CULTURES.find(x => x.id === c.cultureId)!;
-              return (
-                <div key={c.cultureId} className="bg-background p-7">
-                  <p className="eyebrow text-[10px]">{cult.category}</p>
-                  <h3 className="mt-3 font-display text-2xl text-primary-deep">{cult.name}</h3>
-                  <p className="mt-1 font-ui text-xs text-muted-foreground tracking-wide uppercase">{c.area} ari</p>
-                  <p className="mt-4 text-sm text-foreground/70">
-                    Estimat: <span className="text-primary-deep">~{(c.area * cult.yieldKgPerAre).toFixed(0)} kg</span>
-                  </p>
-                </div>
-              );
-            })}
-          </div>
+          {r.cultures.length === 0 ? (
+            <EmptyState
+              cat="flowers"
+              slug="seedling"
+              tilt={-3}
+              size="md"
+              title="Lotul te așteaptă să-l populezi"
+              description="Alege ce vrei să crești — roșii, ardei, cartofi, busuioc — și noi facem restul."
+              action={
+                <Link
+                  to="/lands"
+                  className="press inline-flex items-center justify-center h-10 px-5 rounded-md bg-primary text-primary-foreground hover:bg-primary-deep font-display text-sm"
+                >
+                  Alege culturi
+                </Link>
+              }
+            />
+          ) : (
+            <div className="grid sm:grid-cols-3 gap-px bg-border/60 border-y border-border/60">
+              {r.cultures.map(c => {
+                const cult = CULTURES.find(x => x.id === c.cultureId)!;
+                return (
+                  <div key={c.cultureId} className="bg-background p-7">
+                    <p className="eyebrow text-[10px]">{cult.category}</p>
+                    <h3 className="mt-3 font-display text-2xl text-primary-deep">{cult.name}</h3>
+                    <p className="mt-1 font-ui text-xs text-muted-foreground tracking-wide uppercase">{c.area} ari</p>
+                    <p className="mt-4 text-sm text-foreground/70">
+                      Estimat: <span className="text-primary-deep">~{(c.area * cult.yieldKgPerAre).toFixed(0)} kg</span>
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
 
         {/* Services */}
         <div className="mt-20 pt-16 border-t border-border/70">
           <p className="eyebrow">Servicii</p>
           <h2 className="mt-3 font-display text-3xl text-primary-deep font-normal mb-8">Active</h2>
-          <ul className="border-y border-border/60">
-            {r.services.map(so => {
-              const s = SERVICES.find(x => x.id === so.serviceId);
-              if (!s) return null;
-              return (
-                <li key={so.serviceId} className="flex items-center justify-between gap-6 py-5 border-b border-border/40 last:border-0">
-                  <div>
-                    <p className="font-display text-lg text-primary-deep">{s.name}</p>
-                    <p className="text-sm text-muted-foreground mt-0.5">{s.description}</p>
-                  </div>
-                  <span className="font-ui text-[10px] uppercase tracking-widest text-primary-deep bg-paper px-2.5 py-1 rounded">
-                    {so.status}
-                  </span>
-                </li>
-              );
-            })}
-          </ul>
+          {r.services.length === 0 ? (
+            <EmptyState
+              cat="tools"
+              slug="watering-can"
+              tilt={-4}
+              size="md"
+              title="Niciun serviciu activ"
+              description="Adaugă servicii — udare, plivit, tratamente — și fermierul tău va fi notificat."
+            />
+          ) : (
+            <ul className="border-y border-border/60">
+              {r.services.map(so => {
+                const s = SERVICES.find(x => x.id === so.serviceId);
+                if (!s) return null;
+                return (
+                  <li key={so.serviceId} className="flex items-center justify-between gap-6 py-5 border-b border-border/40 last:border-0">
+                    <div>
+                      <p className="font-display text-lg text-primary-deep">{s.name}</p>
+                      <p className="text-sm text-muted-foreground mt-0.5">{s.description}</p>
+                    </div>
+                    <span className="font-ui text-[10px] uppercase tracking-widest text-primary-deep bg-paper px-2.5 py-1 rounded">
+                      {so.status}
+                    </span>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
         </div>
 
         {/* CTA */}

@@ -1,9 +1,10 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Trash2 } from "lucide-react";
 import { PRODUCTS, type Product } from "@/data/mock";
 import { useCart } from "@/context/CartContext";
 import { toast } from "sonner";
 import { Botanical, type BotanicalCategory } from "@/components/decor/Botanical";
+import { EmptyState, CardGridSkeleton, LoadingState } from "@/components/dashboard";
 
 const CATS: (Product["category"] | "Toate")[] = ["Toate", "Răsaduri", "Semințe", "Unelte", "Îngrășăminte"];
 
@@ -33,6 +34,12 @@ const Marketplace = () => {
   const { items, add, remove, total, clear } = useCart();
   const list = useMemo(() => cat === "Toate" ? PRODUCTS : PRODUCTS.filter(p => p.category === cat), [cat]);
 
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const t = setTimeout(() => setLoading(false), 600);
+    return () => clearTimeout(t);
+  }, []);
+
   return (
     <div className="container py-16 grid lg:grid-cols-[1fr_320px] gap-16">
       <section>
@@ -60,34 +67,55 @@ const Marketplace = () => {
           ))}
         </div>
 
-        <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-8">
-          {list.map(p => {
-            const art = productArt(p);
-            return (
-            <article key={p.id} className="editorial-card overflow-hidden flex flex-col">
-              <div className="img-zoom aspect-square bg-paper border-b border-border/60 grid place-items-center overflow-hidden p-10">
-                <Botanical cat={art.cat} slug={art.slug} className="w-full h-full text-primary-deep" title={p.name} />
-              </div>
-              <div className="p-6 flex-1 flex flex-col">
-                <p className="eyebrow text-[10px]">{p.category}</p>
-                <h3 className="mt-2 font-display text-lg text-primary-deep leading-tight">{p.name}</h3>
-                <p className="text-sm text-muted-foreground mt-1.5 flex-1">{p.description}</p>
-                <div className="mt-5 pt-4 border-t border-border/60 flex items-center justify-between">
-                  <span className="font-display text-base text-primary-deep">
-                    {p.price} <span className="font-ui text-xs text-muted-foreground tracking-wide">MDL</span>
-                  </span>
-                  <button
-                    onClick={() => { add(p); toast.success(`${p.name}`, { description: "Adăugat în coș" }); }}
-                    className="press font-ui text-[11px] uppercase tracking-widest text-primary-deep link-underline"
-                  >
-                    Adaugă
-                  </button>
+        {loading ? (
+          <CardGridSkeleton count={6} />
+        ) : list.length === 0 ? (
+          <EmptyState
+            cat="decor"
+            slug="seed-packet"
+            tilt={-5}
+            size="lg"
+            title="Niciun produs aici"
+            description="Această categorie e goală pentru moment. Aruncă o privire pe celelalte rafturi."
+            action={
+              <button
+                onClick={() => setCat("Toate")}
+                className="press inline-flex items-center justify-center h-10 px-5 rounded-md bg-primary text-primary-foreground hover:bg-primary-deep font-display text-sm"
+              >
+                Vezi toate produsele
+              </button>
+            }
+          />
+        ) : (
+          <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-8">
+            {list.map(p => {
+              const art = productArt(p);
+              return (
+              <article key={p.id} className="editorial-card overflow-hidden flex flex-col">
+                <div className="img-zoom aspect-square bg-paper border-b border-border/60 grid place-items-center overflow-hidden p-10">
+                  <Botanical cat={art.cat} slug={art.slug} className="w-full h-full text-primary-deep" title={p.name} />
                 </div>
-              </div>
-            </article>
-            );
-          })}
-        </div>
+                <div className="p-6 flex-1 flex flex-col">
+                  <p className="eyebrow text-[10px]">{p.category}</p>
+                  <h3 className="mt-2 font-display text-lg text-primary-deep leading-tight">{p.name}</h3>
+                  <p className="text-sm text-muted-foreground mt-1.5 flex-1">{p.description}</p>
+                  <div className="mt-5 pt-4 border-t border-border/60 flex items-center justify-between">
+                    <span className="font-display text-base text-primary-deep">
+                      {p.price} <span className="font-ui text-xs text-muted-foreground tracking-wide">MDL</span>
+                    </span>
+                    <button
+                      onClick={() => { add(p); toast.success(`${p.name}`, { description: "Adăugat în coș" }); }}
+                      className="press font-ui text-[11px] uppercase tracking-widest text-primary-deep link-underline"
+                    >
+                      Adaugă
+                    </button>
+                  </div>
+                </div>
+              </article>
+              );
+            })}
+          </div>
+        )}
       </section>
 
       {/* Cart */}
@@ -95,10 +123,14 @@ const Marketplace = () => {
         <p className="eyebrow">Coș</p>
         <h2 className="mt-3 font-display text-2xl text-primary-deep font-normal mb-6">Comanda ta</h2>
         {items.length === 0 ? (
-          <div className="border-y border-border/70 py-16 text-center">
-            <p className="font-display italic text-lg text-muted-foreground">Coșul e gol.</p>
-            <p className="font-ui text-xs text-muted-foreground tracking-wide mt-2 uppercase">Adaugă ceva din stânga</p>
-          </div>
+          <EmptyState
+            cat="decor"
+            slug="veggie-basket"
+            tilt={5}
+            size="md"
+            title="Coșul e gol"
+            description="Adaugă răsaduri, semințe sau unelte din stânga — îți facem coșul gata pentru sezon."
+          />
         ) : (
           <>
             <ul className="border-y border-border/70 max-h-[420px] overflow-auto">
