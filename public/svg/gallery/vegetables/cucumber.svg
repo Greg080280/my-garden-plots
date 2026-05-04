@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
-  <g fill="none" stroke="#5F6E26" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+  <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
     <!-- Cucumber body -->
     <path d="M 30 90 C 28 78, 38 70, 55 72 C 80 75, 110 82, 140 92 C 160 100, 172 110, 170 122 C 165 132, 150 132, 130 128 C 100 120, 70 110, 50 102 C 35 98, 28 95, 30 90 Z"/>
     <!-- Bumps/warts on cucumber -->

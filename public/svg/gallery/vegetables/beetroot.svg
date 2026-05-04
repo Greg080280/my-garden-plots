@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
-  <g fill="none" stroke="#5F6E26" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+  <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
     <!-- Beet bulb (round with point) -->
     <path d="M 60 95 C 50 105, 50 130, 65 145 C 80 158, 100 162, 115 158 C 132 152, 142 135, 138 115 C 132 100, 115 92, 100 92 C 85 90, 70 92, 60 95 Z"/>
     <!-- Pointed tail at bottom -->
