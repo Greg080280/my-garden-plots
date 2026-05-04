@@ -91,12 +91,13 @@ const Landing = () => {
 
           <div className="grid md:grid-cols-3 gap-px bg-border/60 border-y border-border/60">
             {[
-              { n: "01", title: "Alegi un lot", text: "Răsfoiești loturile din Dubăsari, Orhei sau Călărași. Vezi pozele, prețul, fermierul." },
-              { n: "02", title: "Spui ce plantezi", text: "Roșii, ardei, cartofi — alegi culturile și împarți lotul după dorință." },
-              { n: "03", title: "Noi îngrijim", text: "Fermierul local ară, plantează, udă, recoltează. Tu primești coșul gata pregătit." },
+              { n: "01", title: "Alegi un lot", text: "Răsfoiești loturile din Dubăsari, Orhei sau Călărași. Vezi pozele, prețul, fermierul.", cat: "decor" as const, slug: "garden-door" },
+              { n: "02", title: "Spui ce plantezi", text: "Roșii, ardei, cartofi — alegi culturile și împarți lotul după dorință.", cat: "vegetables" as const, slug: "tomato" },
+              { n: "03", title: "Noi îngrijim", text: "Fermierul local ară, plantează, udă, recoltează. Tu primești coșul gata pregătit.", cat: "decor" as const, slug: "veggie-basket" },
             ].map(step => (
-              <div key={step.n} className="bg-background p-10">
-                <span className="font-script text-5xl text-primary/40">{step.n}</span>
+              <div key={step.n} className="bg-background p-10 relative">
+                <Botanical cat={step.cat} slug={step.slug} className="absolute top-8 right-8 w-16 h-16 text-primary/35" />
+                <span className="font-script text-5xl text-primary/40 relative">{step.n}</span>
                 <h3 className="mt-6 font-display text-2xl text-primary-deep">{step.title}</h3>
                 <p className="mt-3 text-[15px] text-foreground/70 leading-[1.7]">{step.text}</p>
               </div>
