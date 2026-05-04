@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <g fill="none" stroke="#5F6E26" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Asparagus stalks - 5 stalks -->
+    <!-- Stalk 1 -->
+    <path d="M 65 175 C 62 130, 65 70, 68 25"/>
+    <path d="M 65 175 C 75 130, 73 70, 75 25"/>
+    <!-- Stalk 2 -->
+    <path d="M 80 175 C 80 130, 82 65, 85 22"/>
+    <path d="M 80 175 C 92 130, 92 70, 92 22"/>
+    <!-- Stalk 3 (middle) -->
+    <path d="M 100 178 C 100 130, 98 65, 100 18"/>
+    <path d="M 100 178 C 110 130, 108 65, 108 18"/>
+    <!-- Stalk 4 -->
+    <path d="M 120 175 C 120 130, 118 65, 115 22"/>
+    <path d="M 120 175 C 130 130, 130 70, 130 22"/>
+    <!-- Stalk 5 -->
+    <path d="M 138 175 C 138 130, 142 70, 145 25"/>
+    <path d="M 138 175 C 148 130, 148 65, 145 25"/>
+    <!-- Tips with bract scales - tip 1 -->
+    <path d="M 68 28 C 70 25, 72 23, 75 25"/>
+    <path d="M 68 35 L 65 32"/>
+    <path d="M 75 32 L 78 30"/>
+    <!-- Tip 2 -->
+    <path d="M 85 25 C 88 22, 90 21, 92 22"/>
+    <path d="M 86 32 L 83 30"/>
+    <path d="M 92 30 L 95 28"/>
+    <!-- Tip 3 (center, highest) -->
+    <path d="M 100 20 C 103 17, 106 17, 108 20"/>
+    <path d="M 100 27 L 97 25"/>
+    <path d="M 108 25 L 111 23"/>
+    <!-- Tip 4 -->
+    <path d="M 115 25 C 118 22, 120 21, 122 22"/>
+    <path d="M 115 32 L 112 30"/>
+    <path d="M 122 30 L 125 28"/>
+    <!-- Tip 5 -->
+    <path d="M 142 28 C 144 25, 146 23, 148 25"/>
+    <path d="M 142 35 L 139 32"/>
+    <path d="M 148 32 L 151 30"/>
+    <!-- Tie/string around bundle -->
+    <path d="M 55 130 C 75 132, 130 132, 150 130 C 152 138, 150 145, 145 145 L 60 145 C 55 145, 52 138, 55 130 Z"/>
+    <!-- Bow on tie -->
+    <path d="M 90 138 C 85 135, 80 138, 82 142 C 88 142, 92 140, 90 138 Z"/>
+    <path d="M 110 138 C 115 135, 120 138, 118 142 C 112 142, 108 140, 110 138 Z"/>
+    <path d="M 95 140 C 95 145, 95 152, 92 158"/>
+    <path d="M 105 140 C 105 145, 105 152, 108 158"/>
+  </g>
+</svg>

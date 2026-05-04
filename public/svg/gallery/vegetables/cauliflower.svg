@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <g fill="none" stroke="#5F6E26" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Outer leaves -->
+    <path d="M 40 110 C 35 90, 45 65, 65 55 C 75 50, 85 50, 90 60"/>
+    <path d="M 110 60 C 115 50, 125 50, 135 55 C 155 65, 165 90, 160 110"/>
+    <path d="M 50 130 C 40 125, 32 115, 35 100"/>
+    <path d="M 165 100 C 168 115, 160 125, 150 130"/>
+    <!-- Cauliflower head - bumpy circle -->
+    <path d="M 65 90 C 60 80, 65 70, 75 68 C 80 62, 90 60, 98 65 C 105 60, 115 62, 120 68 C 130 70, 138 78, 135 90 C 142 95, 145 105, 138 115 C 140 125, 132 132, 122 130 C 115 138, 100 138, 92 132 C 82 138, 70 132, 68 122 C 58 120, 55 108, 62 100 C 58 95, 60 88, 65 90 Z"/>
+    <!-- Texture/florets - small circles -->
+    <circle cx="80" cy="80" r="6"/>
+    <circle cx="95" cy="78" r="7"/>
+    <circle cx="112" cy="80" r="6"/>
+    <circle cx="125" cy="88" r="6"/>
+    <circle cx="73" cy="95" r="6"/>
+    <circle cx="88" cy="92" r="6"/>
+    <circle cx="103" cy="95" r="7"/>
+    <circle cx="120" cy="100" r="6"/>
+    <circle cx="78" cy="110" r="7"/>
+    <circle cx="95" cy="108" r="6"/>
+    <circle cx="110" cy="112" r="7"/>
+    <circle cx="125" cy="115" r="5"/>
+    <circle cx="85" cy="122" r="6"/>
+    <circle cx="100" cy="125" r="6"/>
+    <circle cx="115" cy="125" r="5"/>
+  </g>
+</svg>

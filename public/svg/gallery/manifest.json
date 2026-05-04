@@ -1,7 +1,348 @@
 {
-  "vegetables": [],
-  "tools": [],
-  "flowers": [],
-  "decor": [],
-  "accents": []
+  "vegetables": [
+    {
+      "slug": "corn",
+      "label": "Corn"
+    },
+    {
+      "slug": "eggplant",
+      "label": "Eggplant"
+    },
+    {
+      "slug": "tomato",
+      "label": "Tomato"
+    },
+    {
+      "slug": "carrot",
+      "label": "Carrot"
+    },
+    {
+      "slug": "radish",
+      "label": "Radish"
+    },
+    {
+      "slug": "cabbage",
+      "label": "Cabbage"
+    },
+    {
+      "slug": "bok-choy",
+      "label": "Bok Choy"
+    },
+    {
+      "slug": "green-onion",
+      "label": "Green Onion"
+    },
+    {
+      "slug": "artichoke",
+      "label": "Artichoke"
+    },
+    {
+      "slug": "cauliflower",
+      "label": "Cauliflower"
+    },
+    {
+      "slug": "pepper",
+      "label": "Pepper"
+    },
+    {
+      "slug": "pumpkin",
+      "label": "Pumpkin"
+    },
+    {
+      "slug": "pea-pod",
+      "label": "Pea Pod"
+    },
+    {
+      "slug": "cherries",
+      "label": "Cherries"
+    },
+    {
+      "slug": "broccoli",
+      "label": "Broccoli"
+    },
+    {
+      "slug": "potato",
+      "label": "Potato"
+    },
+    {
+      "slug": "cucumber",
+      "label": "Cucumber"
+    },
+    {
+      "slug": "garlic",
+      "label": "Garlic"
+    },
+    {
+      "slug": "mushroom",
+      "label": "Mushroom"
+    },
+    {
+      "slug": "asparagus",
+      "label": "Asparagus"
+    },
+    {
+      "slug": "leek",
+      "label": "Leek"
+    },
+    {
+      "slug": "pear",
+      "label": "Pear"
+    },
+    {
+      "slug": "lemon-slice",
+      "label": "Lemon Slice"
+    },
+    {
+      "slug": "plums",
+      "label": "Plums"
+    },
+    {
+      "slug": "beetroot",
+      "label": "Beetroot"
+    },
+    {
+      "slug": "lettuce-leaf",
+      "label": "Lettuce Leaf"
+    },
+    {
+      "slug": "radish-bunch",
+      "label": "Radish Bunch"
+    }
+  ],
+  "tools": [
+    {
+      "slug": "spray-bottle",
+      "label": "Spray Bottle"
+    },
+    {
+      "slug": "trowel",
+      "label": "Trowel"
+    },
+    {
+      "slug": "pruning-shears",
+      "label": "Pruning Shears"
+    },
+    {
+      "slug": "scissors",
+      "label": "Scissors"
+    },
+    {
+      "slug": "garden-gloves",
+      "label": "Garden Gloves"
+    },
+    {
+      "slug": "pitchfork",
+      "label": "Pitchfork"
+    },
+    {
+      "slug": "tool-bag",
+      "label": "Tool Bag"
+    },
+    {
+      "slug": "watering-can",
+      "label": "Watering Can"
+    },
+    {
+      "slug": "knife",
+      "label": "Knife"
+    },
+    {
+      "slug": "spade",
+      "label": "Spade"
+    },
+    {
+      "slug": "hand-fork",
+      "label": "Hand Fork"
+    },
+    {
+      "slug": "garden-hose",
+      "label": "Garden Hose"
+    },
+    {
+      "slug": "hanging-gloves",
+      "label": "Hanging Gloves"
+    },
+    {
+      "slug": "garden-hat",
+      "label": "Garden Hat"
+    },
+    {
+      "slug": "can-with-flowers",
+      "label": "Can with Flowers"
+    }
+  ],
+  "flowers": [
+    {
+      "slug": "pansy",
+      "label": "Pansy"
+    },
+    {
+      "slug": "flower-bouquet",
+      "label": "Flower Bouquet"
+    },
+    {
+      "slug": "wreath",
+      "label": "Wreath"
+    },
+    {
+      "slug": "teapot-flowers",
+      "label": "Teapot Flowers"
+    },
+    {
+      "slug": "potted-plant",
+      "label": "Potted Plant"
+    },
+    {
+      "slug": "pot-daffodils",
+      "label": "Pot Daffodils"
+    },
+    {
+      "slug": "rosemary-sprig",
+      "label": "Rosemary Sprig"
+    },
+    {
+      "slug": "sunflower",
+      "label": "Sunflower"
+    },
+    {
+      "slug": "tulip",
+      "label": "Tulip"
+    },
+    {
+      "slug": "daisy",
+      "label": "Daisy"
+    },
+    {
+      "slug": "topiary-bush",
+      "label": "Topiary Bush"
+    },
+    {
+      "slug": "mason-jar-flowers",
+      "label": "Mason Jar Flowers"
+    },
+    {
+      "slug": "seedling",
+      "label": "Seedling"
+    },
+    {
+      "slug": "rose",
+      "label": "Rose"
+    },
+    {
+      "slug": "leaf-sprig",
+      "label": "Leaf Sprig"
+    }
+  ],
+  "decor": [
+    {
+      "slug": "bell-cloche",
+      "label": "Bell Cloche"
+    },
+    {
+      "slug": "pickle-jar",
+      "label": "Pickle Jar"
+    },
+    {
+      "slug": "herb-tag",
+      "label": "Herb Tag"
+    },
+    {
+      "slug": "bowl",
+      "label": "Bowl"
+    },
+    {
+      "slug": "greenhouse",
+      "label": "Greenhouse"
+    },
+    {
+      "slug": "flower-book",
+      "label": "Flower Book"
+    },
+    {
+      "slug": "garden-door",
+      "label": "Garden Door"
+    },
+    {
+      "slug": "pin-cushion",
+      "label": "Pin Cushion"
+    },
+    {
+      "slug": "veggie-basket",
+      "label": "Veggie Basket"
+    },
+    {
+      "slug": "bottle",
+      "label": "Bottle"
+    },
+    {
+      "slug": "lavender-tag",
+      "label": "Lavender Tag"
+    },
+    {
+      "slug": "oregano-tag",
+      "label": "Oregano Tag"
+    },
+    {
+      "slug": "basil-tag",
+      "label": "Basil Tag"
+    },
+    {
+      "slug": "sage-tag",
+      "label": "Sage Tag"
+    },
+    {
+      "slug": "stacked-pots",
+      "label": "Stacked Pots"
+    },
+    {
+      "slug": "window-plants",
+      "label": "Window Plants"
+    },
+    {
+      "slug": "seed-packet",
+      "label": "Seed Packet"
+    }
+  ],
+  "accents": [
+    {
+      "slug": "bow-ribbon",
+      "label": "Bow Ribbon"
+    },
+    {
+      "slug": "butterfly",
+      "label": "Butterfly"
+    },
+    {
+      "slug": "wheelbarrow",
+      "label": "Wheelbarrow"
+    },
+    {
+      "slug": "rain-boots",
+      "label": "Rain Boots"
+    },
+    {
+      "slug": "apron",
+      "label": "Apron"
+    },
+    {
+      "slug": "snail",
+      "label": "Snail"
+    },
+    {
+      "slug": "bee",
+      "label": "Bee"
+    },
+    {
+      "slug": "thin-bow",
+      "label": "Thin Bow"
+    },
+    {
+      "slug": "hand-with-leaf",
+      "label": "Hand with Leaf"
+    },
+    {
+      "slug": "wavy-frame",
+      "label": "Wavy Frame"
+    }
+  ]
 }

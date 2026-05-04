@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <g fill="none" stroke="#5F6E26" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Bulb -->
+    <path d="M 75 145 C 70 155, 72 170, 85 178 C 100 182, 115 178, 122 168 C 125 158, 122 148, 115 142"/>
+    <!-- Bulb division line -->
+    <path d="M 100 142 C 100 158, 100 172, 100 180"/>
+    <!-- Roots -->
+    <path d="M 85 178 C 82 185, 80 190, 78 195"/>
+    <path d="M 92 180 C 92 188, 92 195, 90 198"/>
+    <path d="M 100 180 C 100 188, 100 195, 100 200"/>
+    <path d="M 108 180 C 108 188, 110 195, 112 198"/>
+    <path d="M 115 178 C 118 185, 120 190, 122 195"/>
+    <!-- White stem -->
+    <path d="M 78 145 C 78 130, 80 115, 82 100"/>
+    <path d="M 122 145 C 122 130, 120 115, 118 100"/>
+    <!-- Stem horizontal lines -->
+    <path d="M 80 130 C 90 132, 110 132, 120 130"/>
+    <path d="M 81 115 C 92 117, 108 117, 119 115"/>
+    <!-- Green leaves -->
+    <path d="M 82 100 C 75 80, 70 50, 65 25"/>
+    <path d="M 92 100 C 88 75, 85 45, 82 18"/>
+    <path d="M 100 100 C 100 70, 102 40, 105 12"/>
+    <path d="M 108 100 C 112 75, 118 50, 122 22"/>
+    <path d="M 118 100 C 125 80, 132 55, 138 30"/>
+  </g>
+</svg>

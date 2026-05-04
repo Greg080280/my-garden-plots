@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <g fill="none" stroke="#5F6E26" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Brim outer -->
+    <ellipse cx="100" cy="135" rx="80" ry="20"/>
+    <!-- Brim inner -->
+    <ellipse cx="100" cy="130" rx="60" ry="12"/>
+    <!-- Crown -->
+    <path d="M 60 130 C 55 110, 55 85, 65 65 C 75 55, 90 50, 100 50 C 110 50, 125 55, 135 65 C 145 85, 145 110, 140 130"/>
+    <!-- Top of crown -->
+    <path d="M 65 65 C 78 60, 122 60, 135 65"/>
+    <!-- Hat band -->
+    <path d="M 60 115 C 75 118, 125 118, 140 115"/>
+    <path d="M 60 122 C 75 125, 125 125, 140 122"/>
+    <!-- Bow on band (left side) -->
+    <path d="M 70 118 C 65 113, 58 115, 58 120 C 62 125, 68 123, 70 120"/>
+    <path d="M 70 118 C 65 123, 58 122, 58 117 C 62 113, 68 115, 70 120"/>
+    <!-- Bow center -->
+    <path d="M 68 117 L 72 122"/>
+    <!-- Stitching detail on brim -->
+    <ellipse cx="100" cy="135" rx="75" ry="17"/>
+    <!-- Small crown shading -->
+    <path d="M 75 80 C 78 95, 78 105, 75 115"/>
+    <path d="M 125 80 C 122 95, 122 105, 125 115"/>
+  </g>
+</svg>

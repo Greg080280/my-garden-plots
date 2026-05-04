@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <g fill="none" stroke="#5F6E26" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Roof -->
+    <path d="M 20 80 L 100 35 L 180 80"/>
+    <!-- Roof ridge -->
+    <path d="M 25 82 L 175 82"/>
+    <!-- Walls/frame -->
+    <path d="M 25 80 L 25 165 L 175 165 L 175 80"/>
+    <!-- Roof panels - lines -->
+    <path d="M 50 80 L 60 50"/>
+    <path d="M 80 80 L 85 40"/>
+    <path d="M 120 80 L 115 40"/>
+    <path d="M 150 80 L 140 50"/>
+    <!-- Front wall vertical lines -->
+    <path d="M 50 80 L 50 165"/>
+    <path d="M 80 80 L 80 165"/>
+    <path d="M 120 80 L 120 165"/>
+    <path d="M 150 80 L 150 165"/>
+    <!-- Horizontal bar mid -->
+    <path d="M 25 120 L 175 120"/>
+    <!-- Door -->
+    <path d="M 88 120 L 88 165 L 112 165 L 112 120"/>
+    <!-- Door knob -->
+    <circle cx="106" cy="142" r="2"/>
+    <!-- Door cross -->
+    <path d="M 88 142 L 112 142"/>
+    <!-- Plants visible inside through windows -->
+    <path d="M 35 145 C 38 140, 42 138, 45 142"/>
+    <path d="M 60 145 C 63 140, 67 138, 70 142"/>
+    <path d="M 130 145 C 133 140, 137 138, 140 142"/>
+    <path d="M 155 145 C 158 140, 162 138, 165 142"/>
+    <!-- Ground line -->
+    <path d="M 15 165 L 185 165"/>
+    <!-- Roof window/vent -->
+    <path d="M 92 60 L 108 60 L 108 75 L 92 75 Z"/>
+  </g>
+</svg>

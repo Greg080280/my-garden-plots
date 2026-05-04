@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <g fill="none" stroke="#5F6E26" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Watering can body -->
+    <path d="M 55 120 L 55 175 C 55 180, 60 183, 65 183 L 130 183 C 135 183, 140 180, 140 175 L 140 120"/>
+    <!-- Top opening with flowers coming out -->
+    <path d="M 55 120 C 75 117, 120 117, 140 120"/>
+    <path d="M 60 122 C 75 125, 120 125, 135 122"/>
+    <!-- Side handle -->
+    <path d="M 140 130 C 155 130, 165 142, 165 158 C 165 172, 155 178, 142 175"/>
+    <!-- Spout -->
+    <path d="M 55 130 C 38 125, 25 115, 18 100 C 18 96, 22 96, 25 100 C 35 110, 45 118, 55 128"/>
+    <!-- Spout end -->
+    <path d="M 18 96 C 14 92, 10 90, 8 88 C 12 88, 18 92, 22 95"/>
+    <!-- Flowers (daffodils) coming out top -->
+    <!-- Stem 1 (left) -->
+    <path d="M 75 117 L 70 70"/>
+    <ellipse cx="70" cy="62" rx="8" ry="9"/>
+    <ellipse cx="70" cy="62" rx="3" ry="4"/>
+    <path d="M 65 55 C 62 50, 60 52, 62 58"/>
+    <path d="M 75 55 C 78 50, 80 52, 78 58"/>
+    <!-- Stem 2 (center, tallest) -->
+    <path d="M 100 117 L 100 50"/>
+    <ellipse cx="100" cy="42" rx="9" ry="10"/>
+    <ellipse cx="100" cy="42" rx="4" ry="5"/>
+    <path d="M 92 35 C 88 30, 90 25, 95 28"/>
+    <path d="M 108 35 C 112 30, 110 25, 105 28"/>
+    <path d="M 95 32 C 95 28, 100 25, 102 28"/>
+    <path d="M 105 32 C 105 28, 100 25, 98 28"/>
+    <!-- Stem 3 (right) -->
+    <path d="M 125 117 L 130 65"/>
+    <ellipse cx="130" cy="58" rx="8" ry="9"/>
+    <ellipse cx="130" cy="58" rx="3" ry="4"/>
+    <path d="M 125 51 C 122 46, 120 48, 122 54"/>
+    <path d="M 135 51 C 138 46, 140 48, 138 54"/>
+    <!-- Leaves -->
+    <path d="M 80 110 C 80 95, 78 80, 75 70"/>
+    <path d="M 90 115 C 92 95, 95 75, 100 60"/>
+    <path d="M 110 115 C 112 100, 115 80, 118 65"/>
+    <path d="M 120 110 C 122 95, 125 80, 128 70"/>
+    <!-- Body decoration -->
+    <path d="M 60 145 C 80 147, 120 147, 135 145"/>
+  </g>
+</svg>

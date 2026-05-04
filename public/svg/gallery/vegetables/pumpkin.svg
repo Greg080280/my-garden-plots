@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <g fill="none" stroke="#5F6E26" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Pumpkin body - main outer -->
+    <path d="M 30 110 C 25 90, 35 75, 55 72 C 70 70, 85 75, 95 80 C 105 75, 120 70, 135 72 C 155 75, 170 90, 168 110 C 172 130, 165 155, 145 165 C 130 170, 115 165, 102 160 C 90 165, 70 170, 55 165 C 35 155, 28 130, 30 110 Z"/>
+    <!-- Vertical lobes - left -->
+    <path d="M 55 78 C 48 100, 48 140, 58 162"/>
+    <!-- Vertical lobes - mid-left -->
+    <path d="M 78 82 C 73 100, 73 140, 80 162"/>
+    <!-- Center line -->
+    <path d="M 100 80 C 95 100, 95 140, 100 160"/>
+    <!-- Vertical lobes - mid-right -->
+    <path d="M 122 82 C 127 100, 127 140, 120 162"/>
+    <!-- Vertical lobes - right -->
+    <path d="M 145 78 C 152 100, 152 140, 142 162"/>
+    <!-- Stem -->
+    <path d="M 95 75 L 90 50 C 88 40, 95 35, 100 38 C 105 35, 112 40, 110 50 L 105 75"/>
+    <!-- Stem detail -->
+    <path d="M 95 60 C 100 60, 105 60, 105 60"/>
+    <!-- Curling vine -->
+    <path d="M 105 50 C 115 45, 122 50, 125 55 C 128 60, 122 65, 118 60"/>
+  </g>
+</svg>

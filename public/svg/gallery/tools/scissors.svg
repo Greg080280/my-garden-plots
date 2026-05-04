@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <g fill="none" stroke="#5F6E26" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Top blade -->
+    <path d="M 25 25 C 50 38, 80 55, 100 75 C 105 80, 105 88, 100 92 C 92 92, 75 82, 55 65 C 38 50, 28 35, 25 25 Z"/>
+    <!-- Bottom blade -->
+    <path d="M 25 175 C 50 162, 80 145, 100 125 C 105 120, 105 112, 100 108 C 92 108, 75 118, 55 135 C 38 150, 28 165, 25 175 Z"/>
+    <!-- Pivot/center -->
+    <circle cx="102" cy="100" r="4"/>
+    <!-- Top handle ring -->
+    <ellipse cx="135" cy="68" rx="22" ry="15" transform="rotate(25 135 68)"/>
+    <!-- Bottom handle ring -->
+    <ellipse cx="135" cy="132" rx="22" ry="15" transform="rotate(-25 135 132)"/>
+    <!-- Connecting bits -->
+    <path d="M 100 92 L 120 80"/>
+    <path d="M 100 108 L 120 120"/>
+  </g>
+</svg>

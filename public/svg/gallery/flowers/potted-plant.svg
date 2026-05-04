@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <g fill="none" stroke="#5F6E26" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Pot rim -->
+    <path d="M 55 115 L 145 115 L 145 125 L 55 125 Z"/>
+    <path d="M 55 115 C 75 112, 125 112, 145 115"/>
+    <!-- Pot body -->
+    <path d="M 60 125 L 70 175 L 130 175 L 140 125"/>
+    <!-- Pot decoration lines -->
+    <path d="M 65 145 C 85 147, 115 147, 135 145"/>
+    <path d="M 67 160 C 85 162, 115 162, 133 160"/>
+    <!-- Plant stems -->
+    <path d="M 90 115 C 88 95, 82 75, 75 55"/>
+    <path d="M 95 115 C 95 90, 92 65, 90 40"/>
+    <path d="M 100 115 C 100 85, 102 55, 105 25"/>
+    <path d="M 105 115 C 108 90, 115 65, 122 45"/>
+    <path d="M 110 115 C 115 95, 125 78, 135 60"/>
+    <!-- Flowers/leaves -->
+    <circle cx="75" cy="55" r="5"/>
+    <path d="M 70 50 C 67 47, 70 43, 73 47"/>
+    <path d="M 80 50 C 83 47, 80 43, 77 47"/>
+    <!-- Top flower -->
+    <circle cx="105" cy="25" r="6"/>
+    <path d="M 99 20 C 95 16, 98 12, 102 16"/>
+    <path d="M 111 20 C 115 16, 112 12, 108 16"/>
+    <path d="M 99 30 C 95 34, 98 38, 102 34"/>
+    <path d="M 111 30 C 115 34, 112 38, 108 34"/>
+    <!-- Other small flowers -->
+    <circle cx="90" cy="40" r="4"/>
+    <circle cx="122" cy="45" r="5"/>
+    <circle cx="135" cy="60" r="4"/>
+    <!-- Leaves -->
+    <path d="M 85 78 C 78 75, 75 78, 78 85 C 84 85, 88 80, 85 78 Z"/>
+    <path d="M 115 75 C 122 73, 125 76, 122 82 C 116 82, 113 78, 115 75 Z"/>
+    <path d="M 92 95 C 86 92, 82 95, 85 100 C 90 100, 94 97, 92 95 Z"/>
+    <path d="M 110 95 C 116 92, 120 95, 117 100 C 112 100, 108 97, 110 95 Z"/>
+  </g>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <g fill="none" stroke="#5F6E26" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Radish bulb -->
+    <path d="M 70 90 C 60 105, 60 130, 75 150 C 90 165, 115 165, 130 150 C 142 130, 142 105, 130 92 C 115 82, 90 82, 70 90 Z"/>
+    <!-- Tail root -->
+    <path d="M 100 165 C 100 175, 102 185, 100 195"/>
+    <!-- Side roots -->
+    <path d="M 88 162 C 85 168, 82 173, 80 178"/>
+    <path d="M 112 162 C 116 168, 120 172, 122 176"/>
+    <!-- Leaves -->
+    <path d="M 90 90 C 80 75, 70 65, 60 50 C 65 70, 75 85, 88 92"/>
+    <path d="M 88 50 C 90 65, 92 80, 95 90"/>
+    <path d="M 100 88 C 95 70, 95 50, 100 32 C 105 50, 105 70, 102 90"/>
+    <path d="M 112 90 C 115 75, 122 60, 132 50 C 130 70, 122 85, 115 92"/>
+    <path d="M 122 92 C 130 80, 142 72, 150 70"/>
+    <!-- Curve detail on bulb -->
+    <path d="M 78 110 C 78 125, 82 140, 90 150"/>
+  </g>
+</svg>

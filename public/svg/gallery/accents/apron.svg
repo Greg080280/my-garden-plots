@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <g fill="none" stroke="#5F6E26" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Neck strap -->
+    <path d="M 75 25 C 75 18, 82 15, 88 18"/>
+    <path d="M 125 25 C 125 18, 118 15, 112 18"/>
+    <!-- Top bib -->
+    <path d="M 75 25 L 70 60 L 130 60 L 125 25"/>
+    <path d="M 75 25 C 90 28, 110 28, 125 25"/>
+    <!-- Apron body - sides -->
+    <path d="M 70 60 L 50 175 L 150 175 L 130 60"/>
+    <!-- Side ties -->
+    <path d="M 65 80 L 50 75 C 45 72, 40 75, 38 80 C 38 85, 42 87, 48 88"/>
+    <path d="M 135 80 L 150 75 C 155 72, 160 75, 162 80 C 162 85, 158 87, 152 88"/>
+    <!-- Pocket -->
+    <path d="M 75 110 L 75 140 L 125 140 L 125 110"/>
+    <path d="M 75 110 C 90 108, 110 108, 125 110"/>
+    <!-- Pocket divider -->
+    <path d="M 100 112 L 100 138"/>
+    <!-- Bottom hem -->
+    <path d="M 50 172 L 150 172"/>
+    <!-- Stitching detail -->
+    <path d="M 73 30 L 78 32"/>
+    <path d="M 122 30 L 127 32"/>
+    <path d="M 85 50 L 90 50"/>
+    <path d="M 110 50 L 115 50"/>
+  </g>
+</svg>
