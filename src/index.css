@@ -174,8 +174,9 @@
     box-shadow: var(--shadow-paper);
   }
   .editorial-card:hover {
-    border-color: hsl(var(--primary) / 0.4);
-    box-shadow: var(--shadow-card);
+    border-color: hsl(var(--primary) / 0.5);
+    box-shadow: var(--shadow-elevated);
+    transform: translateY(-2px);
   }
 
   .img-zoom { overflow: hidden; }
