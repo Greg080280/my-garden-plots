@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Check } from "lucide-react";
 import { LANDS, TESTIMONIALS } from "@/data/mock";
 import { Botanical } from "@/components/decor/Botanical";
+import { BotanicalSVG } from "@/components/decor/BotanicalSVG";
 
 const Landing = () => {
   const featured = LANDS.slice(0, 3);
@@ -79,8 +80,13 @@ const Landing = () => {
         </div>
       </section>
 
+      {/* Wave divider */}
+      <div className="container">
+        <BotanicalSVG name="dividers/wave" className="block w-full h-6 text-primary/40" />
+      </div>
+
       {/* HOW IT WORKS — editorial article structure */}
-      <section className="border-t border-border/70 py-24 lg:py-32">
+      <section className="border-t border-border/70 py-24 lg:py-32 mt-4">
         <div className="container">
           <div className="max-w-2xl mb-16">
             <p className="eyebrow">Procesul</p>
