@@ -33,7 +33,7 @@
     --accent-foreground: 76 50% 16%;
 
     --muted:            44 30% 88%;
-    --muted-foreground: 70 14% 38%;
+    --muted-foreground: 70 18% 28%;  /* darker for AA contrast on cream */
 
     /* ── Brown / decorative tan ───────────────────────────── */
     --brown:            29 32% 65%;       /* accent-tan #C9A881 */
@@ -130,7 +130,7 @@
     font-weight: 700;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: hsl(var(--primary));
+    color: hsl(var(--primary-deep));
   }
 
   /* Hairline divider */
