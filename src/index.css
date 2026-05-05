@@ -114,9 +114,10 @@
 @layer components {
   /* ── Typography utilities ─────────────────────────────── */
 
-  /* Caveat — RESTRICTED USE (logo, hero titles, taglines). Never on body/buttons. */
+  /* Caveat — RESTRICTED USE (logo + hero accent words only). Never on body/buttons/prices. */
   .font-script  { font-family: 'Caveat', cursive; font-weight: 600; letter-spacing: 0.01em; }
-  .font-display { font-family: 'Caveat', cursive; font-weight: 600; letter-spacing: 0.01em; }
+  /* font-display is DM Sans by default — Caveat is opt-in via .font-script */
+  .font-display { font-family: 'DM Sans', system-ui, sans-serif; font-weight: 600; letter-spacing: -0.01em; }
   .font-heading { font-family: 'DM Sans', system-ui, sans-serif; font-weight: 600; }
   .font-body    { font-family: 'DM Sans', system-ui, sans-serif; font-weight: 400; }
   .font-ui      { font-family: 'DM Sans', system-ui, sans-serif; }
