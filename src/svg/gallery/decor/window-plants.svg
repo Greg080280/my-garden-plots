@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Window outer frame -->
+    <path d="M 25 30 L 175 30 L 175 145 L 25 145 Z"/>
+    <!-- Inner frame -->
+    <path d="M 32 38 L 168 38 L 168 138 L 32 138 Z"/>
+    <!-- Vertical divider -->
+    <path d="M 100 38 L 100 138"/>
+    <!-- Horizontal divider -->
+    <path d="M 32 88 L 168 88"/>
+    <!-- Window sill -->
+    <path d="M 18 145 L 182 145 L 182 155 L 18 155 Z"/>
+    <!-- Window panes - cross pattern hints -->
+    <path d="M 40 50 L 50 60"/>
+    <path d="M 110 50 L 120 60"/>
+    <path d="M 40 100 L 50 110"/>
+    <path d="M 110 100 L 120 110"/>
+    <!-- Flower box on sill -->
+    <path d="M 35 155 L 40 178 L 165 178 L 170 155"/>
+    <path d="M 38 165 C 75 167, 130 167, 167 165"/>
+    <!-- Plants growing out of box - left -->
+    <path d="M 50 155 C 48 145, 50 135, 55 130"/>
+    <path d="M 58 155 C 58 142, 62 130, 65 122"/>
+    <circle cx="55" cy="128" r="4"/>
+    <circle cx="65" cy="120" r="4"/>
+    <!-- Plants - center -->
+    <path d="M 90 155 C 88 145, 92 135, 98 128"/>
+    <path d="M 105 155 C 108 145, 112 135, 115 125"/>
+    <circle cx="98" cy="126" r="5"/>
+    <circle cx="115" cy="123" r="5"/>
+    <!-- Plants - right -->
+    <path d="M 135 155 C 138 142, 142 130, 145 122"/>
+    <path d="M 150 155 C 152 145, 152 135, 148 128"/>
+    <circle cx="145" cy="120" r="4"/>
+    <circle cx="148" cy="126" r="4"/>
+    <!-- Leaves -->
+    <path d="M 70 155 C 65 148, 60 148, 62 155"/>
+    <path d="M 125 155 C 120 148, 115 148, 117 155"/>
+  </g>
+</svg>

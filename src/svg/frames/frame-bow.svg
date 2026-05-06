@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" preserveAspectRatio="none" aria-hidden="true">
+  <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="200" cy="124" rx="186" ry="100"/>
+    <ellipse cx="200" cy="124" rx="180" ry="94" stroke-dasharray="1 4" stroke-width="1.2"/>
+    <!-- bow on top -->
+    <g transform="translate(200 22)">
+      <path d="M0 0 Q -16 -10 -20 -4 Q -22 6 0 0 Z"/>
+      <path d="M0 0 Q 16 -10 20 -4 Q 22 6 0 0 Z"/>
+      <circle cx="0" cy="0" r="2.5"/>
+      <path d="M-2 2 L-6 14"/>
+      <path d="M2 2 L6 14"/>
+    </g>
+    <!-- side leaves -->
+    <path d="M14 124 Q 6 116 14 110"/>
+    <path d="M386 124 Q 394 116 386 110"/>
+  </g>
+</svg>

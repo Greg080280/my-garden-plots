@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Bowl outer -->
+    <path d="M 25 90 C 30 130, 60 165, 100 165 C 140 165, 170 130, 175 90"/>
+    <!-- Bowl rim outer -->
+    <path d="M 25 90 C 30 80, 60 75, 100 75 C 140 75, 170 80, 175 90"/>
+    <!-- Bowl rim inner -->
+    <path d="M 35 90 C 50 95, 80 98, 100 98 C 120 98, 150 95, 165 90"/>
+    <!-- Bowl decorative wave at rim -->
+    <path d="M 30 100 C 38 95, 45 100, 55 95 C 65 100, 75 95, 85 100 C 95 95, 105 100, 115 95 C 125 100, 135 95, 145 100 C 155 95, 165 100, 170 95"/>
+    <!-- Bowl bottom curve -->
+    <path d="M 50 145 C 70 152, 130 152, 150 145"/>
+    <!-- Foot/base -->
+    <path d="M 75 165 L 75 172 L 125 172 L 125 165"/>
+    <path d="M 75 172 C 90 175, 110 175, 125 172"/>
+  </g>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Left thin loop -->
+    <path d="M 95 100 C 75 85, 55 82, 45 92 C 40 102, 50 115, 70 115 C 82 113, 92 108, 95 102 Z"/>
+    <!-- Right thin loop -->
+    <path d="M 105 100 C 125 85, 145 82, 155 92 C 160 102, 150 115, 130 115 C 118 113, 108 108, 105 102 Z"/>
+    <!-- Center small knot -->
+    <path d="M 95 100 L 95 108 L 105 108 L 105 100 Z"/>
+    <!-- Long thin tails -->
+    <path d="M 96 108 C 88 130, 82 155, 78 175"/>
+    <path d="M 104 108 C 112 130, 118 155, 122 175"/>
+    <!-- Tail end curls -->
+    <path d="M 78 175 C 75 178, 75 183, 78 183"/>
+    <path d="M 122 175 C 125 178, 125 183, 122 183"/>
+  </g>
+</svg>

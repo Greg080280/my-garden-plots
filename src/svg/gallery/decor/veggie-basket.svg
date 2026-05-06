@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Basket body -->
+    <path d="M 35 100 L 40 175 L 160 175 L 165 100"/>
+    <!-- Basket top opening -->
+    <path d="M 35 100 C 55 95, 145 95, 165 100"/>
+    <!-- Basket weave pattern - vertical -->
+    <path d="M 50 105 L 53 170"/>
+    <path d="M 70 100 L 72 172"/>
+    <path d="M 90 98 L 91 173"/>
+    <path d="M 110 98 L 109 173"/>
+    <path d="M 130 100 L 128 172"/>
+    <path d="M 150 105 L 147 170"/>
+    <!-- Basket weave horizontal -->
+    <path d="M 38 120 C 65 122, 135 122, 162 120"/>
+    <path d="M 38 145 C 65 147, 135 147, 162 145"/>
+    <path d="M 40 165 C 65 167, 135 167, 160 165"/>
+    <!-- Handles -->
+    <path d="M 60 100 C 55 80, 65 60, 100 58"/>
+    <path d="M 140 100 C 145 80, 135 60, 100 58"/>
+    <!-- Veggies sticking out -->
+    <!-- Leek/green onion -->
+    <path d="M 55 95 L 55 50"/>
+    <path d="M 60 92 L 60 45"/>
+    <path d="M 65 90 L 65 48"/>
+    <!-- Broccoli/cauliflower -->
+    <circle cx="85" cy="80" r="6"/>
+    <circle cx="92" cy="78" r="5"/>
+    <circle cx="100" cy="80" r="6"/>
+    <circle cx="108" cy="78" r="5"/>
+    <!-- Pepper -->
+    <path d="M 120 95 C 118 80, 122 70, 130 70 C 138 72, 138 88, 132 95"/>
+    <path d="M 130 70 L 130 65"/>
+    <!-- Lettuce leaf -->
+    <path d="M 145 90 C 148 75, 145 60, 138 55 C 142 70, 142 85, 142 92"/>
+    <path d="M 145 90 C 152 80, 158 70, 160 60"/>
+  </g>
+</svg>
