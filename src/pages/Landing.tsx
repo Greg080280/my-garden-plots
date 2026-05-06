@@ -21,7 +21,7 @@ const Landing = () => {
               Pământul tău,<br />
               <span className="font-script italic text-primary text-6xl md:text-7xl lg:text-[80px]">recolta</span> ta.
             </h1>
-            <p className="mt-7 max-w-xl text-lg text-foreground/75 leading-[1.7]">
+            <p className="mt-7 max-w-xl text-lg text-foreground/90 leading-[1.7]">
               Arendează un lot din Moldova, alege ce să crești, iar fermierii locali îți poartă de grijă culturilor — de la sapă până la coș.
             </p>
 
@@ -129,11 +129,11 @@ const Landing = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {featured.map(land => (
-              <Link key={land.id} to={`/lands/${land.id}`} className="group editorial-card overflow-hidden">
+              <Link key={land.id} to={`/lands/${land.id}`} className="group editorial-card overflow-hidden flex flex-col">
                 <div className="img-zoom aspect-[4/3] overflow-hidden">
                   <img src={land.photo} alt={land.name} loading="lazy" className="w-full h-full object-cover" />
                 </div>
-                <div className="p-8">
+                <div className="p-8 flex-1 flex flex-col">
                   <p className="eyebrow text-[10px]">{land.region}</p>
                   <h3 className="mt-2 font-display text-[22px] text-primary-deep leading-tight group-hover:text-primary transition-colors">
                     {land.name}
@@ -149,6 +149,9 @@ const Landing = () => {
                       {land.availablePlots}/{land.totalPlots} libere
                     </span>
                   </div>
+                  <span className="mt-5 inline-flex items-center gap-1.5 font-display text-[13px] text-primary group-hover:gap-2.5 transition-all">
+                    Vezi detalii <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.8} />
+                  </span>
                 </div>
               </Link>
             ))}
