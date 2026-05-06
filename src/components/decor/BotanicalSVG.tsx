@@ -1,21 +1,28 @@
 /**
- * BotanicalSVG — render an inline hand-drawn SVG from /public/svg with
- * `currentColor` theming. Use this for ALL decorative illustrations from the
- * spec asset library so they inherit text color via Tailwind classes.
- *
- * Why not <img src="/svg/...">? Because external <img> tags can't inherit
- * currentColor. We fetch and inline once, then cache.
+ * BotanicalSVG — render an inline hand-drawn SVG with `currentColor` theming.
+ * SVGs are bundled via Vite (import.meta.glob with ?raw) so they work in any
+ * environment (preview, prod, sandboxed iframes) without a network round-trip.
  *
  * Usage:
  *   <BotanicalSVG name="illustrations/watering-can" className="text-garden-700 w-44" />
  */
-import { forwardRef, useEffect, useState } from "react";
+import { forwardRef } from "react";
 import { cn } from "@/lib/utils";
 
-const cache = new Map<string, string>();
+// Eagerly import every SVG under src/svg as a raw string at build time.
+const RAW_SVGS = import.meta.glob("/src/svg/**/*.svg", {
+  query: "?raw",
+  import: "default",
+  eager: true,
+}) as Record<string, string>;
+
+const lookup = (name: string): string => {
+  const key = `/src/svg/${name}.svg`;
+  return RAW_SVGS[key] ?? "";
+};
 
 interface Props {
-  /** path relative to /public/svg, no .svg extension. e.g. "icons/tomato" */
+  /** path relative to src/svg, no .svg extension. e.g. "icons/tomato" */
   name: string;
   className?: string;
   /** Optional accessible label (otherwise treated as decorative). */
@@ -24,25 +31,7 @@ interface Props {
 
 export const BotanicalSVG = forwardRef<HTMLSpanElement, Props>(
   ({ name, className, title }, ref) => {
-    const [markup, setMarkup] = useState<string>(cache.get(name) ?? "");
-
-    useEffect(() => {
-      if (cache.has(name)) {
-        setMarkup(cache.get(name)!);
-        return;
-      }
-      let cancelled = false;
-      fetch(`/svg/${name}.svg`)
-        .then(r => (r.ok ? r.text() : ""))
-        .then(t => {
-          if (cancelled) return;
-          cache.set(name, t);
-          setMarkup(t);
-        })
-        .catch(() => { /* ignore */ });
-      return () => { cancelled = true; };
-    }, [name]);
-
+    const markup = lookup(name);
     return (
       <span
         ref={ref}
