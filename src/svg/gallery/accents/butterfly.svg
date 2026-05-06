@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Body -->
+    <path d="M 100 50 C 96 60, 95 80, 96 105 C 97 130, 100 150, 102 165 C 104 150, 106 130, 105 105 C 104 80, 103 60, 100 50 Z"/>
+    <!-- Antennae -->
+    <path d="M 98 50 C 90 42, 82 38, 75 38"/>
+    <path d="M 102 50 C 110 42, 118 38, 125 38"/>
+    <circle cx="73" cy="38" r="2"/>
+    <circle cx="127" cy="38" r="2"/>
+    <!-- Top left wing -->
+    <path d="M 96 70 C 75 55, 50 55, 35 75 C 28 95, 38 115, 60 115 C 78 112, 92 100, 98 88 Z"/>
+    <!-- Top right wing -->
+    <path d="M 104 70 C 125 55, 150 55, 165 75 C 172 95, 162 115, 140 115 C 122 112, 108 100, 102 88 Z"/>
+    <!-- Bottom left wing -->
+    <path d="M 96 105 C 78 115, 55 125, 50 145 C 52 158, 65 158, 78 150 C 90 140, 96 125, 98 115 Z"/>
+    <!-- Bottom right wing -->
+    <path d="M 104 105 C 122 115, 145 125, 150 145 C 148 158, 135 158, 122 150 C 110 140, 104 125, 102 115 Z"/>
+    <!-- Wing decoration left top -->
+    <circle cx="60" cy="85" r="5"/>
+    <circle cx="55" cy="85" r="2"/>
+    <!-- Wing decoration right top -->
+    <circle cx="140" cy="85" r="5"/>
+    <circle cx="145" cy="85" r="2"/>
+    <!-- Wing details bottom -->
+    <path d="M 70 130 C 75 135, 80 135, 85 130"/>
+    <path d="M 130 130 C 125 135, 120 135, 115 130"/>
+  </g>
+</svg>
