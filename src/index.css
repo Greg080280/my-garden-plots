@@ -123,15 +123,18 @@
   .font-ui      { font-family: 'DM Sans', system-ui, sans-serif; }
   .font-mono    { font-family: 'JetBrains Mono', ui-monospace, monospace; }
 
-  /* Editorial eyebrow label */
+  /* Editorial eyebrow label — bumped contrast for AA on cream */
   .eyebrow {
     font-family: 'DM Sans', sans-serif;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: hsl(var(--primary-deep));
+    color: hsl(var(--primary));
   }
+
+  /* Tabular numerals for prices/stats */
+  .num { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; }
 
   /* Hairline divider */
   .hairline { border-top: 1px solid hsl(var(--border) / 0.7); }
