@@ -13,8 +13,10 @@ export default {
     extend: {
       fontFamily: {
         // Caveat = display script (logo, hero accents only — per spec rules)
+        // Caveat is RESTRICTED — only via .font-script (logo + hero accent words).
         script:  ["Caveat", "cursive"],
-        display: ["Caveat", "cursive"],
+        // font-display = DM Sans (editorial display weight). NEVER Caveat.
+        display: ["'DM Sans'", "system-ui", "sans-serif"],
         // DM Sans does the heavy lifting for headings + body
         heading: ["'DM Sans'", "system-ui", "sans-serif"],
         body:    ["'DM Sans'", "system-ui", "sans-serif"],
