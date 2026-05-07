@@ -156,7 +156,7 @@ export const Navbar = () => {
               </Link>
               <Link
                 to="/register"
-                className="press inline-flex items-center h-10 px-5 rounded-md bg-garden-600 text-cream-soft hover:bg-garden-700 font-ui text-sm font-medium"
+                className="press inline-flex items-center h-10 px-5 rounded-md border border-garden-600 text-garden-700 hover:bg-garden-100 font-ui text-sm font-semibold"
               >
                 Înregistrează-te
               </Link>
