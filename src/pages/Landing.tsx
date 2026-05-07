@@ -13,9 +13,9 @@ const Landing = () => {
     <div className="overflow-x-hidden">
       {/* HERO — editorial 12-column */}
       <section className="relative pt-16 lg:pt-20 pb-24 lg:pb-32">
-        <div className="container grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          {/* Left content — cols 1-7 */}
-          <div className="lg:col-span-7 animate-fade-up">
+        <div className="container grid grid-cols-1 lg:grid-cols-12 gap-y-14 gap-x-10 xl:gap-x-16 items-center">
+          {/* Left content — 7/12 on desktop, full on mobile/tablet */}
+          <div className="lg:col-span-7 xl:col-span-7 max-w-2xl animate-fade-up">
             <p className="eyebrow">Platformă de arendă agricolă · Moldova</p>
             <h1 className="mt-6 font-display text-5xl md:text-6xl lg:text-[68px] leading-[1.05] text-primary-deep font-light">
               Pământul tău,<br />
