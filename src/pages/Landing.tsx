@@ -12,8 +12,8 @@ const Landing = () => {
   return (
     <div className="overflow-x-hidden">
       {/* HERO — editorial 12-column */}
-      <section className="relative pt-20 lg:pt-28 pb-32 lg:pb-40">
-        <div className="container grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <section className="relative pt-16 lg:pt-20 pb-24 lg:pb-32">
+        <div className="container grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Left content — cols 1-7 */}
           <div className="lg:col-span-7 animate-fade-up">
             <p className="eyebrow">Platformă de arendă agricolă · Moldova</p>
@@ -54,27 +54,28 @@ const Landing = () => {
             </div>
           </div>
 
-          {/* Right illustration — botanical arrangement, no AI image */}
+          {/* Right illustration — compact botanical collage */}
           <div className="lg:col-span-5 relative">
-            <div className="relative aspect-square max-w-[520px] mx-auto">
-              {/* Soft cream paper backdrop */}
-              <div className="absolute inset-0 bg-paper rounded-full opacity-60" aria-hidden />
+            <div className="relative w-full max-w-[420px] aspect-square mx-auto lg:ml-auto lg:mr-0">
+              {/* Soft cream paper backdrop — smaller, offset */}
+              <div className="absolute inset-[6%] bg-paper rounded-full opacity-70 shadow-paper" aria-hidden />
+              <div className="absolute inset-[14%] rounded-full border border-primary/15" aria-hidden />
 
               {/* Centerpiece — greenhouse */}
               <div className="absolute inset-0 grid place-items-center">
-                <Botanical cat="decor" slug="greenhouse" className="text-primary-deep w-[68%] h-[68%]" title="Seră" />
+                <Botanical cat="decor" slug="greenhouse" className="text-primary-deep w-[60%] h-[60%]" title="Seră" />
               </div>
 
               {/* Top-left — tomato */}
-              <Botanical cat="vegetables" slug="tomato" className="absolute -top-2 left-2 w-28 h-28 text-primary rotate-[-8deg]" />
+              <Botanical cat="vegetables" slug="tomato" className="absolute top-2 left-2 w-20 h-20 text-primary rotate-[-8deg]" />
               {/* Top-right — sunflower */}
-              <Botanical cat="flowers" slug="sunflower" className="absolute top-6 -right-4 w-32 h-32 text-primary-deep rotate-[6deg]" />
+              <Botanical cat="flowers" slug="sunflower" className="absolute top-6 right-0 w-24 h-24 text-primary-deep rotate-[6deg]" />
               {/* Bottom-left — watering can */}
-              <Botanical cat="tools" slug="watering-can" className="absolute -bottom-4 left-0 w-32 h-32 text-primary" />
-              {/* Bottom-right — basket / cherries */}
-              <Botanical cat="vegetables" slug="cherries" className="absolute bottom-2 -right-2 w-28 h-28 text-primary-deep rotate-[10deg]" />
+              <Botanical cat="tools" slug="watering-can" className="absolute bottom-0 left-0 w-24 h-24 text-primary" />
+              {/* Bottom-right — cherries */}
+              <Botanical cat="vegetables" slug="cherries" className="absolute bottom-2 right-2 w-20 h-20 text-primary-deep rotate-[10deg]" />
               {/* Floating bee */}
-              <Botanical cat="accents" slug="bee" className="absolute top-1/3 -left-6 w-14 h-14 text-primary animate-sway" />
+              <Botanical cat="accents" slug="bee" className="absolute top-1/3 -left-4 w-12 h-12 text-primary animate-sway" />
             </div>
           </div>
         </div>
