@@ -97,11 +97,12 @@ export const Navbar = () => {
           <Link
             to="/marketplace"
             className="relative inline-flex items-center justify-center h-10 w-10 rounded-full text-garden-700 hover:bg-garden-100 press"
-            aria-label="Coș"
+            aria-label={count > 0 ? `Coș (${count} produse)` : "Coș gol"}
+            title={count > 0 ? `${count} în coș` : "Coșul este gol"}
           >
             <ShoppingBasket className="h-[18px] w-[18px]" strokeWidth={1.6} />
             {count > 0 && (
-              <span className="absolute -top-0.5 -right-0.5 h-4 min-w-[1rem] px-1 rounded-full bg-garden-600 text-cream-soft text-[10px] font-ui font-semibold flex items-center justify-center">
+              <span className="absolute -top-0.5 -right-0.5 h-4 min-w-[1rem] px-1 rounded-full bg-garden-600 text-cream-soft text-[10px] font-ui font-semibold flex items-center justify-center num">
                 {count}
               </span>
             )}
