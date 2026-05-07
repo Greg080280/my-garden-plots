@@ -96,6 +96,13 @@
     font-family: 'DM Sans', system-ui, sans-serif;
     font-feature-settings: "kern", "liga", "ss01";
   }
+  /* Visible focus on dark surfaces (footer, primary buttons) */
+  .bg-garden-700 :focus-visible,
+  .bg-primary :focus-visible {
+    outline: 2px solid hsl(var(--paper));
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
 
   /* Headings = DM Sans 600/700 (per spec — "DM Sans for all UI"). */
   h1, h2, h3, h4, h5, h6 {
@@ -123,15 +130,18 @@
   .font-ui      { font-family: 'DM Sans', system-ui, sans-serif; }
   .font-mono    { font-family: 'JetBrains Mono', ui-monospace, monospace; }
 
-  /* Editorial eyebrow label */
+  /* Editorial eyebrow label — bumped contrast for AA on cream */
   .eyebrow {
     font-family: 'DM Sans', sans-serif;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: hsl(var(--primary-deep));
+    color: hsl(var(--primary));
   }
+
+  /* Tabular numerals for prices/stats */
+  .num { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; }
 
   /* Hairline divider */
   .hairline { border-top: 1px solid hsl(var(--border) / 0.7); }
@@ -155,14 +165,15 @@
   }
   .link-underline:hover::after { transform: scaleX(1); }
 
-  /* Active nav indicator (top-bar) — thin underline */
-  .nav-active { position: relative; }
+  /* Active nav indicator (top-bar) */
+  .nav-active { position: relative; color: hsl(var(--primary-deep)) !important; }
   .nav-active::after {
     content: '';
     position: absolute;
-    left: 0; right: 0; bottom: -6px;
-    height: 1px;
+    left: 0; right: 0; bottom: -20px;
+    height: 2px;
     background: hsl(var(--primary));
+    border-radius: 2px;
   }
 
   /* Editorial card (used by LandCard / ProductCard) */

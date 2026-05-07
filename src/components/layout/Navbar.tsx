@@ -97,11 +97,12 @@ export const Navbar = () => {
           <Link
             to="/marketplace"
             className="relative inline-flex items-center justify-center h-10 w-10 rounded-full text-garden-700 hover:bg-garden-100 press"
-            aria-label="Coș"
+            aria-label={count > 0 ? `Coș (${count} produse)` : "Coș gol"}
+            title={count > 0 ? `${count} în coș` : "Coșul este gol"}
           >
             <ShoppingBasket className="h-[18px] w-[18px]" strokeWidth={1.6} />
             {count > 0 && (
-              <span className="absolute -top-0.5 -right-0.5 h-4 min-w-[1rem] px-1 rounded-full bg-garden-600 text-cream-soft text-[10px] font-ui font-semibold flex items-center justify-center">
+              <span className="absolute -top-0.5 -right-0.5 h-4 min-w-[1rem] px-1 rounded-full bg-garden-600 text-cream-soft text-[10px] font-ui font-semibold flex items-center justify-center num">
                 {count}
               </span>
             )}
@@ -156,7 +157,7 @@ export const Navbar = () => {
               </Link>
               <Link
                 to="/register"
-                className="press inline-flex items-center h-10 px-5 rounded-md bg-garden-600 text-cream-soft hover:bg-garden-700 font-ui text-sm font-medium"
+                className="press inline-flex items-center h-10 px-5 rounded-md border border-garden-600 text-garden-700 hover:bg-garden-100 font-ui text-sm font-semibold"
               >
                 Înregistrează-te
               </Link>

@@ -21,7 +21,7 @@ const Landing = () => {
               Pământul tău,<br />
               <span className="font-script italic text-primary text-6xl md:text-7xl lg:text-[80px]">recolta</span> ta.
             </h1>
-            <p className="mt-7 max-w-xl text-lg text-foreground/90 leading-[1.7]">
+            <p className="mt-7 max-w-xl text-lg text-primary-deep/85 leading-[1.7]">
               Arendează un lot din Moldova, alege ce să crești, iar fermierii locali îți poartă de grijă culturilor — de la sapă până la coș.
             </p>
 
@@ -31,25 +31,25 @@ const Landing = () => {
                 "32 de fermieri verificați",
                 "Peste 200 de clienți activi",
               ].map(item => (
-                <li key={item} className="flex items-center gap-3 font-display text-[15px] text-foreground/85">
-                  <Check className="h-4 w-4 text-primary shrink-0" strokeWidth={2} />
+                <li key={item} className="flex items-center gap-3 font-ui text-[15px] text-foreground/90">
+                  <Check className="h-4 w-4 text-primary shrink-0" strokeWidth={2.4} />
                   {item}
                 </li>
               ))}
             </ul>
 
-            <div className="mt-10 flex flex-wrap items-center gap-6">
+            <div className="mt-10 flex flex-wrap items-center gap-4">
               <Link
                 to="/lands"
-                className="press inline-flex items-center justify-center h-12 px-8 rounded-md bg-primary text-primary-foreground hover:bg-primary-deep font-display text-[15px]"
+                className="press inline-flex items-center justify-center h-12 px-8 rounded-md bg-primary text-primary-foreground hover:bg-primary-deep font-ui text-[15px] font-semibold shadow-card"
               >
                 Explorează loturi
               </Link>
               <Link
                 to="/farmer"
-                className="font-display text-[15px] text-primary-deep link-underline inline-flex items-center gap-2"
+                className="press inline-flex items-center gap-2 h-12 px-6 rounded-md border border-primary/40 text-primary-deep hover:bg-primary/5 font-ui text-[15px] font-semibold"
               >
-                Sunt fermier <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
+                Sunt fermier <ArrowRight className="h-4 w-4" strokeWidth={2} />
               </Link>
             </div>
           </div>
@@ -142,15 +142,15 @@ const Landing = () => {
                     {land.features[0]} · {land.size} ha
                   </p>
                   <div className="mt-6 pt-6 border-t border-border/60 flex items-center justify-between">
-                    <span className="font-display text-base text-primary-deep">
-                      {land.pricePerAre} <span className="font-ui text-xs text-muted-foreground tracking-wide">MDL/AR</span>
+                    <span className="font-ui text-base font-bold text-primary-deep num">
+                      {land.pricePerAre}<span className="font-ui text-xs font-medium text-muted-foreground tracking-wide ml-1">MDL/ar</span>
                     </span>
-                    <span className="font-ui text-[11px] uppercase tracking-widest text-muted-foreground">
-                      {land.availablePlots}/{land.totalPlots} libere
+                    <span className="font-ui text-xs font-medium text-foreground/75 num">
+                      {land.availablePlots} din {land.totalPlots} libere
                     </span>
                   </div>
-                  <span className="mt-5 inline-flex items-center gap-1.5 font-display text-[13px] text-primary group-hover:gap-2.5 transition-all">
-                    Vezi detalii <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.8} />
+                  <span className="mt-5 inline-flex items-center gap-1.5 font-ui text-[13px] font-semibold text-primary group-hover:gap-2.5 transition-all">
+                    Vezi detalii <ArrowRight className="h-3.5 w-3.5" strokeWidth={2} />
                   </span>
                 </div>
               </Link>

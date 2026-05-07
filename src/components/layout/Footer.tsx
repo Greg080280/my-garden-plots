@@ -7,9 +7,10 @@ import { BotanicalSVG } from "@/components/decor/BotanicalSVG";
  */
 export const Footer = () => (
   <footer className="mt-24 bg-garden-700 text-cream-soft">
-    {/* Wave divider — inverted, sits at the very top */}
-    <div className="text-cream relative -mt-px">
-      <BotanicalSVG name="dividers/wave" className="block w-full h-10" />
+    {/* Soft transition band from cream to garden */}
+    <div aria-hidden className="h-12 -mt-12 bg-gradient-to-b from-transparent to-garden-700" />
+    <div className="text-cream-soft/40 relative">
+      <BotanicalSVG name="dividers/wave" className="block w-full h-8" />
     </div>
 
     {/* Botanical accent row */}
