@@ -55,8 +55,8 @@ const Landing = () => {
           </div>
 
           {/* Right illustration — compact botanical collage */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative w-full max-w-[420px] aspect-square mx-auto lg:ml-auto lg:mr-0">
+          <div className="lg:col-span-5 xl:col-span-5 relative w-full">
+            <div className="relative w-full max-w-[380px] lg:max-w-[420px] aspect-square mx-auto lg:ml-auto lg:mr-0">
               {/* Soft cream paper backdrop — smaller, offset */}
               <div className="absolute inset-[6%] bg-paper rounded-full opacity-70 shadow-paper" aria-hidden />
               <div className="absolute inset-[14%] rounded-full border border-primary/15" aria-hidden />
