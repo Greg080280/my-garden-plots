@@ -158,14 +158,15 @@
   }
   .link-underline:hover::after { transform: scaleX(1); }
 
-  /* Active nav indicator (top-bar) — thin underline */
-  .nav-active { position: relative; }
+  /* Active nav indicator (top-bar) */
+  .nav-active { position: relative; color: hsl(var(--primary-deep)) !important; }
   .nav-active::after {
     content: '';
     position: absolute;
-    left: 0; right: 0; bottom: -6px;
-    height: 1px;
+    left: 0; right: 0; bottom: -20px;
+    height: 2px;
     background: hsl(var(--primary));
+    border-radius: 2px;
   }
 
   /* Editorial card (used by LandCard / ProductCard) */
