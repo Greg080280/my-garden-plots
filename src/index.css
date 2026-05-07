@@ -96,6 +96,17 @@
     font-family: 'DM Sans', system-ui, sans-serif;
     font-feature-settings: "kern", "liga", "ss01";
   }
+  /* Visible focus on dark surfaces (footer, primary buttons) */
+  .bg-garden-700 :focus-visible,
+  .bg-primary :focus-visible {
+    outline: 2px solid hsl(var(--paper));
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+    @apply bg-background text-foreground antialiased;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-feature-settings: "kern", "liga", "ss01";
+  }
 
   /* Headings = DM Sans 600/700 (per spec — "DM Sans for all UI"). */
   h1, h2, h3, h4, h5, h6 {
