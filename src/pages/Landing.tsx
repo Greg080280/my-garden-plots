@@ -142,15 +142,15 @@ const Landing = () => {
                     {land.features[0]} · {land.size} ha
                   </p>
                   <div className="mt-6 pt-6 border-t border-border/60 flex items-center justify-between">
-                    <span className="font-display text-base text-primary-deep">
-                      {land.pricePerAre} <span className="font-ui text-xs text-muted-foreground tracking-wide">MDL/AR</span>
+                    <span className="font-ui text-base font-bold text-primary-deep num">
+                      {land.pricePerAre}<span className="font-ui text-xs font-medium text-muted-foreground tracking-wide ml-1">MDL/ar</span>
                     </span>
-                    <span className="font-ui text-[11px] uppercase tracking-widest text-muted-foreground">
-                      {land.availablePlots}/{land.totalPlots} libere
+                    <span className="font-ui text-xs font-medium text-foreground/75 num">
+                      {land.availablePlots} din {land.totalPlots} libere
                     </span>
                   </div>
-                  <span className="mt-5 inline-flex items-center gap-1.5 font-display text-[13px] text-primary group-hover:gap-2.5 transition-all">
-                    Vezi detalii <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.8} />
+                  <span className="mt-5 inline-flex items-center gap-1.5 font-ui text-[13px] font-semibold text-primary group-hover:gap-2.5 transition-all">
+                    Vezi detalii <ArrowRight className="h-3.5 w-3.5" strokeWidth={2} />
                   </span>
                 </div>
               </Link>
