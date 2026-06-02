@@ -10,7 +10,7 @@ export const Footer = () => (
     {/* Soft transition band from cream to garden */}
     <div aria-hidden className="h-12 -mt-12 bg-gradient-to-b from-transparent to-garden-700" />
     <div className="text-cream-soft/40 relative">
-      <BotanicalSVG name="dividers/wave" className="block w-full h-8" />
+      <BotanicalSVG name="dividers/wave" noSketch className="block w-full h-8" />
     </div>
 
     {/* Botanical accent row */}
