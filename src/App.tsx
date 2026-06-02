@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { AuthProvider } from "@/context/AuthContext";
 import { CartProvider } from "@/context/CartContext";
 import { SiteLayout } from "@/components/layout/SiteLayout";
+import { PencilFilters } from "@/components/decor/PencilFilters";
 import Landing from "./pages/Landing";
 import Lands from "./pages/Lands";
 import LandDetail from "./pages/LandDetail";
@@ -25,6 +26,7 @@ const App = () => (
         <TooltipProvider>
           <Toaster />
           <Sonner />
+          <PencilFilters />
           <BrowserRouter>
             <Routes>
               <Route element={<SiteLayout />}>
