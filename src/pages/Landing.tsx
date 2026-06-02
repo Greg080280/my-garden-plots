@@ -81,7 +81,7 @@ const Landing = () => {
 
       {/* Wave divider */}
       <div className="container">
-        <BotanicalSVG name="dividers/wave" className="block w-full h-6 text-primary/40" />
+        <BotanicalSVG name="dividers/wave" noSketch className="block w-full h-6 text-primary/40" />
       </div>
 
       {/* HOW IT WORKS — editorial article structure */}
