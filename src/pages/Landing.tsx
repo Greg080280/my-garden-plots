@@ -1,82 +1,80 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, BookOpen, HelpCircle } from "lucide-react";
 import { LANDS, TESTIMONIALS } from "@/data/mock";
 import { Botanical } from "@/components/decor/Botanical";
 import { BotanicalSVG } from "@/components/decor/BotanicalSVG";
+import heroField from "@/assets/hero-field.jpg";
 
 const Landing = () => {
   const featured = LANDS.slice(0, 3);
   const featuredTestimonial = TESTIMONIALS[0];
   const moreTestimonials = TESTIMONIALS.slice(1, 3);
 
+  const totalLands = LANDS.length;
+  const freePlots = LANDS.reduce((sum, l) => sum + l.availablePlots, 0);
+  const regions = new Set(LANDS.map(l => l.region)).size;
+
   return (
     <div className="overflow-x-hidden">
-      {/* HERO — editorial 12-column */}
-      <section className="relative pt-16 lg:pt-20 pb-24 lg:pb-32">
-        <div className="container grid grid-cols-1 lg:grid-cols-12 gap-y-14 gap-x-10 xl:gap-x-16 items-center">
-          {/* Left content — 7/12 on desktop, full on mobile/tablet */}
-          <div className="lg:col-span-7 xl:col-span-7 max-w-2xl animate-fade-up">
-            <p className="eyebrow">Platformă de arendă agricolă · Moldova</p>
-            <h1 className="mt-6 font-display text-5xl md:text-6xl lg:text-[68px] leading-[1.05] text-primary-deep font-light">
-              Pământul tău,<br />
-              <span className="font-script italic text-primary text-6xl md:text-7xl lg:text-[80px]">recolta</span> ta.
-            </h1>
-            <p className="mt-7 max-w-xl text-lg text-primary-deep/85 leading-[1.7]">
-              Arendează un lot din Moldova, alege ce să crești, iar fermierii locali îți poartă de grijă culturilor — de la sapă până la coș.
-            </p>
+      {/* HERO — full-bleed cinematic photo */}
+      <section className="relative min-h-[92vh] flex items-center justify-center overflow-hidden -mt-px">
+        {/* Background image */}
+        <img
+          src={heroField}
+          alt=""
+          aria-hidden
+          width={1920}
+          height={1080}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        {/* Overlays for legibility */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/15 to-black/45" aria-hidden />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" aria-hidden />
 
-            <ul className="mt-8 space-y-2.5">
-              {[
-                "146 de loturi în 12 regiuni",
-                "32 de fermieri verificați",
-                "Peste 200 de clienți activi",
-              ].map(item => (
-                <li key={item} className="flex items-center gap-3 font-ui text-[15px] text-foreground/90">
-                  <Check className="h-4 w-4 text-primary shrink-0" strokeWidth={2.4} />
-                  {item}
-                </li>
-              ))}
-            </ul>
+        {/* Content */}
+        <div className="relative container text-center py-24 lg:py-32 animate-fade-up">
+          {/* Eyebrow pill */}
+          <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-cream-soft/95 backdrop-blur-sm border border-white/40 shadow-card font-ui text-[11px] uppercase tracking-[0.18em] text-primary-deep font-semibold">
+            <span aria-hidden>🌱</span> Loturi agricole · Moldova
+          </span>
 
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <Link
-                to="/lands"
-                className="press inline-flex items-center justify-center h-12 px-8 rounded-md bg-primary text-primary-foreground hover:bg-primary-deep font-ui text-[15px] font-semibold shadow-card"
-              >
-                Explorează loturi
-              </Link>
-              <Link
-                to="/farmer"
-                className="press inline-flex items-center gap-2 h-12 px-6 rounded-md border border-primary/40 text-primary-deep hover:bg-primary/5 font-ui text-[15px] font-semibold"
-              >
-                Sunt fermier <ArrowRight className="h-4 w-4" strokeWidth={2} />
-              </Link>
-            </div>
+          {/* Headline */}
+          <h1 className="mt-8 font-display font-light leading-[1.02] text-cream-soft text-5xl md:text-7xl lg:text-[88px]">
+            Arendează un lot.<br />
+            Cultivă ce vrei.<br />
+            <span className="font-script italic text-[hsl(38_80%_72%)]">Primește recolta.</span>
+          </h1>
+
+          {/* CTAs */}
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
+            <Link
+              to="/lands"
+              className="press inline-flex items-center gap-2 h-14 px-8 rounded-lg bg-primary text-primary-foreground hover:bg-primary-deep font-ui text-[15px] font-semibold shadow-card"
+            >
+              <BookOpen className="h-5 w-5" strokeWidth={2} />
+              Vezi terenuri disponibile
+            </Link>
+            <Link
+              to="#how"
+              className="press inline-flex items-center gap-2 h-14 px-8 rounded-lg bg-cream-soft/15 backdrop-blur-md border border-cream-soft/40 text-cream-soft hover:bg-cream-soft/25 font-ui text-[15px] font-semibold"
+            >
+              <HelpCircle className="h-5 w-5" strokeWidth={2} />
+              Cum funcționează?
+            </Link>
           </div>
 
-          {/* Right illustration — compact botanical collage */}
-          <div className="lg:col-span-5 xl:col-span-5 relative w-full">
-            <div className="relative w-full max-w-[380px] lg:max-w-[420px] aspect-square mx-auto lg:ml-auto lg:mr-0">
-              {/* Soft cream paper backdrop — smaller, offset */}
-              <div className="absolute inset-[6%] bg-paper rounded-full opacity-70 shadow-paper" aria-hidden />
-              <div className="absolute inset-[14%] rounded-full border border-primary/15" aria-hidden />
-
-              {/* Centerpiece — greenhouse */}
-              <div className="absolute inset-0 grid place-items-center">
-                <Botanical cat="decor" slug="greenhouse" className="text-primary-deep w-[60%] h-[60%]" title="Seră" />
+          {/* Stats */}
+          <div className="mt-16 flex flex-wrap items-start justify-center gap-x-16 gap-y-8">
+            {[
+              { value: `${totalLands}+`, label: "Terenuri" },
+              { value: `${freePlots}+`, label: "Loturi libere" },
+              { value: `${regions}`, label: "Regiuni" },
+            ].map(stat => (
+              <div key={stat.label} className="text-center">
+                <div className="font-display font-light text-[hsl(38_80%_72%)] text-4xl md:text-5xl num">{stat.value}</div>
+                <div className="mt-2 font-ui text-[11px] uppercase tracking-[0.18em] text-cream-soft/90 font-medium">{stat.label}</div>
               </div>
-
-              {/* Top-left — tomato */}
-              <Botanical cat="vegetables" slug="tomato" className="absolute top-2 left-2 w-20 h-20 text-primary rotate-[-8deg]" />
-              {/* Top-right — sunflower */}
-              <Botanical cat="flowers" slug="sunflower" className="absolute top-6 right-0 w-24 h-24 text-primary-deep rotate-[6deg]" />
-              {/* Bottom-left — watering can */}
-              <Botanical cat="tools" slug="watering-can" className="absolute bottom-0 left-0 w-24 h-24 text-primary" />
-              {/* Bottom-right — cherries */}
-              <Botanical cat="vegetables" slug="cherries" className="absolute bottom-2 right-2 w-20 h-20 text-primary-deep rotate-[10deg]" />
-              {/* Floating bee */}
-              <Botanical cat="accents" slug="bee" className="absolute top-1/3 -left-4 w-12 h-12 text-primary animate-sway" />
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -87,7 +85,7 @@ const Landing = () => {
       </div>
 
       {/* HOW IT WORKS — editorial article structure */}
-      <section className="border-t border-border/70 py-24 lg:py-32 mt-4">
+      <section id="how" className="border-t border-border/70 py-24 lg:py-32 mt-4 scroll-mt-20">
         <div className="container">
           <div className="max-w-2xl mb-16">
             <p className="eyebrow">Procesul</p>
