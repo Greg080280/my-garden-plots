@@ -27,10 +27,12 @@ interface Props {
   className?: string;
   /** Optional accessible label (otherwise treated as decorative). */
   title?: string;
+  /** Disable the pencil-sketch filter (e.g. for dividers/frames). */
+  noSketch?: boolean;
 }
 
 export const BotanicalSVG = forwardRef<HTMLSpanElement, Props>(
-  ({ name, className, title }, ref) => {
+  ({ name, className, title, noSketch }, ref) => {
     const markup = lookup(name);
     return (
       <span
@@ -38,7 +40,11 @@ export const BotanicalSVG = forwardRef<HTMLSpanElement, Props>(
         role={title ? "img" : "presentation"}
         aria-label={title}
         aria-hidden={title ? undefined : true}
-        className={cn("inline-block [&>svg]:h-full [&>svg]:w-full", className)}
+        className={cn(
+          "inline-block [&>svg]:h-full [&>svg]:w-full",
+          !noSketch && "[&>svg]:[filter:url(#pencil-sketch)]",
+          className,
+        )}
         dangerouslySetInnerHTML={{ __html: markup }}
       />
     );
