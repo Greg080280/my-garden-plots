@@ -85,7 +85,7 @@ const Landing = () => {
       </div>
 
       {/* HOW IT WORKS — editorial article structure */}
-      <section className="border-t border-border/70 py-24 lg:py-32 mt-4">
+      <section id="how" className="border-t border-border/70 py-24 lg:py-32 mt-4 scroll-mt-20">
         <div className="container">
           <div className="max-w-2xl mb-16">
             <p className="eyebrow">Procesul</p>
