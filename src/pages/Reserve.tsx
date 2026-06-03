@@ -254,6 +254,15 @@ const Reserve = () => {
             <aside className="lg:sticky lg:top-24 lg:self-start">
               <p className="eyebrow">Sumar</p>
               <h3 className="mt-3 font-display text-2xl text-primary-deep font-normal mb-6">Comanda ta</h3>
+              {startDate && (
+                <div className="mb-5 pb-5 border-b border-border/50">
+                  <p className="font-ui text-[10px] uppercase tracking-widest text-muted-foreground">Începem</p>
+                  <p className="mt-1 font-display text-base text-primary-deep inline-flex items-center gap-2">
+                    <CalendarIcon className="h-3.5 w-3.5" strokeWidth={1.5} />
+                    {format(startDate, "d MMMM yyyy", { locale: ro })}
+                  </p>
+                </div>
+              )}
               <ul className="space-y-3 font-display text-[15px]">
                 <li className="flex justify-between gap-3 pb-3 border-b border-border/50">
                   <span className="text-foreground/80">Pământ ({plot.area} ari)</span>
