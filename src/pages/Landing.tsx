@@ -50,6 +50,12 @@ const Landing = () => {
         />
         {/* Subtle warm tint */}
         <div className="absolute inset-0 mix-blend-soft-light bg-[hsl(38_70%_50%)]/10" aria-hidden />
+        {/* Military overlay across the entire photo */}
+        <div
+          className="absolute inset-0"
+          aria-hidden
+          style={{ backgroundColor: "hsl(68 30% 22% / 0.10)" }}
+        />
 
         {/* Content — pinned LEFT */}
         <div className="relative container py-24 lg:py-32 animate-fade-up">
