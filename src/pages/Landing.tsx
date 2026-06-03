@@ -21,94 +21,74 @@ const Landing = () => {
       {/* HERO — full-bleed cinematic photo + overlay */}
       {/* ─────────────────────────────────────────── */}
       <section className="relative min-h-[92vh] flex items-center justify-center overflow-hidden -mt-px">
-        {/* Background photo */}
+        {/* Background photo — happy family on the right */}
         <img
-          src={heroField}
-          alt=""
-          aria-hidden
+          src={heroFamily}
+          alt="Familie fericită lucrând în propria grădină"
           width={1920}
           height={1080}
           className="absolute inset-0 w-full h-full object-cover scale-105"
         />
 
-        {/* Multi-layer overlay for legibility + cinematic depth */}
-        {/* 1. base darkening */}
-        <div className="absolute inset-0 bg-primary-deep/35" aria-hidden />
-        {/* 2. vertical gradient — darker bottom, slight darker top */}
+        {/* Overlay — darker on the LEFT for text legibility, family stays visible on the right */}
         <div
           className="absolute inset-0"
           aria-hidden
           style={{
             background:
-              "linear-gradient(180deg, hsl(var(--primary-deep) / 0.55) 0%, hsl(var(--primary-deep) / 0.15) 38%, hsl(var(--primary-deep) / 0.25) 62%, hsl(var(--primary-deep) / 0.75) 100%)",
+              "linear-gradient(90deg, hsl(var(--primary-deep) / 0.78) 0%, hsl(var(--primary-deep) / 0.55) 28%, hsl(var(--primary-deep) / 0.15) 55%, transparent 75%)",
           }}
         />
-        {/* 3. radial vignette — focuses on the headline */}
+        {/* Soft bottom fade for marquee blend */}
         <div
-          className="absolute inset-0"
+          className="absolute inset-x-0 bottom-0 h-32"
           aria-hidden
           style={{
             background:
-              "radial-gradient(ellipse at 50% 45%, transparent 0%, transparent 35%, hsl(var(--primary-deep) / 0.45) 100%)",
+              "linear-gradient(180deg, transparent, hsl(var(--primary-deep) / 0.45))",
           }}
         />
-        {/* 4. subtle warm tint */}
+        {/* Subtle warm tint */}
         <div className="absolute inset-0 mix-blend-soft-light bg-[hsl(38_70%_50%)]/10" aria-hidden />
 
-        {/* Content */}
-        <div className="relative container text-center py-24 lg:py-32 animate-fade-up">
-          {/* Eyebrow pill */}
-          <span className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-cream-soft/95 backdrop-blur-sm border border-white/40 shadow-card font-ui text-[11px] uppercase tracking-[0.18em] text-primary-deep font-semibold">
-            <Sprout className="h-3.5 w-3.5 text-primary" strokeWidth={2.2} />
-            Loturi agricole · Moldova
-          </span>
+        {/* Content — pinned LEFT */}
+        <div className="relative container py-24 lg:py-32 animate-fade-up">
+          <div className="max-w-xl lg:max-w-2xl text-left">
+            {/* Eyebrow pill */}
+            <span className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-cream-soft/95 backdrop-blur-sm border border-white/40 shadow-card font-ui text-[11px] uppercase tracking-[0.18em] text-primary-deep font-semibold">
+              <Sprout className="h-3.5 w-3.5 text-primary" strokeWidth={2.2} />
+              Loturi agricole · Moldova
+            </span>
 
-          {/* Headline */}
-          <h1 className="mt-8 font-display font-light leading-[1.02] text-cream-soft text-5xl md:text-7xl lg:text-[88px] drop-shadow-[0_2px_24px_rgba(0,0,0,0.35)]">
-            Arendează un lot.<br />
-            Cultivă ce vrei.<br />
-            <span className="font-script italic text-[hsl(38_85%_75%)]">Primește recolta.</span>
-          </h1>
+            {/* Headline */}
+            <h1 className="mt-8 font-display font-light leading-[1.02] text-cream-soft text-5xl md:text-6xl lg:text-[80px] drop-shadow-[0_2px_24px_rgba(0,0,0,0.45)]">
+              Arendează un lot.<br />
+              Cultivă ce vrei.<br />
+              <span className="font-script italic text-[hsl(38_85%_75%)]">Primește recolta.</span>
+            </h1>
 
-          {/* Subtitle */}
-          <p className="mt-8 max-w-xl mx-auto text-cream-soft/90 text-lg leading-[1.7] drop-shadow">
-            Alege un teren din Moldova, plantează ce dorești și fermierii locali îți poartă de grijă de la sapă până la coș.
-          </p>
+            {/* Subtitle */}
+            <p className="mt-8 max-w-xl text-cream-soft/90 text-lg leading-[1.7] drop-shadow">
+              Alege un teren din Moldova, plantează ce dorești și fermierii locali îți poartă de grijă de la sapă până la coș.
+            </p>
 
-          {/* CTAs */}
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
-            <Link
-              to="/lands"
-              className="press inline-flex items-center gap-2 h-14 px-8 rounded-lg bg-primary text-primary-foreground hover:bg-primary-deep font-ui text-[15px] font-semibold shadow-card"
-            >
-              <BookOpen className="h-5 w-5" strokeWidth={2} />
-              Vezi terenuri disponibile
-            </Link>
-            <a
-              href="#how"
-              className="press inline-flex items-center gap-2 h-14 px-8 rounded-lg bg-cream-soft/15 backdrop-blur-md border border-cream-soft/40 text-cream-soft hover:bg-cream-soft/25 font-ui text-[15px] font-semibold"
-            >
-              <HelpCircle className="h-5 w-5" strokeWidth={2} />
-              Cum funcționează?
-            </a>
-          </div>
-
-          {/* Stats */}
-          <div className="mt-16 flex flex-wrap items-start justify-center gap-x-16 gap-y-8">
-            {[
-              { value: `${totalLands}+`, label: "Terenuri" },
-              { value: `${freePlots}+`, label: "Loturi libere" },
-              { value: `${regions}`, label: "Regiuni" },
-            ].map(stat => (
-              <div key={stat.label} className="text-center">
-                <div className="font-display font-light text-[hsl(38_85%_75%)] text-4xl md:text-5xl num drop-shadow">
-                  {stat.value}
-                </div>
-                <div className="mt-2 font-ui text-[11px] uppercase tracking-[0.18em] text-cream-soft/90 font-medium">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
+            {/* CTAs */}
+            <div className="mt-12 flex flex-wrap items-center gap-4">
+              <Link
+                to="/lands"
+                className="press inline-flex items-center gap-2 h-14 px-8 rounded-lg bg-primary text-primary-foreground hover:bg-primary-deep font-ui text-[15px] font-semibold shadow-card"
+              >
+                <BookOpen className="h-5 w-5" strokeWidth={2} />
+                Vezi terenuri disponibile
+              </Link>
+              <a
+                href="#how"
+                className="press inline-flex items-center gap-2 h-14 px-8 rounded-lg bg-cream-soft/15 backdrop-blur-md border border-cream-soft/40 text-cream-soft hover:bg-cream-soft/25 font-ui text-[15px] font-semibold"
+              >
+                <HelpCircle className="h-5 w-5" strokeWidth={2} />
+                Cum funcționează?
+              </a>
+            </div>
           </div>
         </div>
 
@@ -121,6 +101,39 @@ const Landing = () => {
           <span className="font-ui text-[10px] uppercase tracking-[0.25em]">Descoperă</span>
           <span className="block w-px h-10 bg-cream-soft/50 animate-pulse" />
         </a>
+      </section>
+
+      {/* ─────────────────────────────────────────── */}
+      {/* STATS MARQUEE — swipe right → left          */}
+      {/* ─────────────────────────────────────────── */}
+      <section
+        aria-label="Cifre cheie"
+        className="bg-primary-deep text-cream-soft py-7 overflow-hidden border-y border-primary/30 marquee-mask"
+      >
+        <div className="flex w-max animate-marquee whitespace-nowrap">
+          {[0, 1].map(loop => (
+            <ul key={loop} className="flex items-center gap-x-14 px-7" aria-hidden={loop === 1}>
+              {[
+                { value: `${totalLands}+`, label: "Terenuri" },
+                { value: `${freePlots}+`, label: "Loturi libere" },
+                { value: `${regions}`, label: "Regiuni" },
+                { value: "200+", label: "Clienți activi" },
+                { value: "100%", label: "Fermieri verificați" },
+                { value: "2025", label: "Sezon deschis" },
+              ].map((stat, i) => (
+                <li key={`${loop}-${i}`} className="flex items-baseline gap-3">
+                  <span className="font-display font-light text-[hsl(38_85%_75%)] text-3xl md:text-4xl num">
+                    {stat.value}
+                  </span>
+                  <span className="font-ui text-[11px] uppercase tracking-[0.22em] text-cream-soft/85 font-medium">
+                    {stat.label}
+                  </span>
+                  <span className="ml-10 inline-block h-1.5 w-1.5 rounded-full bg-primary/60" aria-hidden />
+                </li>
+              ))}
+            </ul>
+          ))}
+        </div>
       </section>
 
       {/* ─────────────────────────────────────────── */}
