@@ -39,6 +39,13 @@ const Reserve = () => {
   const [step, setStep] = useState(1);
   const [allocs, setAllocs] = useState<Record<string, number>>({});
   const [selServices, setSelServices] = useState<Set<string>>(new Set(["s-watering-ion"]));
+  const [startDate, setStartDate] = useState<Date | undefined>(() => {
+    const d = new Date();
+    d.setDate(d.getDate() + 7);
+    return d;
+  });
+  const [confirmOpen, setConfirmOpen] = useState(false);
+  const endDate = startDate ? addMonths(startDate, 6) : undefined;
 
   if (!land || !plot) return <div className="container py-32 text-center font-display text-xl">Lot indisponibil.</div>;
 
