@@ -1,13 +1,28 @@
 import { useMemo, useState } from "react";
 import { Link, useParams, useNavigate, useSearchParams } from "react-router-dom";
-import { Check, ArrowLeft } from "lucide-react";
+import { Check, ArrowLeft, CalendarIcon } from "lucide-react";
+import { format, addMonths } from "date-fns";
+import { ro } from "date-fns/locale";
 import { LANDS, CULTURES, SERVICES, buildPlots } from "@/data/mock";
 import { findUserById } from "@/context/AuthContext";
 import { Input } from "@/components/ui/input";
+import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
+import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 
 const STEPS = [
-  { n: 1, label: "Confirmă lotul" },
+  { n: 1, label: "Lot & dată" },
   { n: 2, label: "Alege culturi" },
   { n: 3, label: "Servicii & plată" },
 ];
