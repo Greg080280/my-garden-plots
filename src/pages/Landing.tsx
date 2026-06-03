@@ -4,6 +4,7 @@ import { LANDS, TESTIMONIALS } from "@/data/mock";
 import { Botanical } from "@/components/decor/Botanical";
 import { BotanicalSVG } from "@/components/decor/BotanicalSVG";
 import heroField from "@/assets/hero-field.jpg";
+import heroFamily from "@/assets/hero-family.jpg";
 
 const Landing = () => {
   const featured = LANDS.slice(0, 3);
