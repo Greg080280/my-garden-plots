@@ -241,6 +241,18 @@
     0%, 80%, 100% { opacity: 0.2; transform: translateY(0); }
     40%           { opacity: 1;   transform: translateY(-2px); }
   }
+
+  @keyframes marquee-rtl {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    animation: marquee-rtl 38s linear infinite;
+  }
+  .marquee-mask {
+    mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  }
 }
 
 /* Leaflet tweaks */
