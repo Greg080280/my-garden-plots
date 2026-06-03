@@ -135,8 +135,46 @@ const Reserve = () => {
                 </div>
               </dl>
             </div>
-            <div className="rounded-md overflow-hidden border border-border">
-              <img src={land.photo} alt={land.name} className="w-full aspect-[4/3] object-cover" />
+            <div className="space-y-6">
+              <div className="rounded-md overflow-hidden border border-border">
+                <img src={land.photo} alt={land.name} className="w-full aspect-[4/3] object-cover" />
+              </div>
+              <div>
+                <p className="eyebrow">Data începerii sezonului</p>
+                <h3 className="mt-2 font-display text-xl text-primary-deep font-normal mb-3">Când începem?</h3>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <button
+                      className={cn(
+                        "press w-full inline-flex items-center justify-between h-12 px-4 rounded-md border border-border bg-background hover:border-primary text-left font-display text-[15px] text-primary-deep",
+                        !startDate && "text-muted-foreground"
+                      )}
+                    >
+                      <span className="inline-flex items-center gap-3">
+                        <CalendarIcon className="h-4 w-4" strokeWidth={1.5} />
+                        {startDate ? format(startDate, "d MMMM yyyy", { locale: ro }) : "Alege o dată"}
+                      </span>
+                      <span className="font-ui text-[10px] uppercase tracking-widest text-muted-foreground">Schimbă</span>
+                    </button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0" align="start">
+                    <Calendar
+                      mode="single"
+                      selected={startDate}
+                      onSelect={setStartDate}
+                      disabled={(d) => d < new Date(new Date().setHours(0,0,0,0))}
+                      initialFocus
+                      locale={ro}
+                      className={cn("p-3 pointer-events-auto")}
+                    />
+                  </PopoverContent>
+                </Popover>
+                {endDate && (
+                  <p className="mt-3 font-ui text-xs text-muted-foreground tracking-wide">
+                    Sezon estimat: {format(startDate!, "d MMM", { locale: ro })} → {format(endDate, "d MMM yyyy", { locale: ro })}
+                  </p>
+                )}
+              </div>
             </div>
           </div>
         )}
