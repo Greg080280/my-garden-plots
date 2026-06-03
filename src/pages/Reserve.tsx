@@ -72,7 +72,9 @@ const Reserve = () => {
   };
 
   const checkout = () => {
-    toast.success("Rezervare confirmată", { description: "Vei primi un e-mail cu detaliile." });
+    setConfirmOpen(false);
+    const when = startDate ? format(startDate, "d MMMM yyyy", { locale: ro }) : "în curând";
+    toast.success("Rezervare confirmată", { description: `Sezonul începe pe ${when}. Vei primi un e-mail.` });
     setTimeout(() => nav("/dashboard"), 1100);
   };
 
