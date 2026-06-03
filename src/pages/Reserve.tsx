@@ -315,13 +315,44 @@ const Reserve = () => {
           </button>
         ) : (
           <button
-            onClick={checkout}
-            className="press inline-flex items-center justify-center h-12 px-8 rounded-md bg-primary text-primary-foreground hover:bg-primary-deep font-display text-[15px]"
+            onClick={() => setConfirmOpen(true)}
+            disabled={!startDate}
+            className="press inline-flex items-center justify-center h-12 px-8 rounded-md bg-primary text-primary-foreground hover:bg-primary-deep font-display text-[15px] disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Finalizează rezervarea
           </button>
         )}
       </div>
+
+      <AlertDialog open={confirmOpen} onOpenChange={setConfirmOpen}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle className="font-display text-2xl text-primary-deep">
+              Confirmi rezervarea?
+            </AlertDialogTitle>
+            <AlertDialogDescription className="font-ui text-sm text-foreground/80 space-y-2">
+              <span className="block">
+                <strong className="text-primary-deep">{land.name}</strong> · {plot.code} ({plot.area} ari)
+              </span>
+              {startDate && (
+                <span className="block">
+                  Începem pe <strong className="text-primary-deep">{format(startDate, "d MMMM yyyy", { locale: ro })}</strong>
+                  {endDate && <> până la {format(endDate, "d MMMM yyyy", { locale: ro })}.</>}
+                </span>
+              )}
+              <span className="block pt-2 font-display text-base">
+                Total: <strong className="text-primary-deep">{total.toFixed(0)} MDL</strong>
+              </span>
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel className="font-display">Anulează</AlertDialogCancel>
+            <AlertDialogAction onClick={checkout} className="font-display bg-primary hover:bg-primary-deep">
+              Confirmă și plătește
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 };
