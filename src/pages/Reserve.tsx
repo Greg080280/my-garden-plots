@@ -1,13 +1,28 @@
 import { useMemo, useState } from "react";
 import { Link, useParams, useNavigate, useSearchParams } from "react-router-dom";
-import { Check, ArrowLeft } from "lucide-react";
+import { Check, ArrowLeft, CalendarIcon } from "lucide-react";
+import { format, addMonths } from "date-fns";
+import { ro } from "date-fns/locale";
 import { LANDS, CULTURES, SERVICES, buildPlots } from "@/data/mock";
 import { findUserById } from "@/context/AuthContext";
 import { Input } from "@/components/ui/input";
+import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
+import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 
 const STEPS = [
-  { n: 1, label: "Confirmă lotul" },
+  { n: 1, label: "Lot & dată" },
   { n: 2, label: "Alege culturi" },
   { n: 3, label: "Servicii & plată" },
 ];
@@ -24,6 +39,13 @@ const Reserve = () => {
   const [step, setStep] = useState(1);
   const [allocs, setAllocs] = useState<Record<string, number>>({});
   const [selServices, setSelServices] = useState<Set<string>>(new Set(["s-watering-ion"]));
+  const [startDate, setStartDate] = useState<Date | undefined>(() => {
+    const d = new Date();
+    d.setDate(d.getDate() + 7);
+    return d;
+  });
+  const [confirmOpen, setConfirmOpen] = useState(false);
+  const endDate = startDate ? addMonths(startDate, 6) : undefined;
 
   if (!land || !plot) return <div className="container py-32 text-center font-display text-xl">Lot indisponibil.</div>;
 
@@ -50,7 +72,9 @@ const Reserve = () => {
   };
 
   const checkout = () => {
-    toast.success("Rezervare confirmată", { description: "Vei primi un e-mail cu detaliile." });
+    setConfirmOpen(false);
+    const when = startDate ? format(startDate, "d MMMM yyyy", { locale: ro }) : "în curând";
+    toast.success("Rezervare confirmată", { description: `Sezonul începe pe ${when}. Vei primi un e-mail.` });
     setTimeout(() => nav("/dashboard"), 1100);
   };
 
@@ -113,8 +137,46 @@ const Reserve = () => {
                 </div>
               </dl>
             </div>
-            <div className="rounded-md overflow-hidden border border-border">
-              <img src={land.photo} alt={land.name} className="w-full aspect-[4/3] object-cover" />
+            <div className="space-y-6">
+              <div className="rounded-md overflow-hidden border border-border">
+                <img src={land.photo} alt={land.name} className="w-full aspect-[4/3] object-cover" />
+              </div>
+              <div>
+                <p className="eyebrow">Data începerii sezonului</p>
+                <h3 className="mt-2 font-display text-xl text-primary-deep font-normal mb-3">Când începem?</h3>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <button
+                      className={cn(
+                        "press w-full inline-flex items-center justify-between h-12 px-4 rounded-md border border-border bg-background hover:border-primary text-left font-display text-[15px] text-primary-deep",
+                        !startDate && "text-muted-foreground"
+                      )}
+                    >
+                      <span className="inline-flex items-center gap-3">
+                        <CalendarIcon className="h-4 w-4" strokeWidth={1.5} />
+                        {startDate ? format(startDate, "d MMMM yyyy", { locale: ro }) : "Alege o dată"}
+                      </span>
+                      <span className="font-ui text-[10px] uppercase tracking-widest text-muted-foreground">Schimbă</span>
+                    </button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0" align="start">
+                    <Calendar
+                      mode="single"
+                      selected={startDate}
+                      onSelect={setStartDate}
+                      disabled={(d) => d < new Date(new Date().setHours(0,0,0,0))}
+                      initialFocus
+                      locale={ro}
+                      className={cn("p-3 pointer-events-auto")}
+                    />
+                  </PopoverContent>
+                </Popover>
+                {endDate && (
+                  <p className="mt-3 font-ui text-xs text-muted-foreground tracking-wide">
+                    Sezon estimat: {format(startDate!, "d MMM", { locale: ro })} → {format(endDate, "d MMM yyyy", { locale: ro })}
+                  </p>
+                )}
+              </div>
             </div>
           </div>
         )}
@@ -194,6 +256,15 @@ const Reserve = () => {
             <aside className="lg:sticky lg:top-24 lg:self-start">
               <p className="eyebrow">Sumar</p>
               <h3 className="mt-3 font-display text-2xl text-primary-deep font-normal mb-6">Comanda ta</h3>
+              {startDate && (
+                <div className="mb-5 pb-5 border-b border-border/50">
+                  <p className="font-ui text-[10px] uppercase tracking-widest text-muted-foreground">Începem</p>
+                  <p className="mt-1 font-display text-base text-primary-deep inline-flex items-center gap-2">
+                    <CalendarIcon className="h-3.5 w-3.5" strokeWidth={1.5} />
+                    {format(startDate, "d MMMM yyyy", { locale: ro })}
+                  </p>
+                </div>
+              )}
               <ul className="space-y-3 font-display text-[15px]">
                 <li className="flex justify-between gap-3 pb-3 border-b border-border/50">
                   <span className="text-foreground/80">Pământ ({plot.area} ari)</span>
@@ -246,13 +317,44 @@ const Reserve = () => {
           </button>
         ) : (
           <button
-            onClick={checkout}
-            className="press inline-flex items-center justify-center h-12 px-8 rounded-md bg-primary text-primary-foreground hover:bg-primary-deep font-display text-[15px]"
+            onClick={() => setConfirmOpen(true)}
+            disabled={!startDate}
+            className="press inline-flex items-center justify-center h-12 px-8 rounded-md bg-primary text-primary-foreground hover:bg-primary-deep font-display text-[15px] disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Finalizează rezervarea
           </button>
         )}
       </div>
+
+      <AlertDialog open={confirmOpen} onOpenChange={setConfirmOpen}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle className="font-display text-2xl text-primary-deep">
+              Confirmi rezervarea?
+            </AlertDialogTitle>
+            <AlertDialogDescription className="font-ui text-sm text-foreground/80 space-y-2">
+              <span className="block">
+                <strong className="text-primary-deep">{land.name}</strong> · {plot.code} ({plot.area} ari)
+              </span>
+              {startDate && (
+                <span className="block">
+                  Începem pe <strong className="text-primary-deep">{format(startDate, "d MMMM yyyy", { locale: ro })}</strong>
+                  {endDate && <> până la {format(endDate, "d MMMM yyyy", { locale: ro })}.</>}
+                </span>
+              )}
+              <span className="block pt-2 font-display text-base">
+                Total: <strong className="text-primary-deep">{total.toFixed(0)} MDL</strong>
+              </span>
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel className="font-display">Anulează</AlertDialogCancel>
+            <AlertDialogAction onClick={checkout} className="font-display bg-primary hover:bg-primary-deep">
+              Confirmă și plătește
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 };
