@@ -147,8 +147,14 @@ const Landing = () => {
       {/* ─────────────────────────────────────────── */}
       {/* TRUST BAND — quick reassurance row          */}
       {/* ─────────────────────────────────────────── */}
-      <section className="border-y border-border/70 bg-paper">
-        <div className="container py-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left">
+      <section className="relative overflow-hidden border-y border-border/70 bg-paper">
+        {/* Watermark: thin seedling row repeating */}
+        <BotanicalSVG
+          name="dividers/seedling-row"
+          noSketch
+          className="absolute inset-x-0 top-1/2 -translate-y-1/2 w-full h-16 text-primary/[0.07]"
+        />
+        <div className="relative container py-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left">
           {[
             { icon: ShieldCheck, label: "Fermieri verificați" },
             { icon: Leaf, label: "Cultură curată" },
