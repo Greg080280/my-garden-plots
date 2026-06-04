@@ -221,8 +221,25 @@ const Landing = () => {
       {/* ─────────────────────────────────────────── */}
       {/* FEATURED LANDS — magazine grid              */}
       {/* ─────────────────────────────────────────── */}
-      <section className="bg-paper py-24 lg:py-32 border-y border-border/70">
-        <div className="container">
+      <section className="relative bg-paper py-24 lg:py-32 border-y border-border/70 overflow-hidden">
+        {/* Watermark — harvest basket + scattered veggies */}
+        <BotanicalSVG
+          name="gallery/decor/veggie-basket"
+          className="pointer-events-none absolute -top-12 -left-16 w-[30rem] h-[30rem] text-primary/[0.06] -rotate-12"
+        />
+        <BotanicalSVG
+          name="gallery/vegetables/tomato"
+          className="pointer-events-none absolute top-20 right-[8%] w-56 h-56 text-primary/[0.05] rotate-12"
+        />
+        <BotanicalSVG
+          name="gallery/vegetables/carrot"
+          className="pointer-events-none absolute bottom-12 right-[15%] w-48 h-48 text-primary/[0.05] -rotate-6"
+        />
+        <BotanicalSVG
+          name="gallery/vegetables/pepper"
+          className="pointer-events-none absolute bottom-24 left-[40%] w-44 h-44 text-primary/[0.04] rotate-6"
+        />
+        <div className="relative container">
           <div className="flex items-end justify-between flex-wrap gap-6 mb-14">
             <div className="max-w-xl">
               <p className="eyebrow">Disponibile acum</p>
