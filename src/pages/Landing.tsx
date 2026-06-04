@@ -147,8 +147,14 @@ const Landing = () => {
       {/* ─────────────────────────────────────────── */}
       {/* TRUST BAND — quick reassurance row          */}
       {/* ─────────────────────────────────────────── */}
-      <section className="border-y border-border/70 bg-paper">
-        <div className="container py-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left">
+      <section className="relative overflow-hidden border-y border-border/70 bg-paper">
+        {/* Watermark: thin seedling row repeating */}
+        <BotanicalSVG
+          name="dividers/seedling-row"
+          noSketch
+          className="absolute inset-x-0 top-1/2 -translate-y-1/2 w-full h-16 text-primary/[0.07]"
+        />
+        <div className="relative container py-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left">
           {[
             { icon: ShieldCheck, label: "Fermieri verificați" },
             { icon: Leaf, label: "Cultură curată" },
@@ -166,8 +172,21 @@ const Landing = () => {
       {/* ─────────────────────────────────────────── */}
       {/* HOW IT WORKS                                */}
       {/* ─────────────────────────────────────────── */}
-      <section id="how" className="py-24 lg:py-32 scroll-mt-20">
-        <div className="container">
+      <section id="how" className="relative py-24 lg:py-32 scroll-mt-20 overflow-hidden">
+        {/* Watermark composition — gardening tools + greenhouse */}
+        <BotanicalSVG
+          name="gallery/tools/watering-can"
+          className="pointer-events-none absolute -top-10 -right-16 w-[28rem] h-[28rem] text-primary/[0.06] rotate-12"
+        />
+        <BotanicalSVG
+          name="gallery/decor/greenhouse"
+          className="pointer-events-none absolute -bottom-16 -left-20 w-[26rem] h-[26rem] text-primary/[0.05] -rotate-6"
+        />
+        <BotanicalSVG
+          name="gallery/flowers/seedling"
+          className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 w-72 h-72 text-primary/[0.04]"
+        />
+        <div className="relative container">
           <div className="max-w-2xl mb-16">
             <p className="eyebrow">Procesul</p>
             <h2 className="mt-4 font-display text-4xl md:text-[44px] leading-[1.1] text-primary-deep font-normal">
@@ -202,8 +221,25 @@ const Landing = () => {
       {/* ─────────────────────────────────────────── */}
       {/* FEATURED LANDS — magazine grid              */}
       {/* ─────────────────────────────────────────── */}
-      <section className="bg-paper py-24 lg:py-32 border-y border-border/70">
-        <div className="container">
+      <section className="relative bg-paper py-24 lg:py-32 border-y border-border/70 overflow-hidden">
+        {/* Watermark — harvest basket + scattered veggies */}
+        <BotanicalSVG
+          name="gallery/decor/veggie-basket"
+          className="pointer-events-none absolute -top-12 -left-16 w-[30rem] h-[30rem] text-primary/[0.06] -rotate-12"
+        />
+        <BotanicalSVG
+          name="gallery/vegetables/tomato"
+          className="pointer-events-none absolute top-20 right-[8%] w-56 h-56 text-primary/[0.05] rotate-12"
+        />
+        <BotanicalSVG
+          name="gallery/vegetables/carrot"
+          className="pointer-events-none absolute bottom-12 right-[15%] w-48 h-48 text-primary/[0.05] -rotate-6"
+        />
+        <BotanicalSVG
+          name="gallery/vegetables/pepper"
+          className="pointer-events-none absolute bottom-24 left-[40%] w-44 h-44 text-primary/[0.04] rotate-6"
+        />
+        <div className="relative container">
           <div className="flex items-end justify-between flex-wrap gap-6 mb-14">
             <div className="max-w-xl">
               <p className="eyebrow">Disponibile acum</p>
@@ -255,9 +291,21 @@ const Landing = () => {
       {/* TESTIMONIALS                                */}
       {/* ─────────────────────────────────────────── */}
       <section className="py-24 lg:py-32 relative overflow-hidden">
-        {/* Decorative botanical wash */}
-        <Botanical cat="flowers" slug="leaf-sprig" className="absolute -top-10 -right-10 w-72 h-72 text-primary/8 rotate-12" />
-        <Botanical cat="flowers" slug="rosemary-sprig" className="absolute -bottom-10 -left-10 w-72 h-72 text-primary/8 -rotate-12" />
+        {/* Decorative botanical wash + central wreath watermark */}
+        <Botanical cat="flowers" slug="leaf-sprig" className="absolute -top-10 -right-10 w-72 h-72 text-primary/[0.08] rotate-12" />
+        <Botanical cat="flowers" slug="rosemary-sprig" className="absolute -bottom-10 -left-10 w-72 h-72 text-primary/[0.08] -rotate-12" />
+        <BotanicalSVG
+          name="gallery/flowers/wreath"
+          className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[36rem] h-[36rem] text-primary/[0.04]"
+        />
+        <BotanicalSVG
+          name="gallery/accents/bee"
+          className="pointer-events-none absolute top-16 left-[12%] w-24 h-24 text-primary/[0.12] rotate-12"
+        />
+        <BotanicalSVG
+          name="gallery/accents/butterfly"
+          className="pointer-events-none absolute bottom-20 right-[14%] w-28 h-28 text-primary/[0.12] -rotate-6"
+        />
 
         <div className="container max-w-5xl relative">
           <div className="mb-16 text-center">
