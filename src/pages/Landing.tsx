@@ -222,22 +222,22 @@ const Landing = () => {
       {/* FEATURED LANDS — magazine grid              */}
       {/* ─────────────────────────────────────────── */}
       <section className="relative bg-paper py-24 lg:py-32 border-y border-border/70 overflow-hidden">
-        {/* Watermark — harvest basket + scattered veggies */}
-        <BotanicalSVG
-          name="gallery/decor/veggie-basket"
-          className="pointer-events-none absolute -top-12 -left-16 w-[30rem] h-[30rem] text-primary/[0.06] -rotate-12"
-        />
+        {/* Watermark — swapped: tomato (left), basket (right) */}
         <BotanicalSVG
           name="gallery/vegetables/tomato"
-          className="pointer-events-none absolute top-20 right-[8%] w-56 h-56 text-primary/[0.05] rotate-12"
+          className="pointer-events-none absolute -top-8 -left-12 w-[28rem] h-[28rem] text-primary/[0.08] -rotate-12"
+        />
+        <BotanicalSVG
+          name="gallery/decor/veggie-basket"
+          className="pointer-events-none absolute -top-12 -right-16 w-[30rem] h-[30rem] text-primary/[0.08] rotate-12"
         />
         <BotanicalSVG
           name="gallery/vegetables/carrot"
-          className="pointer-events-none absolute bottom-12 right-[15%] w-48 h-48 text-primary/[0.05] -rotate-6"
+          className="pointer-events-none absolute bottom-12 right-[15%] w-48 h-48 text-primary/[0.07] -rotate-6"
         />
         <BotanicalSVG
           name="gallery/vegetables/pepper"
-          className="pointer-events-none absolute bottom-24 left-[40%] w-44 h-44 text-primary/[0.04] rotate-6"
+          className="pointer-events-none absolute bottom-24 left-[40%] w-44 h-44 text-primary/[0.06] rotate-6"
         />
         <div className="relative container">
           <div className="flex items-end justify-between flex-wrap gap-6 mb-14">
