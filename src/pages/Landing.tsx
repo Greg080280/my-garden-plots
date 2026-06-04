@@ -5,6 +5,8 @@ import { Botanical } from "@/components/decor/Botanical";
 import { BotanicalSVG } from "@/components/decor/BotanicalSVG";
 import heroField from "@/assets/hero-field.jpg";
 import heroFamily from "@/assets/hero-family.jpg";
+import ctaHarvest from "@/assets/cta-harvest.jpg";
+import ctaField from "@/assets/cta-field.jpg";
 
 const Landing = () => {
   const featured = LANDS.slice(0, 3);
@@ -305,13 +307,31 @@ const Landing = () => {
       {/* CTA — cinematic closer                      */}
       {/* ─────────────────────────────────────────── */}
       <section className="relative overflow-hidden">
-        <img
-          src={heroField}
-          alt=""
-          aria-hidden
-          loading="lazy"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+        {/* Diagonal split: harvest (left) / field with people (right) */}
+        <div className="absolute inset-0" aria-hidden>
+          <img
+            src={ctaHarvest}
+            alt=""
+            loading="lazy"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ clipPath: "polygon(0 0, 62% 0, 38% 100%, 0 100%)" }}
+          />
+          <img
+            src={ctaField}
+            alt=""
+            loading="lazy"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ clipPath: "polygon(62% 0, 100% 0, 100% 100%, 38% 100%)" }}
+          />
+          {/* Diagonal seam */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(105deg, transparent calc(50% - 1px), hsl(var(--cream-soft) / 0.55) 50%, transparent calc(50% + 1px))",
+            }}
+          />
+        </div>
         <div className="absolute inset-0 bg-primary-deep/75" aria-hidden />
         <div
           className="absolute inset-0"
