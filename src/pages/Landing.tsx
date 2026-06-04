@@ -291,9 +291,21 @@ const Landing = () => {
       {/* TESTIMONIALS                                */}
       {/* ─────────────────────────────────────────── */}
       <section className="py-24 lg:py-32 relative overflow-hidden">
-        {/* Decorative botanical wash */}
-        <Botanical cat="flowers" slug="leaf-sprig" className="absolute -top-10 -right-10 w-72 h-72 text-primary/8 rotate-12" />
-        <Botanical cat="flowers" slug="rosemary-sprig" className="absolute -bottom-10 -left-10 w-72 h-72 text-primary/8 -rotate-12" />
+        {/* Decorative botanical wash + central wreath watermark */}
+        <Botanical cat="flowers" slug="leaf-sprig" className="absolute -top-10 -right-10 w-72 h-72 text-primary/[0.08] rotate-12" />
+        <Botanical cat="flowers" slug="rosemary-sprig" className="absolute -bottom-10 -left-10 w-72 h-72 text-primary/[0.08] -rotate-12" />
+        <BotanicalSVG
+          name="gallery/flowers/wreath"
+          className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[36rem] h-[36rem] text-primary/[0.04]"
+        />
+        <BotanicalSVG
+          name="gallery/accents/bee"
+          className="pointer-events-none absolute top-16 left-[12%] w-24 h-24 text-primary/[0.12] rotate-12"
+        />
+        <BotanicalSVG
+          name="gallery/accents/butterfly"
+          className="pointer-events-none absolute bottom-20 right-[14%] w-28 h-28 text-primary/[0.12] -rotate-6"
+        />
 
         <div className="container max-w-5xl relative">
           <div className="mb-16 text-center">
