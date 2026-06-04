@@ -172,8 +172,21 @@ const Landing = () => {
       {/* ─────────────────────────────────────────── */}
       {/* HOW IT WORKS                                */}
       {/* ─────────────────────────────────────────── */}
-      <section id="how" className="py-24 lg:py-32 scroll-mt-20">
-        <div className="container">
+      <section id="how" className="relative py-24 lg:py-32 scroll-mt-20 overflow-hidden">
+        {/* Watermark composition — gardening tools + greenhouse */}
+        <BotanicalSVG
+          name="gallery/tools/watering-can"
+          className="pointer-events-none absolute -top-10 -right-16 w-[28rem] h-[28rem] text-primary/[0.06] rotate-12"
+        />
+        <BotanicalSVG
+          name="gallery/decor/greenhouse"
+          className="pointer-events-none absolute -bottom-16 -left-20 w-[26rem] h-[26rem] text-primary/[0.05] -rotate-6"
+        />
+        <BotanicalSVG
+          name="gallery/flowers/seedling"
+          className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 w-72 h-72 text-primary/[0.04]"
+        />
+        <div className="relative container">
           <div className="max-w-2xl mb-16">
             <p className="eyebrow">Procesul</p>
             <h2 className="mt-4 font-display text-4xl md:text-[44px] leading-[1.1] text-primary-deep font-normal">
