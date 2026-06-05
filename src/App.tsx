@@ -16,6 +16,7 @@ import Farmer from "./pages/Farmer";
 import Auth from "./pages/Auth";
 import Marketplace from "./pages/Marketplace";
 import Cultures from "./pages/Cultures";
+import Services from "./pages/Services";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
