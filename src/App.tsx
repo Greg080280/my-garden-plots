@@ -15,6 +15,7 @@ import Dashboard from "./pages/Dashboard";
 import Farmer from "./pages/Farmer";
 import Auth from "./pages/Auth";
 import Marketplace from "./pages/Marketplace";
+import Cultures from "./pages/Cultures";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -37,6 +38,7 @@ const App = () => (
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/farmer" element={<Farmer />} />
                 <Route path="/marketplace" element={<Marketplace />} />
+                <Route path="/cultures" element={<Cultures />} />
                 <Route path="/login" element={<Auth mode="login" />} />
                 <Route path="/register" element={<Auth mode="register" />} />
                 <Route path="*" element={<NotFound />} />
