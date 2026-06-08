@@ -76,6 +76,9 @@ const nowStamp = () => {
   return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`;
 };
 
+const evt = (kind: ActivityEvent["kind"], message: string): ActivityEvent =>
+  ({ id: `a-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`, at: nowStamp(), kind, message });
+
 export const DataProvider = ({ children }: { children: ReactNode }) => {
   const [state, setState] = useState<DataState>(() => {
     try {
