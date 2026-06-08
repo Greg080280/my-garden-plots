@@ -94,10 +94,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
 
   const value = useMemo<DataCtx>(() => {
     const logActivity = (kind: ActivityEvent["kind"], message: string) =>
-      setState(s => ({
-        ...s,
-        activity: [{ id: `a-${Date.now()}`, at: nowStamp(), kind, message }, ...s.activity].slice(0, 50),
-      }));
+      setState(s => ({ ...s, activity: [evt(kind, message), ...s.activity].slice(0, 50) }));
 
     return {
       ...state,
@@ -113,8 +110,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
           ...s,
           reservations: s.reservations.map(x =>
             x.id === id ? { ...x, status: next, stageDates: { ...x.stageDates, [next]: today } } : x),
-          activity: [{ id: `a-${Date.now()}`, at: nowStamp(), kind: "reservation",
-            message: `Rezervarea ${id} a avansat la „${next}"` }, ...s.activity].slice(0, 50),
+          activity: [evt("reservation", `Rezervarea ${id} a avansat la „${next}"`), ...s.activity].slice(0, 50),
         };
       }),
 
@@ -133,8 +129,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
         setState(s => ({
           ...s,
           reservations: [full, ...s.reservations],
-          activity: [{ id: `a-${Date.now()}`, at: nowStamp(), kind: "reservation",
-            message: `Rezervare nouă pe ${full.landId}` }, ...s.activity].slice(0, 50),
+          activity: [evt("reservation", `Rezervare nouă pe ${full.landId}`), ...s.activity].slice(0, 50),
         }));
         return full;
       },
@@ -142,8 +137,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
       setTaskStatus: (id, status) => setState(s => ({
         ...s,
         tasks: s.tasks.map(t => t.id === id ? { ...t, status } : t),
-        activity: [{ id: `a-${Date.now()}`, at: nowStamp(), kind: "service",
-          message: `Sarcină ${id} → ${status}` }, ...s.activity].slice(0, 50),
+        activity: [evt("service", `Sarcină ${id} → ${status}`), ...s.activity].slice(0, 50),
       })),
 
       addTask: (t) => setState(s => ({
@@ -172,8 +166,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
 
       setOrderStatus: (id, status) => setState(s => ({
         ...s, productOrders: s.productOrders.map(o => o.id === id ? { ...o, status } : o),
-        activity: [{ id: `a-${Date.now()}`, at: nowStamp(), kind: "order",
-          message: `Comandă ${id} → ${status}` }, ...s.activity].slice(0, 50),
+        activity: [evt("order", `Comandă ${id} → ${status}`), ...s.activity].slice(0, 50),
       })),
       addOrder: (o) => setState(s => ({
         ...s,
@@ -182,8 +175,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
 
       toggleCompanyVerified: (id) => setState(s => ({
         ...s, companies: s.companies.map(c => c.id === id ? { ...c, verified: !c.verified } : c),
-        activity: [{ id: `a-${Date.now()}`, at: nowStamp(), kind: "user",
-          message: `Companie ${id} — verificare modificată` }, ...s.activity].slice(0, 50),
+        activity: [evt("user", `Companie ${id} — verificare modificată`), ...s.activity].slice(0, 50),
       })),
 
       deleteLand: (id) => setState(s => ({
