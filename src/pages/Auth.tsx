@@ -17,8 +17,8 @@ const Auth = ({ mode }: Props) => {
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !pw) return;
-    login(email, name || email.split("@")[0], role);
-    nav(role === "farmer" ? "/farmer" : "/dashboard");
+    const u = login(email, name || email.split("@")[0], role);
+    nav(u.role === "admin" ? "/admin" : u.role === "farmer" ? "/farmer" : "/dashboard");
   };
 
   const isLogin = mode === "login";
