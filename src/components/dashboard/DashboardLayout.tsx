@@ -49,16 +49,14 @@ export const DashboardLayout = ({ items, footerItems, titles, children }: Props)
       {/* Main column */}
       <div className="flex-1 flex flex-col min-w-0">
         <header className="h-14 border-b border-garden-100 bg-cream-soft sticky top-0 z-30 flex items-center px-4 lg:px-8 gap-3">
-          <SheetTrigger asChild>
-            <button
-              type="button"
-              onClick={() => setOpen(true)}
-              className="lg:hidden h-10 w-10 grid place-items-center rounded-md hover:bg-garden-100 press"
-              aria-label="Deschide meniul"
-            >
-              <Menu className="h-5 w-5 text-garden-700" strokeWidth={1.6} />
-            </button>
-          </SheetTrigger>
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            className="lg:hidden h-10 w-10 grid place-items-center rounded-md hover:bg-garden-100 press"
+            aria-label="Deschide meniul"
+          >
+            <Menu className="h-5 w-5 text-garden-700" strokeWidth={1.6} />
+          </button>
 
           {title && (
             <h1 className="font-ui text-lg font-semibold text-garden-900 leading-none truncate">
