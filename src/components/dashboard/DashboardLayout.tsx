@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import { useState, type ReactNode } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { Menu, Bell } from "lucide-react";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { Sidebar, type SidebarItem } from "./Sidebar";
 import { useAuth, type Role } from "@/context/AuthContext";
 
